@@ -41,12 +41,22 @@ const EXPERIENCES = [
   },
   {
     company: "Vishay Intertechnology",
-    period: "Earlier experience",
+    period: "2021 – 2022",
     context: "Electronics Manufacturing",
     roles: ["Quality Control & Validation Operator"],
     points: [
       "Performed quality control and precision validation within an electronics manufacturing environment.",
       "Followed structured compliance processes and manufacturing QA standards.",
+    ],
+  },
+  {
+    company: "Shivam Institute (S.I.V.T)",
+    period: "Aug 2012 – Sep 2015",
+    context: "Technical Training Centre · Dharamshala",
+    roles: ["Founder / Operations Manager"],
+    points: [
+      "Managed the full operational lifecycle of a technical training centre — scheduling, supplier coordination, staff management, and IT infrastructure.",
+      "Oversaw training systems, operational workflows, and day-to-day technical operations.",
     ],
   },
 ];
@@ -604,29 +614,16 @@ function Footer() {
   return (
     <footer className="border-t border-slate-800 bg-slate-900 text-slate-400">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-          <div className="flex items-center gap-4">
-            <img
-              src="/freelancehub-logo.jpeg"
-              alt="FreelanceHub"
-              className="h-12 w-auto object-contain opacity-90"
-              onError={(e) => { e.target.style.display = "none"; }}
-            />
-          </div>
-          <div className="text-center text-sm sm:text-right">
-            <p className="font-medium text-slate-300">Naveen Sharma · FreelanceHub</p>
-            <p className="mt-1 text-xs">SaaS Implementation · Product Support · Quality Assurance</p>
-            <p className="mt-1 text-xs">© {new Date().getFullYear()} All rights reserved</p>
-          </div>
-        </div>
-
-        <div className="mt-8 flex justify-center">
+        <div className="flex flex-col items-center gap-4 text-center">
           <img
-            src="/round logo.jpeg"
-            alt="FreelanceHub — Freelancing Services by Naveen Sharma"
-            className="h-24 w-auto object-contain opacity-60"
+            src="/freelancehub-logo.jpeg"
+            alt="FreelanceHub"
+            className="h-14 w-auto object-contain opacity-90"
             onError={(e) => { e.target.style.display = "none"; }}
           />
+          <p className="font-medium text-slate-300">Naveen Sharma · FreelanceHub</p>
+          <p className="text-xs">SaaS Implementation · Product Support · Quality Assurance</p>
+          <p className="text-xs">© {new Date().getFullYear()} All rights reserved</p>
         </div>
       </div>
     </footer>
