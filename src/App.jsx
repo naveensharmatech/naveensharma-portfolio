@@ -52,7 +52,7 @@ const EXPERIENCES = [
   {
     company: "Shivam Institute (S.I.V.T)",
     period: "Aug 2012 – Sep 2015",
-    context: "Technical Training Centre · Dharamshala",
+    context: "Technical Training Centre",
     roles: ["Founder / Operations Manager"],
     points: [
       "Managed the full operational lifecycle of a technical training centre — scheduling, supplier coordination, staff management, and IT infrastructure.",
