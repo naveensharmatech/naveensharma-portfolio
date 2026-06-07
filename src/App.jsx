@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
-  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Star,
+  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -130,7 +130,7 @@ const PROJECTS = [
     icon: Code2,
     title: "Django Blogging CMS",
     tag: "BCA Graduation Project",
-    desc: "A content management system built to demonstrate technical learning — authentication, CRUD operations, category management, and an admin dashboard.",
+    desc: "A content management system built to demonstrate technical learning and development skills — authentication, CRUD operations, category management, and an admin dashboard.",
     skills: ["Python", "Django", "MySQL", "MongoDB", "Bootstrap", "AJAX"],
   },
 ];
@@ -149,7 +149,7 @@ const TOOL_CATEGORIES = [
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
-    tools: ["Canva"],
+    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io"],
   },
 ];
 
@@ -222,40 +222,43 @@ function Navbar() {
 }
 
 function Hero() {
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % HEADLINES.length), 3000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <section id="top" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 text-center">
 
-        {/* Trust badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2">
-          <div className="flex gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={12} className="fill-yellow-400 text-yellow-400" />
-            ))}
-          </div>
-          <span className="text-xs font-semibold text-gray-700">8+ Years · Healthcare SaaS Specialist · B2B Contractor</span>
+        {/* LinkedIn cover banner — replaces star badge */}
+        <div className="mb-4 w-full overflow-hidden rounded-2xl shadow-sm">
+          <img
+            src="/linkedin-cover.jpeg"
+            alt="Naveen Sharma · FreelanceHub — SaaS Implementation, Product Support & Technical Operations"
+            className="h-36 w-full object-cover object-center sm:h-44"
+          />
         </div>
 
-        {/* Name */}
-        <p className="text-2xl font-bold text-blue-600 tracking-wide mb-2">Naveen Sharma</p>
+        {/* Credential line */}
+        <p className="mb-8 text-sm font-semibold tracking-wide text-gray-500">
+          Healthcare SaaS Specialist · B2B Contractor
+        </p>
 
-        {/* Brand */}
-        <h1 className="text-7xl font-extrabold tracking-tight text-gray-900 sm:text-8xl mb-4">
-          FreelanceHub
+        {/* Name — primary identity */}
+        <h1 className="text-6xl font-extrabold tracking-tight text-gray-900 sm:text-7xl mb-3">
+          Naveen Sharma
         </h1>
 
-        {/* Rotating headline */}
-        <div className="h-12 flex items-center justify-center mb-6">
-          <p key={idx} className="text-2xl font-semibold text-blue-600 sm:text-3xl">
-            {HEADLINES[idx]}
-          </p>
+        {/* FreelanceHub framed as his independent services brand */}
+        <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
+          <span className="font-extrabold text-blue-600">FreelanceHub</span>
+          {" "}— independent B2B SaaS, Support &amp; QA services
+        </p>
+
+        {/* All specialties shown at once (no rotating headline) */}
+        <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
+          {HEADLINES.map((h) => (
+            <span key={h}
+              className="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+              {h}
+            </span>
+          ))}
         </div>
 
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
@@ -634,48 +637,39 @@ function Contact() {
             </a>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { href: "mailto:naveen.freelancehub@gmail.com", icon: Mail,    label: "Email",    text: "naveen.freelancehub@gmail.com", external: false },
-              { href: "https://linkedin.com/in/freelancehub", icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/freelancehub",   external: true  },
-              { href: "https://github.com/naveensharmatech",  icon: Github,   label: "GitHub",   text: "github.com/naveensharmatech",    external: true  },
-              { href: "https://naveensharma.net",             icon: Globe,    label: "Website",  text: "naveensharma.net",               external: true  },
-            ].map(({ href, icon: Icon, label, text, external }) => (
-              <a key={label} href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noreferrer" : undefined}
-                className="flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-5 transition hover:border-blue-300 hover:shadow-md">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                  <Icon size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-gray-400">{label}</p>
-                  <p className="text-sm font-bold text-gray-900">{text}</p>
-                </div>
-                {external && <ExternalLink size={15} className="ml-auto text-gray-300" />}
-              </a>
-            ))}
-
-            <a href="tel:+972587896289"
-              className="flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-5 transition hover:border-blue-300 hover:shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                <Phone size={20} />
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-gray-400">Phone</p>
-                <p className="text-sm font-bold text-gray-900">058-789-6289</p>
-              </div>
-            </a>
-
-            <div className="flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                <MapPin size={20} />
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-gray-400">Location</p>
-                <p className="text-sm font-bold text-gray-900">Be'er Sheva, Israel</p>
-              </div>
-            </div>
+              { href: "mailto:naveen.freelancehub@gmail.com", icon: Mail,    label: "Email",    text: "naveen.freelancehub@gmail.com", external: false, link: true  },
+              { href: "https://linkedin.com/in/freelancehub", icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/freelancehub",   external: true,  link: true  },
+              { href: "https://github.com/naveensharmatech",  icon: Github,   label: "GitHub",   text: "github.com/naveensharmatech",    external: true,  link: true  },
+              { href: "https://naveensharma.net",             icon: Globe,    label: "Website",  text: "naveensharma.net",               external: true,  link: true  },
+              { href: "tel:+972587896289",                    icon: Phone,    label: "Phone",    text: "058-789-6289",                   external: false, link: true  },
+              { href: null,                                   icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",            external: false, link: false },
+            ].map(({ href, icon: Icon, label, text, external, link }) => {
+              const classes = "flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 transition hover:border-blue-300 hover:shadow-md";
+              const inner = (
+                <>
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                    <Icon size={18} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-semibold text-gray-400">{label}</p>
+                    <p className="truncate text-sm font-bold text-gray-900">{text}</p>
+                  </div>
+                  {external && <ExternalLink size={13} className="shrink-0 text-gray-300" />}
+                </>
+              );
+              return link ? (
+                <a key={label} href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noreferrer" : undefined}
+                  className={classes}>
+                  {inner}
+                </a>
+              ) : (
+                <div key={label} className={classes}>{inner}</div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -696,7 +690,7 @@ function Footer() {
           />
           <p className="font-extrabold text-gray-900">Naveen Sharma · FreelanceHub</p>
           <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance</p>
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} All rights reserved</p>
+          <p className="text-xs text-gray-400">© 2026 Naveen Sharma (FreelanceHub) All rights reserved.</p>
         </div>
       </div>
     </footer>
