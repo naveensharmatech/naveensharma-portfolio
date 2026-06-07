@@ -32,6 +32,7 @@ const EXPERTISE = [
   { icon: Workflow,       title: "Workflow Automation",         desc: "Intake process design, document automation, and data mapping across systems." },
   { icon: Database,       title: "API Validation",              desc: "API testing and validation with Postman across integrated healthcare workflows." },
   { icon: FileText,       title: "Technical Documentation",     desc: "SOPs, process documentation, and QA documentation that teams can rely on." },
+  { icon: Globe,          title: "Website Design & Development", desc: "Building and deploying responsive business websites using React, Tailwind CSS, GitHub, Cloudflare Pages, and AI-assisted development tools." },
 ];
 
 const EXPERIENCES = [
@@ -105,6 +106,7 @@ const CASE_STUDIES = [
 ];
 
 const SERVICES = [
+  { icon: Code2,       title: "Website Design & Development",  items: ["Portfolio & business website development", "React + Vite responsive web development", "Tailwind CSS design & styling", "GitHub version control & deployment", "Cloudflare Pages hosting & CDN setup", "AI-assisted development with Claude", "Canva, Adobe Express & Firefly design assets", "Domain setup & go-live support"] },
   { icon: Layers,      title: "SaaS Implementation & Setup",  items: ["SaaS implementation support", "Workflow configuration", "System setup", "Data mapping", "Intake process design"] },
   { icon: Headset,     title: "Product & Customer Support",    items: ["Product support", "Technical troubleshooting", "Customer support operations", "Escalation management"] },
   { icon: ShieldCheck, title: "QA & Validation",               items: ["UAT", "Functional testing", "Regression testing", "API validation", "Validation processes"] },
@@ -230,25 +232,20 @@ function Hero() {
         <div className="mb-4 w-full overflow-hidden rounded-2xl shadow-sm">
           <img
             src="/linkedin-cover.jpeg"
-            alt="Naveen Sharma · FreelanceHub — SaaS Implementation, Product Support & Technical Operations"
+            alt="FreelanceHub — Naveen Sharma"
             className="w-full h-auto"
           />
         </div>
 
-        {/* Credential line */}
-        <p className="mb-8 text-sm font-semibold tracking-wide text-gray-500">
-          Healthcare SaaS Specialist · B2B Contractor
-        </p>
-
         {/* Name — primary identity */}
-        <h1 className="text-6xl font-extrabold tracking-tight text-gray-900 sm:text-7xl mb-3">
+        <h1 className="text-6xl font-extrabold tracking-tight text-gray-900 sm:text-7xl mb-3 mt-6">
           Naveen Sharma
         </h1>
 
         {/* FreelanceHub framed as his independent services brand */}
         <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
           <span className="font-extrabold text-blue-600">FreelanceHub</span>
-          {" "}— independent B2B SaaS, Support &amp; QA services
+          {" "}— SaaS Implementation, B2B Contractor, Product Support &amp; QA Services
         </p>
 
         {/* All specialties shown at once (no rotating headline) */}
@@ -375,7 +372,7 @@ function Expertise() {
     <section id="expertise" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Expertise" center title="Core areas I work in"
-          description="The practical capabilities I bring to implementation, support, and quality work." />
+          description="The practical capabilities I bring to implementation, support, quality work, and website development." />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EXPERTISE.map((item) => {
             const Icon = item.icon;
@@ -478,18 +475,18 @@ function Services() {
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="mb-16 text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-200">FreelanceHub</p>
-          <h2 className="text-4xl font-extrabold tracking-tight">Services for SaaS, healthcare & growing teams</h2>
+          <h2 className="text-4xl font-extrabold tracking-tight">Services for SaaS, healthcare, web & growing teams</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">
             As a registered independent B2B contractor, I support startups, SaaS companies,
             healthcare platforms, and international clients.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
-          {SERVICES.map((service) => {
+          {SERVICES.map((service, index) => {
             const Icon = service.icon;
             return (
               <div key={service.title}
-                className="rounded-2xl bg-blue-700/50 p-8 border border-blue-500/30">
+                className={`rounded-2xl bg-blue-700/50 p-8 border border-blue-500/30 ${index === 0 ? "sm:col-span-2" : ""}`}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white">
                     <Icon size={22} />
