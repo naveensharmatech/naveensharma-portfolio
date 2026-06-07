@@ -205,6 +205,7 @@ function Navbar() {
   );
 }
 
+
 function Hero() {
   return (
     <section id="top" className="bg-gradient-to-b from-slate-900 to-slate-800 text-white">
