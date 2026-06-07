@@ -207,66 +207,78 @@ function Navbar() {
 
 
 function Hero() {
-  const [active, setActive] = useState(0);
-  const slides = [
-    { tag: "SaaS Implementation", title: "Deploying & Configuring Business-Critical SaaS Platforms", sub: "End-to-end implementation, workflow configuration, and customer onboarding." },
-    { tag: "API Validation & QA", title: "Validating APIs, Releases & Healthcare Workflows", sub: "Postman test suites, UAT, regression testing, and defect lifecycle management." },
-    { tag: "Product & Technical Support", title: "Tier 2/3 Support Across SaaS & Healthcare Systems", sub: "Escalation management, root cause analysis, and customer success operations." },
-    { tag: "FreelanceHub · B2B Contractor", title: "Available for Remote, Hybrid & On-Site Engagements", sub: "Registered independent contractor based in Be'er Sheva, Israel." },
-  ];
-
   return (
-    <section id="top" className="relative overflow-hidden bg-slate-900 text-white">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 opacity-90" />
-      {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: "linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+    <section id="top" className="relative min-h-screen overflow-hidden bg-slate-900 text-white">
 
-      <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      {/* Rich illustrated background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950" />
+        <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: "linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+        <svg className="absolute bottom-0 right-0 h-full w-auto opacity-10 lg:opacity-15" viewBox="0 0 600 600" fill="none">
+          <circle cx="400" cy="300" r="250" stroke="#3b82f6" strokeWidth="1" />
+          <circle cx="400" cy="300" r="180" stroke="#3b82f6" strokeWidth="0.5" />
+          <circle cx="400" cy="300" r="120" stroke="#60a5fa" strokeWidth="1" />
+          <circle cx="400" cy="300" r="60" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeWidth="1" />
+          <line x1="400" y1="50" x2="400" y2="120" stroke="#3b82f6" strokeWidth="2" />
+          <line x1="400" y1="480" x2="400" y2="550" stroke="#3b82f6" strokeWidth="2" />
+          <line x1="150" y1="300" x2="220" y2="300" stroke="#3b82f6" strokeWidth="2" />
+          <circle cx="400" cy="50" r="6" fill="#3b82f6" />
+          <circle cx="400" cy="550" r="6" fill="#3b82f6" />
+          <circle cx="150" cy="300" r="6" fill="#3b82f6" />
+          <text x="370" y="315" fill="#3b82f6" fontSize="48" fontWeight="bold" fontFamily="sans-serif" fillOpacity="0.4">NS</text>
+        </svg>
+      </div>
 
-          {/* Left content */}
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
-              {slides[active].tag}
-            </span>
-            <p className="mt-5 text-lg font-semibold text-blue-400 tracking-wide">Naveen Sharma</p>
-            <h1 className="mt-1 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-              FreelanceHub
-            </h1>
-            <p className="mt-3 text-xl font-medium text-slate-300">
-              {slides[active].title}
-            </p>
-            <p className="mt-3 max-w-lg text-base leading-relaxed text-slate-400">
-              {slides[active].sub}
-            </p>
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
-                Work with me <ArrowRight size={16} />
-              </a>
-              <a href="#services"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:bg-slate-700/60">
-                View services
-              </a>
-              <a href="/Naveen Sharma General CV.pdf" download
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:bg-slate-700/60">
-                Download Resume
-              </a>
+        {/* Name + Brand — BIG */}
+        <div className="mb-12">
+          <p className="text-2xl font-bold tracking-widest text-blue-400 uppercase sm:text-3xl">
+            Naveen Sharma
+          </p>
+          <h1 className="mt-1 text-6xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl">
+            FreelanceHub
+          </h1>
+          <div className="mt-3 h-1 w-24 rounded-full bg-blue-500" />
+        </div>
+
+        {/* All 4 skills visible — no hiding */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+          {[
+            { tag: "SaaS Implementation", desc: "End-to-end platform deployment, workflow configuration, and customer onboarding." },
+            { tag: "Product Support", desc: "Tier 2/3 technical support, escalation management, and customer success operations." },
+            { tag: "API Validation", desc: "Postman test suites, schema validation, and integration testing across SaaS systems." },
+            { tag: "Quality Assurance", desc: "UAT, functional, regression testing, and production release validation." },
+          ].map((item) => (
+            <div key={item.tag}
+              className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-5">
+              <p className="text-sm font-bold text-blue-400">{item.tag}</p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">{item.desc}</p>
             </div>
+          ))}
+        </div>
 
-            {/* Slide dots */}
-            <div className="mt-10 flex gap-2">
-              {slides.map((_, i) => (
-                <button key={i} onClick={() => setActive(i)}
-                  className={`h-2 rounded-full transition-all ${i === active ? "w-8 bg-blue-500" : "w-2 bg-slate-600 hover:bg-slate-400"}`} />
-              ))}
-            </div>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-3">
+            <a href="#contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
+              Work with me <ArrowRight size={16} />
+            </a>
+            <a href="#services"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:bg-slate-700/60">
+              View services
+            </a>
+            <a href="/Naveen Sharma General CV.pdf" download
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:bg-slate-700/60">
+              Download Resume
+            </a>
           </div>
 
-          {/* Right — stats cards */}
+          {/* Stats cards */}
           <div className="grid grid-cols-2 gap-4">
             {[
               { num: "8+", label: "Years Experience" },
@@ -275,16 +287,16 @@ function Hero() {
               { num: "B2B", label: "Registered Contractor" },
             ].map((stat) => (
               <div key={stat.label}
-                className="rounded-2xl border border-slate-700/60 bg-slate-800/40 p-6 backdrop-blur">
-                <p className="text-3xl font-bold text-blue-400">{stat.num}</p>
-                <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
+                className="rounded-2xl border border-slate-700/60 bg-slate-800/40 p-5 backdrop-blur">
+                <p className="text-2xl font-bold text-blue-400">{stat.num}</p>
+                <p className="mt-1 text-xs text-slate-400">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Bottom tech strip */}
-        <div className="mt-14 w-full border-t border-slate-700/40 pt-8">
+        <div className="mt-16 w-full border-t border-slate-700/40 pt-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             {[
               { symbol: "</>", label: "SaaS Implementation" },
@@ -297,7 +309,7 @@ function Hero() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/10 text-xl text-blue-400">
                   {item.symbol}
                 </div>
-                <span className="text-xs font-medium text-slate-500 text-center">{item.label}</span>
+                <span className="text-center text-xs font-medium text-slate-500">{item.label}</span>
               </div>
             ))}
           </div>
