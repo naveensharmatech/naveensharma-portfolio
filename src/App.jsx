@@ -252,7 +252,7 @@ function Hero() {
           <img
             src="/banner.jpeg"
             alt="SaaS Implementation | Product Support | Technical Operations — Naveen Sharma"
-            className="w-full max-w-3xl rounded-2xl object-cover shadow-lg"
+            className="w-full max-w-xl rounded-xl object-cover shadow-md"
           />
         </div>
       </div>
