@@ -52,7 +52,7 @@ const EXPERIENCES = [
   {
     company: "Shivam Institute (S.I.V.T)",
     period: "Aug 2012 – Sep 2015",
-    context: "Technical Training Centre",
+    context: "Technical Training Centre · Dharamshala",
     roles: ["Founder / Operations Manager"],
     points: [
       "Managed the full operational lifecycle of a technical training centre — scheduling, supplier coordination, staff management, and IT infrastructure.",
@@ -131,19 +131,16 @@ const TOOL_CATEGORIES = [
   {
     label: "SaaS, QA & Technical Operations",
     sublabel: "Core professional tooling",
-    emphasis: true,
-    tools: ["Postman", "Jira", "Basecamp", "GitHub", "Visual Studio Code", "Cloudflare"],
+    tools: ["Postman", "Jira", "Basecamp", "Notion AI", "GitHub", "Visual Studio Code", "Cloudflare", "Wix", "Solo (Mozilla)", "Lovable", "Manus", "Base44", "Hostinger", "SITE123", "Carrd", "Square", "Squarespace"],
   },
   {
     label: "AI-Assisted Productivity & Development",
     sublabel: "Used to enhance and accelerate professional work",
-    emphasis: false,
-    tools: ["Gemini Code Assist", "Claude", "Gemini", "Google AI Studio", "GitHub Copilot", "ChatGPT", "Perplexity"],
+    tools: ["Gemini Code Assist", "Claude", "Gemini", "Google AI Studio", "GitHub Copilot", "ChatGPT", "Perplexity", "Cursor", "v0", "Gamma"],
   },
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
-    emphasis: false,
     tools: ["Canva"],
   },
 ];
@@ -251,11 +248,11 @@ function Hero() {
           </a>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-10 flex justify-center">
           <img
             src="/banner.jpeg"
             alt="SaaS Implementation | Product Support | Technical Operations — Naveen Sharma"
-            className="w-full rounded-2xl object-cover shadow-lg"
+            className="w-full max-w-3xl rounded-2xl object-cover shadow-lg"
           />
         </div>
       </div>
@@ -417,6 +414,36 @@ function Services() {
   return (
     <section id="services" className="bg-slate-900 text-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+
+        {/* FreelanceHub brand banner */}
+        <div className="mb-12 rounded-2xl border border-slate-700 bg-slate-800 p-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+                FreelanceHub · IT Services
+              </p>
+              <h3 className="mt-2 text-2xl font-bold text-white">
+                QA & IT Consulting · AI & Tech Expertise
+              </h3>
+              <p className="mt-2 text-sm text-slate-300">
+                Registered Independent B2B Contractor · Be'er Sheva, Israel · Remote & On-Site
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["SaaS Implementation", "API Validation", "UAT Testing", "Workflow Automation", "Technical Support"].map((tag) => (
+                  <span key={tag}
+                    className="rounded-full border border-blue-500/40 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <a href="#contact"
+              className="shrink-0 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
+              Work with me
+            </a>
+          </div>
+        </div>
+
         <div className="mb-12 max-w-2xl">
           <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-blue-400">FreelanceHub</p>
           <h2 className="text-3xl font-bold tracking-tight">Services for SaaS, healthcare & growing teams</h2>
@@ -501,34 +528,67 @@ function Tools() {
         <div className="space-y-6">
           {TOOL_CATEGORIES.map((cat) => (
             <div key={cat.label}
-              className={`rounded-2xl border p-7 ${cat.emphasis
-                ? "border-blue-200 bg-white shadow-sm"
-                : "border-slate-200 bg-white"}`}>
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div>
-                  <h3 className={`text-base font-bold ${cat.emphasis ? "text-slate-900" : "text-slate-700"}`}>
-                    {cat.label}
-                  </h3>
-                  <p className="mt-0.5 text-xs text-slate-500">{cat.sublabel}</p>
-                </div>
-                {cat.emphasis && (
-                  <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-semibold text-white">
-                    Primary
-                  </span>
-                )}
+              className="rounded-2xl border border-slate-200 bg-white p-7">
+              <div>
+                <h3 className="text-base font-bold text-slate-700">{cat.label}</h3>
+                <p className="mt-0.5 text-xs text-slate-500">{cat.sublabel}</p>
               </div>
               <div className="mt-5 flex flex-wrap gap-2.5">
                 {cat.tools.map((tool) => (
                   <span key={tool}
-                    className={`rounded-lg border px-3.5 py-2 text-sm font-medium transition ${cat.emphasis
-                      ? "border-blue-200 bg-blue-50 text-blue-800"
-                      : "border-slate-200 bg-slate-50 text-slate-600"}`}>
+                    className="rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 text-sm font-medium text-slate-600">
                     {tool}
                   </span>
                 ))}
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BrandVideo() {
+  return (
+    <section className="bg-slate-900">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <SectionHeading
+          eyebrow="FreelanceHub · Brand Videos"
+          title="Watch our introduction"
+          description="A short introduction to FreelanceHub and the services Naveen Sharma provides."
+        />
+        <div className="grid gap-6 md:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-semibold text-slate-300">Brand Introduction</p>
+            <div className="overflow-hidden rounded-2xl border border-slate-700 shadow-xl">
+              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/XYdqYPwYiY4"
+                  title="FreelanceHub — Naveen Sharma | SaaS Implementation Specialist"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="mb-3 text-sm font-semibold text-slate-300">FreelanceHub IT Services</p>
+            <div className="overflow-hidden rounded-2xl border border-slate-700 shadow-xl">
+              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/4dTadaeUE_A"
+                  title="FreelanceHub IT Services — Naveen Sharma"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -645,6 +705,7 @@ export default function App() {
         <Services />
         <Projects />
         <Tools />
+        <BrandVideo />
         <Contact />
       </main>
       <Footer />
