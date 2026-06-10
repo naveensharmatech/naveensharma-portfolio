@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
   ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube, Briefcase,
+  MessageCircle, Send,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -882,6 +883,136 @@ function FAQ() {
   );
 }
 
+/* ─── ELLA CHAT ──────────────────────────────────────────────── */
+
+function EllaChat() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    {
+      role: "assistant",
+      content: "Hi! I'm Ella, Naveen's AI assistant. Ask me anything about his services, experience, or availability — I'm happy to help!",
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, open]);
+
+  const send = async () => {
+    const text = input.trim();
+    if (!text || loading) return;
+    const userMsg = { role: "user", content: text };
+    const next = [...messages, userMsg];
+    setMessages(next);
+    setInput("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: next }),
+      });
+      const data = await res.json();
+      setMessages([...next, { role: "assistant", content: data.reply }]);
+    } catch {
+      setMessages([
+        ...next,
+        { role: "assistant", content: "Sorry, something went wrong. Reach Naveen directly at naveen.freelancehub@gmail.com" },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {open && (
+        <div className="flex w-80 sm:w-96 flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl"
+          style={{ height: "500px" }}>
+          {/* Header */}
+          <div className="flex items-center justify-between bg-blue-600 px-4 py-3">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-sm font-bold text-white">
+                E
+              </div>
+              <div>
+                <p className="text-sm font-bold text-white">Ella</p>
+                <p className="text-xs text-blue-100">FreelanceHub AI Assistant</p>
+              </div>
+            </div>
+            <button onClick={() => setOpen(false)}
+              className="text-white/70 transition hover:text-white" aria-label="Close chat">
+              <X size={18} />
+            </button>
+          </div>
+
+          {/* Messages */}
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+            {messages.map((m, i) => (
+              <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                  m.role === "user"
+                    ? "rounded-br-sm bg-blue-600 text-white"
+                    : "rounded-bl-sm bg-gray-100 text-gray-800"
+                }`}>
+                  {m.content}
+                </div>
+              </div>
+            ))}
+            {loading && (
+              <div className="flex justify-start">
+                <div className="rounded-2xl rounded-bl-sm bg-gray-100 px-4 py-3">
+                  <div className="flex gap-1">
+                    {[0, 150, 300].map((delay) => (
+                      <span key={delay}
+                        className="h-2 w-2 rounded-full bg-gray-400 animate-bounce"
+                        style={{ animationDelay: `${delay}ms` }} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+            <div ref={bottomRef} />
+          </div>
+
+          {/* Input */}
+          <div className="border-t border-gray-100 p-3">
+            <div className="flex gap-2">
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && send()}
+                placeholder="Ask me anything…"
+                className="flex-1 rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
+              />
+              <button
+                onClick={send}
+                disabled={!input.trim() || loading}
+                className="flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-white transition hover:bg-blue-700 disabled:opacity-40"
+                aria-label="Send message">
+                <Send size={16} />
+              </button>
+            </div>
+            <p className="mt-2 text-center text-xs text-gray-400">Powered by FreelanceHub · AI by Claude</p>
+          </div>
+        </div>
+      )}
+
+      {/* Toggle button */}
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-2.5 rounded-full bg-blue-600 px-5 py-3.5 text-white shadow-lg transition hover:bg-blue-700 hover:shadow-xl"
+        aria-label="Chat with Ella">
+        {open ? <X size={20} /> : <MessageCircle size={20} />}
+        <span className="text-sm font-semibold">{open ? "Close" : "Ask Ella"}</span>
+      </button>
+    </div>
+  );
+}
+
 /* ─── APP ────────────────────────────────────────────────────── */
 
 export default function App() {
@@ -902,6 +1033,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <EllaChat />
     </div>
   );
 }
