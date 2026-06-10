@@ -973,7 +973,12 @@ function EllaChat() {
                     ? "rounded-br-sm bg-blue-600 text-white"
                     : "rounded-bl-sm bg-gray-100 text-gray-800"
                 }`}>
-                  {m.content}
+                  {m.content.split(/(https?:\/\/[^\s]+)/g).map((part, j) =>
+                    /^https?:\/\//.test(part)
+                      ? <a key={j} href={part} target="_blank" rel="noopener noreferrer"
+                          className="underline break-all opacity-90 hover:opacity-100">{part}</a>
+                      : part
+                  )}
                 </div>
               </div>
             ))}

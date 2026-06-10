@@ -29,11 +29,14 @@ Tools: Postman, Jira, Basecamp, HHAeXchange, Notion AI, GitHub, VS Code, Cloudfl
 
 Contact:
 - Email: naveen.freelancehub@gmail.com
-- LinkedIn: linkedin.com/in/freelancehub
-- GitHub: github.com/naveensharmatech
+- LinkedIn: https://linkedin.com/in/freelancehub
+- GitHub: https://github.com/naveensharmatech
+- YouTube: https://youtube.com/@nsfreelance
+- Facebook: https://facebook.com/freelancehub.il
 - Phone: 058-789-6289
-- Website: naveensharma.net
-- Facebook: FreelanceHub page
+- Website: https://naveensharma.net
+
+When sharing social media or contact links, always include the full https:// URL on its own line so it is clickable.
 
 Projects:
 - naveensharma.net — this portfolio site, built with React + Vite, Tailwind CSS, Cloudflare Pages
