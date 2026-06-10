@@ -890,7 +890,7 @@ function EllaChat() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Hi! I'm Ella, Naveen's AI assistant. Ask me anything about his services, experience, or availability — I'm happy to help!",
+      content: "Welcome to FreelanceHub by Naveen Sharma! I'm Ella, your AI assistant. Ask me anything about services, experience, or availability — I'm happy to help!",
     },
   ]);
   const [input, setInput] = useState("");
@@ -958,7 +958,19 @@ function EllaChat() {
                     ? "rounded-br-sm bg-blue-600 text-white"
                     : "rounded-bl-sm bg-gray-100 text-gray-800"
                 }`}>
-                  {m.content}
+                  {m.content.split(/(https?:\/\/[^\s]+)/g).map((part, j) => {
+                    if (/^https?:\/\//.test(part)) {
+                      const url = part.replace(/[.,!?:;)>"'\]]+$/, "");
+                      return (
+                        <a key={j} href={url} target="_blank" rel="noopener noreferrer"
+                          className="block underline break-all cursor-pointer mt-0.5 text-blue-700"
+                          style={{ touchAction: "manipulation", WebkitTapHighlightColor: "rgba(0,0,0,0.1)" }}>
+                          {url}
+                        </a>
+                      );
+                    }
+                    return <span key={j}>{part}</span>;
+                  })}
                 </div>
               </div>
             ))}
