@@ -596,9 +596,6 @@ function Contact() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { href: "mailto:naveen.freelancehub@gmail.com", icon: Mail,    label: "Email",    text: "naveen.freelancehub@gmail.com", external: false, link: true  },
-              { href: "https://linkedin.com/in/freelancehub", icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/freelancehub",   external: true,  link: true  },
-              { href: "https://github.com/naveensharmatech",  icon: Github,   label: "GitHub",   text: "github.com/naveensharmatech",    external: true,  link: true  },
-              { href: "https://www.facebook.com/share/18mJRTbUFF/", icon: Facebook, label: "Facebook", text: "FreelanceHub on Facebook",  external: true,  link: true  },
               { href: "tel:+972587896289",                    icon: Phone,    label: "Phone",    text: "058-789-6289",                   external: false, link: true  },
               { href: null,                                   icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",            external: false, link: false },
             ].map(({ href, icon: Icon, label, text, external, link }) => {
