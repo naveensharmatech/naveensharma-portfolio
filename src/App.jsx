@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
-  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin,
+  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -639,6 +639,7 @@ function Contact() {
               { href: "mailto:naveen.freelancehub@gmail.com", icon: Mail,    label: "Email",    text: "naveen.freelancehub@gmail.com", external: false, link: true  },
               { href: "https://linkedin.com/in/freelancehub", icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/freelancehub",   external: true,  link: true  },
               { href: "https://github.com/naveensharmatech",  icon: Github,   label: "GitHub",   text: "github.com/naveensharmatech",    external: true,  link: true  },
+              { href: "https://www.facebook.com/share/18mJRTbUFF/", icon: Facebook, label: "Facebook", text: "FreelanceHub on Facebook",  external: true,  link: true  },
               { href: "https://naveensharma.net",             icon: Globe,    label: "Website",  text: "naveensharma.net",               external: true,  link: true  },
               { href: "tel:+972587896289",                    icon: Phone,    label: "Phone",    text: "058-789-6289",                   external: false, link: true  },
               { href: null,                                   icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",            external: false, link: false },
