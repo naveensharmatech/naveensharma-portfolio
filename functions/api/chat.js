@@ -76,7 +76,10 @@ export async function onRequestPost(context) {
       }
     );
 
-    if (!response.ok) throw new Error("API error");
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(`API ${response.status}: ${JSON.stringify(errData)}`);
+    }
 
     const data = await response.json();
     const reply = data.choices[0].message.content;
