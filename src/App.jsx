@@ -996,7 +996,7 @@ function EllaChat() {
                 <Send size={16} />
               </button>
             </div>
-            <p className="mt-2 text-center text-xs text-gray-400">Powered by FreelanceHub · AI by Claude</p>
+            <p className="mt-2 text-center text-xs text-gray-400">Powered by FreelanceHub · AI by Gemini</p>
           </div>
         </div>
       )}
