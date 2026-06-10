@@ -116,6 +116,14 @@ const CASE_STUDIES = [
     solution: "Designed and built a custom single-page application using React + Vite and Tailwind CSS. Used GitHub for version control and Cloudflare Pages for hosting and CDN. Leveraged AI-assisted development throughout to accelerate delivery.",
     outcome: "Live at naveensharma.net — demonstrates web development capability alongside core SaaS and QA services. Deployed to Cloudflare's global edge network.",
   },
+  {
+    title: "Ella — AI Chat Assistant for naveensharma.net",
+    tag: "FreelanceHub · Live Project",
+    challenge: "The portfolio site needed a way to engage visitors 24/7, answer questions about services and availability, and convert browsers into leads — without requiring Naveen to be online.",
+    role: "Full-stack developer & project owner — designed, built, and deployed the entire chatbot end-to-end.",
+    solution: "Built a React chat widget integrated with a Cloudflare Pages serverless function that proxies to the Groq AI API (Llama 3). System prompt trained on Naveen's full profile, services, and experience. Custom avatar, animated typing indicator, and mobile-responsive design.",
+    outcome: "Live on naveensharma.net — Ella answers visitor questions instantly, 24/7, for free. Demonstrates AI integration, serverless backend development, and full-stack capability.",
+  },
 ];
 
 const SERVICES = [
@@ -155,6 +163,13 @@ const PROJECTS = [
     tag: "FreelanceHub · Live Project",
     desc: "Designed, built, and deployed a professional portfolio and business website end-to-end — from concept and layout through to domain go-live on Cloudflare Pages.",
     skills: ["React", "Vite", "Tailwind CSS", "GitHub", "Cloudflare Pages", "AI-Assisted Dev"],
+  },
+  {
+    icon: MessageCircle,
+    title: "Ella — AI Chat Assistant",
+    tag: "FreelanceHub · Live Project",
+    desc: "Built and deployed a full-stack AI chat assistant on naveensharma.net — React frontend, Cloudflare Pages serverless backend, and Groq AI (Llama 3) integration. Live 24/7.",
+    skills: ["React", "Cloudflare Pages Functions", "Groq API", "Llama 3", "Serverless", "AI Integration"],
   },
 ];
 
