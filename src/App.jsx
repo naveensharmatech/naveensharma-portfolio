@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
-  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook,
+  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { label: "Case Studies", href: "#casestudies" },
   { label: "Services",     href: "#services" },
   { label: "Projects",     href: "#projects" },
+  { label: "FAQ",          href: "#faq" },
   { label: "Contact",      href: "#contact" },
 ];
 
@@ -695,6 +696,70 @@ function Footer() {
   );
 }
 
+const FAQS = [
+  {
+    q: "What services do you offer?",
+    a: "I offer SaaS implementation & workflow configuration, product and technical support (Tier 2/3), QA & UAT engineering, API validation with Postman, workflow automation and technical documentation, and website design & development using React, Tailwind CSS, GitHub, and Cloudflare Pages.",
+  },
+  {
+    q: "Are you available for remote or international work?",
+    a: "Yes — I work fully remote and am available for international B2B contracts. I'm based in Be'er Sheva, Israel, and currently work with clients in the USA and beyond. I'm also open to hybrid or on-site roles within Israel.",
+  },
+  {
+    q: "What types of engagements do you take on?",
+    a: "I'm available for full-time employment, part-time contracts, and B2B project-based engagements through FreelanceHub — my registered independent contractor business. Both short-term project work and longer-term support arrangements are welcome.",
+  },
+  {
+    q: "What industries have you worked in?",
+    a: "My deepest experience is in healthcare SaaS (4+ years at Bolt Healthcare), where I handled intake workflow configuration, API validation, and QA for regulated healthcare platforms. I also have a background in electronics manufacturing QA and technical training operations.",
+  },
+  {
+    q: "How do I get started working with you?",
+    a: "The easiest way is to send me an email at naveen.freelancehub@gmail.com or connect on LinkedIn at linkedin.com/in/freelancehub. You can also download my CV from this page. I typically respond within one business day.",
+  },
+  {
+    q: "Can you build a website for my business?",
+    a: "Yes — I build professional, responsive business websites using React + Vite and Tailwind CSS, deployed on Cloudflare Pages with GitHub version control. This portfolio site itself is an example of my work. I handle everything from design to go-live, including domain setup.",
+  },
+  {
+    q: "Do you work with tools like Jira, Postman, or Basecamp?",
+    a: "These are core to my day-to-day workflow. I use Jira for defect tracking and sprint management, Postman for API validation and test collections, and Basecamp for project coordination. I'm also experienced with Notion AI, GitHub, VS Code, and a range of AI-assisted productivity tools.",
+  },
+];
+
+function FAQ() {
+  const [open, setOpen] = useState(null);
+  return (
+    <section id="faq" className="bg-white">
+      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <SectionHeading eyebrow="FAQ" center title="Frequently asked questions"
+          description="Everything you might want to know before reaching out." />
+        <div className="mx-auto max-w-3xl space-y-3">
+          {FAQS.map((item, i) => (
+            <div key={i} className="rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden">
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="flex w-full items-center justify-between px-6 py-5 text-left transition hover:bg-gray-100"
+              >
+                <span className="text-base font-bold text-gray-900 pr-4">{item.q}</span>
+                <ChevronDown
+                  size={20}
+                  className={`shrink-0 text-blue-600 transition-transform duration-200 ${open === i ? "rotate-180" : ""}`}
+                />
+              </button>
+              {open === i && (
+                <div className="px-6 pb-5">
+                  <p className="text-sm leading-relaxed text-gray-600">{item.a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── APP ────────────────────────────────────────────────────── */
 
 export default function App() {
@@ -712,6 +777,7 @@ export default function App() {
         <Projects />
         <Tools />
         <BrandVideo />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
