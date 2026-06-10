@@ -781,6 +781,22 @@ function Footer() {
             />
             <p className="font-extrabold text-gray-900">Naveen Sharma · FreelanceHub</p>
             <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance</p>
+            <div className="flex items-center justify-center gap-3 mt-1">
+              {[
+                { href: "https://linkedin.com/in/freelancehub",          icon: Linkedin, label: "LinkedIn" },
+                { href: "https://github.com/naveensharmatech",           icon: Github,   label: "GitHub"   },
+                { href: "https://www.facebook.com/share/18mJRTbUFF/",   icon: Facebook, label: "Facebook" },
+                { href: "mailto:naveen.freelancehub@gmail.com",          icon: Mail,     label: "Email"    },
+              ].map(({ href, icon: Icon, label }) => (
+                <a key={label} href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                  aria-label={label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition hover:bg-blue-600 hover:text-white">
+                  <Icon size={16} />
+                </a>
+              ))}
+            </div>
             <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 mt-1">
               {[
                 { key: "privacy",  label: "Privacy & Data Policy" },
