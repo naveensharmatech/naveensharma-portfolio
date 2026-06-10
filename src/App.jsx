@@ -935,8 +935,8 @@ function EllaChat() {
           {/* Header */}
           <div className="flex items-center justify-between bg-blue-600 px-4 py-3">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full overflow-hidden ring-2 ring-white/30">
-                <img src="/ella-avatar.jpeg" alt="Ella" className="h-full w-full object-cover" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-full overflow-hidden bg-white ring-2 ring-white/30">
+                <img src="/round logo.jpeg" alt="Ella" className="h-full w-full object-cover" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Ella</p>
@@ -1007,8 +1007,8 @@ function EllaChat() {
         className="flex items-center gap-2.5 rounded-full bg-blue-600 px-5 py-3.5 text-white shadow-lg transition hover:bg-blue-700 hover:shadow-xl"
         aria-label="Chat with Ella">
         {open ? <X size={20} /> : (
-          <div className="h-6 w-6 rounded-full overflow-hidden ring-2 ring-white/40">
-            <img src="/ella-avatar.jpeg" alt="Ella" className="h-full w-full object-cover" />
+          <div className="h-6 w-6 rounded-full overflow-hidden bg-white ring-2 ring-white/40">
+            <img src="/round logo.jpeg" alt="Ella" className="h-full w-full object-cover" />
           </div>
         )}
         <span className="text-sm font-semibold">{open ? "Close" : "Ask Ella"}</span>
