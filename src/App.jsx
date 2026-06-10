@@ -734,7 +734,7 @@ function Footer() {
               onError={(e) => { e.target.style.display = "none"; }}
             />
             <p className="font-extrabold text-gray-900">Naveen Sharma · FreelanceHub</p>
-            <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance</p>
+            <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance · Website Design & Development</p>
             <div className="flex items-center justify-center gap-3 mt-1">
               {[
                 { href: "https://linkedin.com/in/freelancehub",         icon: Linkedin, label: "LinkedIn", bg: "#0A66C2" },
