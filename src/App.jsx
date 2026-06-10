@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
-  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube,
+  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube, Briefcase,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -24,6 +24,7 @@ const HEADLINES = [
   "QA & UAT Engineer",
   "Product Support Specialist",
   "Website Design & Development",
+  "Career & Professional Presence",
   "B2B Technical Contractor",
 ];
 
@@ -35,6 +36,7 @@ const EXPERTISE = [
   { icon: Database,       title: "API Validation",              desc: "API testing and validation with Postman across integrated healthcare workflows." },
   { icon: FileText,       title: "Technical Documentation",     desc: "SOPs, process documentation, and QA documentation that teams can rely on." },
   { icon: Globe,          title: "Website Design & Development", desc: "Building and deploying responsive business websites using React, Tailwind CSS, GitHub, Cloudflare Pages, and AI-assisted development tools." },
+  { icon: Briefcase,     title: "Career & Professional Presence", desc: "ATS-optimized resume writing, LinkedIn profile optimization, and career portfolio setup to help professionals present themselves effectively." },
 ];
 
 const EXPERIENCES = [
@@ -105,6 +107,14 @@ const CASE_STUDIES = [
     solution: "Executed integration testing, tracked data inconsistencies, and resolved issues through structured escalation. Maintained defect logs in Jira and coordinated fixes in Basecamp.",
     outcome: "Integration reliability maintained across multiple rollouts with improved escalation response time.",
   },
+  {
+    title: "Portfolio & Business Website — naveensharma.net",
+    tag: "FreelanceHub · Live Project",
+    challenge: "Needed a professional online presence to establish the FreelanceHub brand, showcase SaaS and QA expertise, and attract B2B clients — without the limitations of generic website builders.",
+    role: "Designer, Developer & Project Owner — full end-to-end ownership from concept to deployment.",
+    solution: "Designed and built a custom single-page application using React + Vite and Tailwind CSS. Used GitHub for version control and Cloudflare Pages for hosting and CDN. Leveraged AI-assisted development throughout to accelerate delivery.",
+    outcome: "Live at naveensharma.net — demonstrates web development capability alongside core SaaS and QA services. Deployed to Cloudflare's global edge network.",
+  },
 ];
 
 const SERVICES = [
@@ -113,6 +123,7 @@ const SERVICES = [
   { icon: Headset,     title: "Product & Customer Support",    items: ["Product support", "Technical troubleshooting", "Customer support operations", "Escalation management"] },
   { icon: ShieldCheck, title: "QA & Validation",               items: ["UAT", "Functional testing", "Regression testing", "API validation", "Validation processes"] },
   { icon: FileText,    title: "Automation & Documentation",    items: ["Workflow automation", "Document automation", "Technical documentation", "SOPs & process documentation", "QA documentation"] },
+  { icon: Briefcase,   title: "Career & Professional Presence", items: ["ATS-optimized resume writing", "LinkedIn profile optimization", "Career portfolio website setup", "Professional bio & personal branding", "AI-assisted career document creation"] },
 ];
 
 const PROJECTS = [
@@ -137,6 +148,13 @@ const PROJECTS = [
     desc: "A content management system built to demonstrate technical learning and development skills — authentication, CRUD operations, category management, and an admin dashboard.",
     skills: ["Python", "Django", "MySQL", "MongoDB", "Bootstrap", "AJAX"],
   },
+  {
+    icon: Globe,
+    title: "naveensharma.net — Portfolio & Business Website",
+    tag: "FreelanceHub · Live Project",
+    desc: "Designed, built, and deployed a professional portfolio and business website end-to-end — from concept and layout through to domain go-live on Cloudflare Pages.",
+    skills: ["React", "Vite", "Tailwind CSS", "GitHub", "Cloudflare Pages", "AI-Assisted Dev"],
+  },
 ];
 
 const TOOL_CATEGORIES = [
@@ -158,7 +176,7 @@ const TOOL_CATEGORIES = [
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
-    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io"],
+    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io", "LinkedIn"],
   },
 ];
 
@@ -266,9 +284,9 @@ function Hero() {
         </div>
 
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
-          I combine hands-on SaaS implementation, website design & development, product support,
-          API validation, and quality assurance to help organizations deploy, support, and improve
-          business-critical workflows.
+          Available for employment in SaaS implementation, product support, API validation, and
+          quality assurance — and through FreelanceHub as a B2B contractor for website design &amp;
+          development and career services.
         </p>
 
         {/* CTAs */}
@@ -303,7 +321,7 @@ function Hero() {
 }
 
 function TrustBar() {
-  const tools = ["Postman", "Jira", "Basecamp", "HHAeXchange", "Postman API", "UAT Testing", "Bolt Healthcare", "GitHub", "Cloudflare"];
+  const tools = ["Postman", "Jira", "Basecamp", "HHAeXchange", "React", "Tailwind CSS", "GitHub", "Cloudflare", "VS Code"];
   return (
     <div className="border-y border-gray-100 bg-gray-50 py-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -341,29 +359,40 @@ function About() {
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading eyebrow="About" title="The specialist behind FreelanceHub"
-              description="I combine hands-on SaaS implementation, product support, API validation, and quality assurance to help organizations deploy, support, and improve business-critical workflows." />
+              description="Naveen Sharma is a SaaS Implementation & QA specialist available for full-time, hybrid, and remote employment — and the founder of FreelanceHub, a registered independent contractor business offering website design & development and career services." />
             <p className="text-base leading-relaxed text-gray-600">
               With 8+ years of professional experience, including 4+ years across healthcare SaaS
               platforms, I partner with engineering, QA, and product teams to keep delivery moving
               and dependable — from first configuration through to production release.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-gray-600">
+              Through FreelanceHub, I also help professionals and businesses with website builds,
+              ATS-optimised resumes, and LinkedIn optimisation — as a B2B contractor.
             </p>
             <a href="#contact"
               className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline">
               Get in touch <ArrowRight size={16} />
             </a>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { label: "Focus", value: "SaaS · Support · QA · Web Development" },
-              { label: "Experience", value: "8+ years · 4+ in healthcare SaaS" },
-              { label: "Engagement", value: "Full-time · Hybrid · Remote · B2B" },
-              { label: "Tooling", value: "Jira · Basecamp · Postman" },
-            ].map((item) => (
-              <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
-                <p className="mt-2 text-sm font-bold text-gray-900">{item.value}</p>
-              </div>
-            ))}
+          <div className="flex flex-col items-center gap-6 lg:items-start">
+            <img
+              src="/naveen-photo.jpg"
+              alt="Naveen Sharma"
+              className="h-52 w-52 rounded-2xl object-cover shadow-lg ring-4 ring-white"
+            />
+            <div className="grid w-full grid-cols-2 gap-4">
+              {[
+                { label: "As Employee", value: "SaaS · QA · API · Product Support" },
+                { label: "Experience", value: "8+ years · 4+ in healthcare SaaS" },
+                { label: "Via FreelanceHub", value: "Web Dev · Resumes · LinkedIn" },
+                { label: "Availability", value: "Full-time · Hybrid · Remote · B2B" },
+              ].map((item) => (
+                <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
+                  <p className="mt-2 text-sm font-bold text-gray-900">{item.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -784,7 +813,7 @@ function Footer() {
 const FAQS = [
   {
     q: "What services do you offer?",
-    a: "I offer SaaS implementation & workflow configuration, product and technical support (Tier 2/3), QA & UAT engineering, API validation with Postman, workflow automation and technical documentation, and website design & development using React, Tailwind CSS, GitHub, and Cloudflare Pages.",
+    a: "As an employee, I specialise in SaaS implementation & workflow configuration, product and technical support (Tier 2/3), QA & UAT engineering, API validation with Postman, and workflow automation. Through FreelanceHub as a B2B contractor, I offer website design & development (React, Tailwind CSS, Cloudflare Pages) and career & professional presence services — including ATS-optimised resume writing and LinkedIn profile optimisation.",
   },
   {
     q: "Are you available for remote or international work?",
@@ -809,6 +838,14 @@ const FAQS = [
   {
     q: "Do you work with tools like Jira, Postman, or Basecamp?",
     a: "These are core to my day-to-day workflow. I use Jira for defect tracking and sprint management, Postman for API validation and test collections, and Basecamp for project coordination. I'm also experienced with Notion AI, GitHub, VS Code, and a range of AI-assisted productivity tools.",
+  },
+  {
+    q: "Can you write an ATS-optimised resume for me?",
+    a: "Yes — through FreelanceHub I offer ATS-optimised resume writing tailored to your target role and industry. I format and structure your experience so it passes applicant tracking systems and reads well to hiring managers. I also help with professional bios and career document creation using AI-assisted tools.",
+  },
+  {
+    q: "Do you offer LinkedIn profile optimisation?",
+    a: "Yes. I review and rewrite your LinkedIn profile — headline, about section, experience entries, and skills — to improve visibility in recruiter searches and present a consistent, professional personal brand. This is offered as a standalone service or bundled with resume writing through FreelanceHub.",
   },
 ];
 
