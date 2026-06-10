@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
-  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown,
+  ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -575,45 +575,7 @@ function Tools() {
   );
 }
 
-function BrandVideo() {
-  return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <p className="mb-8 text-lg font-medium text-gray-600 text-center">
-          A short introduction to FreelanceHub and the services Naveen Sharma provides.
-        </p>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div>
-            <p className="mb-3 text-sm font-bold text-gray-700">Brand Introduction</p>
-            <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-lg">
-              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-                <iframe className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/XYdqYPwYiY4"
-                  title="FreelanceHub — Naveen Sharma"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen />
-              </div>
-            </div>
-          </div>
-          <div>
-            <p className="mb-3 text-sm font-bold text-gray-700">FreelanceHub IT Services</p>
-            <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-lg">
-              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-                <iframe className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/4dTadaeUE_A"
-                  title="FreelanceHub IT Services"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 function Contact() {
   return (
@@ -786,6 +748,7 @@ function Footer() {
                 { href: "https://linkedin.com/in/freelancehub",          icon: Linkedin, label: "LinkedIn" },
                 { href: "https://github.com/naveensharmatech",           icon: Github,   label: "GitHub"   },
                 { href: "https://www.facebook.com/share/18mJRTbUFF/",   icon: Facebook, label: "Facebook" },
+                { href: "https://www.youtube.com/watch?v=XYdqYPwYiY4",  icon: Youtube,  label: "YouTube"  },
                 { href: "mailto:naveen.freelancehub@gmail.com",          icon: Mail,     label: "Email"    },
               ].map(({ href, icon: Icon, label }) => (
                 <a key={label} href={href}
@@ -898,7 +861,6 @@ export default function App() {
         <Services />
         <Projects />
         <Tools />
-        <BrandVideo />
         <FAQ />
         <Contact />
       </main>
