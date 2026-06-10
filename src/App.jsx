@@ -274,10 +274,6 @@ function Hero() {
             className="inline-flex items-center gap-2 rounded-lg border-2 border-gray-200 px-8 py-4 text-base font-semibold text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
             View services
           </a>
-          <a href="/Naveen Sharma General CV.pdf" download
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-gray-200 px-8 py-4 text-base font-semibold text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
-            Download Resume
-          </a>
         </div>
 
         {/* Stats row */}
@@ -603,7 +599,6 @@ function Contact() {
               { href: "https://linkedin.com/in/freelancehub", icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/freelancehub",   external: true,  link: true  },
               { href: "https://github.com/naveensharmatech",  icon: Github,   label: "GitHub",   text: "github.com/naveensharmatech",    external: true,  link: true  },
               { href: "https://www.facebook.com/share/18mJRTbUFF/", icon: Facebook, label: "Facebook", text: "FreelanceHub on Facebook",  external: true,  link: true  },
-              { href: "https://naveensharma.net",             icon: Globe,    label: "Website",  text: "naveensharma.net",               external: true,  link: true  },
               { href: "tel:+972587896289",                    icon: Phone,    label: "Phone",    text: "058-789-6289",                   external: false, link: true  },
               { href: null,                                   icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",            external: false, link: false },
             ].map(({ href, icon: Icon, label, text, external, link }) => {
@@ -745,17 +740,18 @@ function Footer() {
             <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance</p>
             <div className="flex items-center justify-center gap-3 mt-1">
               {[
-                { href: "https://linkedin.com/in/freelancehub",          icon: Linkedin, label: "LinkedIn" },
-                { href: "https://github.com/naveensharmatech",           icon: Github,   label: "GitHub"   },
-                { href: "https://www.facebook.com/share/18mJRTbUFF/",   icon: Facebook, label: "Facebook" },
-                { href: "https://youtube.com/@nsfreelance",              icon: Youtube,  label: "YouTube"  },
-                { href: "mailto:naveen.freelancehub@gmail.com",          icon: Mail,     label: "Email"    },
-              ].map(({ href, icon: Icon, label }) => (
+                { href: "https://linkedin.com/in/freelancehub",         icon: Linkedin, label: "LinkedIn", bg: "#0A66C2" },
+                { href: "https://github.com/naveensharmatech",          icon: Github,   label: "GitHub",   bg: "#181717" },
+                { href: "https://www.facebook.com/share/18mJRTbUFF/",  icon: Facebook, label: "Facebook", bg: "#1877F2" },
+                { href: "https://youtube.com/@nsfreelance",             icon: Youtube,  label: "YouTube",  bg: "#FF0000" },
+                { href: "mailto:naveen.freelancehub@gmail.com",         icon: Mail,     label: "Email",    bg: "#34A853" },
+              ].map(({ href, icon: Icon, label, bg }) => (
                 <a key={label} href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noreferrer" : undefined}
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition hover:bg-blue-600 hover:text-white">
+                  style={{ backgroundColor: bg }}
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-white transition opacity-90 hover:opacity-100 hover:scale-110">
                   <Icon size={16} />
                 </a>
               ))}
