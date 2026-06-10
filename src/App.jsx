@@ -284,9 +284,9 @@ function Hero() {
         </div>
 
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
-          I combine hands-on SaaS implementation, website design & development, product support,
-          API validation, and quality assurance to help organizations deploy, support, and improve
-          business-critical workflows.
+          Available for employment in SaaS implementation, product support, API validation, and
+          quality assurance — and through FreelanceHub as a B2B contractor for website design &amp;
+          development and career services.
         </p>
 
         {/* CTAs */}
@@ -359,11 +359,15 @@ function About() {
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading eyebrow="About" title="The specialist behind FreelanceHub"
-              description="I combine hands-on SaaS implementation, product support, API validation, and quality assurance to help organizations deploy, support, and improve business-critical workflows." />
+              description="Naveen Sharma is a SaaS Implementation & QA specialist available for full-time, hybrid, and remote employment — and the founder of FreelanceHub, a registered independent contractor business offering website design & development and career services." />
             <p className="text-base leading-relaxed text-gray-600">
               With 8+ years of professional experience, including 4+ years across healthcare SaaS
               platforms, I partner with engineering, QA, and product teams to keep delivery moving
               and dependable — from first configuration through to production release.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-gray-600">
+              Through FreelanceHub, I also help professionals and businesses with website builds,
+              ATS-optimised resumes, and LinkedIn optimisation — as a B2B contractor.
             </p>
             <a href="#contact"
               className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline">
@@ -372,10 +376,10 @@ function About() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { label: "Focus", value: "SaaS · Support · QA · Web Development" },
+              { label: "As Employee", value: "SaaS · QA · API · Product Support" },
               { label: "Experience", value: "8+ years · 4+ in healthcare SaaS" },
-              { label: "Engagement", value: "Full-time · Hybrid · Remote · B2B" },
-              { label: "Tooling", value: "Jira · Basecamp · Postman" },
+              { label: "Via FreelanceHub", value: "Web Dev · Resumes · LinkedIn" },
+              { label: "Availability", value: "Full-time · Hybrid · Remote · B2B" },
             ].map((item) => (
               <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
                 <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
