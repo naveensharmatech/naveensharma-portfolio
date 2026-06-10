@@ -676,23 +676,122 @@ function Contact() {
   );
 }
 
-function Footer() {
+const LEGAL_DOCS = {
+  privacy: {
+    title: "Privacy & Data Policy",
+    content: [
+      { heading: "Who we are", body: "This website is operated by Naveen Sharma trading as FreelanceHub IT Services, a registered independent B2B contractor based in Be'er Sheva, Israel. Contact: naveen.freelancehub@gmail.com" },
+      { heading: "What data we collect", body: "This is a static informational website. We do not operate contact forms, user accounts, or any server-side data collection. If you contact us directly by email or via LinkedIn, we collect only the information you choose to share (name, email, message). That information is used solely to respond to your enquiry." },
+      { heading: "Cookies & analytics", body: "This site may load third-party embeds (YouTube videos). YouTube may set cookies when you interact with those players, governed by Google's Privacy Policy. We do not use tracking pixels, advertising cookies, or analytics services ourselves." },
+      { heading: "Third-party services", body: "The site is hosted on Cloudflare Pages. Cloudflare may collect standard server logs (IP address, browser type, page requested) for security and performance purposes, governed by Cloudflare's Privacy Policy." },
+      { heading: "Your rights (GDPR)", body: "If you are located in the EU/EEA, you have the right to access, rectify, or erase any personal data we hold about you (limited to direct email correspondence). To exercise these rights, contact naveen.freelancehub@gmail.com." },
+      { heading: "Changes", body: "This policy may be updated from time to time. The current version is always available on this page. Last updated: June 2026." },
+    ],
+  },
+  legal: {
+    title: "Legal Notice",
+    content: [
+      { heading: "Business details", body: "Naveen Sharma\nTrading as: FreelanceHub IT Services\nRegistered independent B2B contractor\nBe'er Sheva, Israel\nEmail: naveen.freelancehub@gmail.com\nWebsite: naveensharma.net" },
+      { heading: "Nature of services", body: "FreelanceHub provides IT services including SaaS implementation, product & technical support, QA & UAT engineering, API validation, workflow automation, technical documentation, and website design & development. All services are provided on a B2B basis." },
+      { heading: "Intellectual property", body: "All content on this website — including text, design, and code — is the property of Naveen Sharma (FreelanceHub). Reproduction or reuse without written permission is prohibited." },
+      { heading: "Limitation of liability", body: "The information on this site is provided in good faith for general informational purposes. FreelanceHub accepts no liability for decisions made based on website content. Specific service terms are agreed in writing prior to engagement." },
+      { heading: "Governing law", body: "This website and all services provided by FreelanceHub are governed by the laws of the State of Israel." },
+    ],
+  },
+  terms: {
+    title: "Terms of Service",
+    content: [
+      { heading: "Scope", body: "These terms govern the use of the naveensharma.net website and apply as a general reference for freelance engagements with FreelanceHub IT Services. Specific project terms are agreed in a separate written contract or statement of work before any engagement begins." },
+      { heading: "Services", body: "FreelanceHub provides B2B IT services on a contract basis. All deliverables, timelines, rates, and acceptance criteria are defined in the project agreement. No work begins without a signed or confirmed agreement." },
+      { heading: "Payment", body: "Payment terms are specified in each project agreement. Invoices are issued in accordance with the agreed schedule. Late payments may incur interest in accordance with applicable law." },
+      { heading: "Confidentiality", body: "FreelanceHub treats all client information as confidential and does not disclose it to third parties without written consent, except as required by law. Clients are expected to treat any proprietary methods, documentation, or tools provided by FreelanceHub as confidential." },
+      { heading: "Intellectual property", body: "Upon full payment, clients receive ownership of project-specific deliverables as agreed in writing. FreelanceHub retains the right to reference completed work in portfolio materials unless otherwise agreed." },
+      { heading: "Termination", body: "Either party may terminate an engagement with reasonable written notice as specified in the project agreement. Work completed to the termination date will be invoiced accordingly." },
+      { heading: "Limitation of liability", body: "FreelanceHub's liability is limited to the value of the fees paid for the specific engagement in which a claim arises. We are not liable for indirect, incidental, or consequential damages." },
+      { heading: "Contact", body: "For questions about these terms, contact naveen.freelancehub@gmail.com." },
+    ],
+  },
+  cookies: {
+    title: "Cookie Policy",
+    content: [
+      { heading: "What are cookies?", body: "Cookies are small text files placed on your device by websites you visit. They are widely used to make websites work efficiently and to provide information to site owners." },
+      { heading: "Cookies we use", body: "This website does not set its own cookies. We do not use analytics, advertising, or tracking cookies." },
+      { heading: "Third-party cookies", body: "This site embeds YouTube videos. If you interact with a YouTube player, Google/YouTube may set cookies on your device in accordance with their own Cookie Policy. These are not under our control. You can manage or block them via your browser settings." },
+      { heading: "Cloudflare", body: "Our hosting provider Cloudflare may use cookies for security purposes (e.g. bot detection). These are strictly necessary cookies and do not track you for advertising purposes." },
+      { heading: "Managing cookies", body: "You can control and delete cookies through your browser settings. Disabling cookies will not affect your ability to use this website, as no functionality depends on our own cookies." },
+      { heading: "Contact", body: "For cookie-related queries, contact naveen.freelancehub@gmail.com." },
+    ],
+  },
+};
+
+function LegalModal({ doc, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return (
-    <footer className="border-t border-gray-100 bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <img
-            src="/freelancehub-logo.png"
-            alt="FreelanceHub"
-            className="h-14 w-auto object-contain"
-            onError={(e) => { e.target.style.display = "none"; }}
-          />
-          <p className="font-extrabold text-gray-900">Naveen Sharma · FreelanceHub</p>
-          <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance</p>
-          <p className="text-xs text-gray-400">© 2026 Naveen Sharma (FreelanceHub) All rights reserved.</p>
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+      onClick={onClose}>
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      <div className="relative bg-white w-full sm:max-w-2xl sm:rounded-2xl shadow-2xl max-h-[90vh] flex flex-col"
+        onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+          <h2 className="text-lg font-extrabold text-gray-900">{doc.title}</h2>
+          <button onClick={onClose}
+            className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition">
+            <X size={20} />
+          </button>
+        </div>
+        <div className="overflow-y-auto px-6 py-5 space-y-5">
+          {doc.content.map(({ heading, body }) => (
+            <div key={heading}>
+              <h3 className="text-sm font-bold text-gray-900 mb-1">{heading}</h3>
+              <p className="text-sm leading-relaxed text-gray-600 whitespace-pre-line">{body}</p>
+            </div>
+          ))}
+          <p className="text-xs text-gray-400 pt-2">FreelanceHub IT Services · naveensharma.net</p>
         </div>
       </div>
-    </footer>
+    </div>
+  );
+}
+
+function Footer() {
+  const [activeDoc, setActiveDoc] = useState(null);
+  return (
+    <>
+      {activeDoc && <LegalModal doc={LEGAL_DOCS[activeDoc]} onClose={() => setActiveDoc(null)} />}
+      <footer className="border-t border-gray-100 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <img
+              src="/freelancehub-logo.png"
+              alt="FreelanceHub"
+              className="h-14 w-auto object-contain"
+              onError={(e) => { e.target.style.display = "none"; }}
+            />
+            <p className="font-extrabold text-gray-900">Naveen Sharma · FreelanceHub</p>
+            <p className="text-sm text-gray-500">SaaS Implementation · Product Support · Quality Assurance</p>
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 mt-1">
+              {[
+                { key: "privacy",  label: "Privacy & Data Policy" },
+                { key: "legal",    label: "Legal Notice" },
+                { key: "terms",    label: "Terms of Service" },
+                { key: "cookies",  label: "Cookie Policy" },
+              ].map(({ key, label }) => (
+                <button key={key} onClick={() => setActiveDoc(key)}
+                  className="text-xs text-gray-400 hover:text-blue-600 transition underline-offset-2 hover:underline">
+                  {label}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400">© 2026 Naveen Sharma (FreelanceHub) All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
 
