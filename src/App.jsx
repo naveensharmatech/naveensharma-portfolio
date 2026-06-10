@@ -23,6 +23,7 @@ const HEADLINES = [
   "API Validation Expert",
   "QA & UAT Engineer",
   "Product Support Specialist",
+  "Website Design & Development",
   "B2B Technical Contractor",
 ];
 
@@ -246,7 +247,7 @@ function Hero() {
         {/* FreelanceHub framed as his independent services brand */}
         <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
           <span className="font-extrabold text-blue-600">FreelanceHub</span>
-          {" "}— SaaS Implementation, B2B Contractor, Product Support &amp; QA Services
+          {" "}— SaaS Implementation, Website Design & Development, Product Support &amp; QA Services
         </p>
 
         {/* All specialties shown at once (no rotating headline) */}
@@ -260,8 +261,9 @@ function Hero() {
         </div>
 
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
-          I combine hands-on SaaS implementation, product support, API validation, and quality
-          assurance to help organizations deploy, support, and improve business-critical workflows.
+          I combine hands-on SaaS implementation, website design & development, product support,
+          API validation, and quality assurance to help organizations deploy, support, and improve
+          business-critical workflows.
         </p>
 
         {/* CTAs */}
@@ -347,7 +349,7 @@ function About() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { label: "Focus", value: "SaaS Implementation · Support · QA" },
+              { label: "Focus", value: "SaaS · Support · QA · Web Development" },
               { label: "Experience", value: "8+ years · 4+ in healthcare SaaS" },
               { label: "Engagement", value: "Full-time · Hybrid · Remote · B2B" },
               { label: "Tooling", value: "Jira · Basecamp · Postman" },
@@ -578,7 +580,7 @@ function Contact() {
     <section id="contact" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Contact" center
-          title="Let's talk about your implementation, support, or QA needs"
+          title="Let's talk about your implementation, web, support, or QA needs"
           description="Available for full-time, hybrid, and remote roles, as well as B2B contract engagements through FreelanceHub." />
 
         <div className="mx-auto max-w-2xl">
