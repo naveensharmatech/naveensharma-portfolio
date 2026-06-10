@@ -56,24 +56,22 @@ export async function onRequestPost(context) {
   try {
     const { messages } = await request.json();
 
-    // Inject system prompt as first message pair for max compatibility
-    const geminiMessages = [
-      { role: "user", parts: [{ text: SYSTEM_PROMPT }] },
-      { role: "model", parts: [{ text: "Understood! I'm Ella, Naveen's AI assistant. I'm ready to help visitors with any questions about his services and experience." }] },
-      ...messages.map((m) => ({
-        role: m.role === "assistant" ? "model" : "user",
-        parts: [{ text: m.content }],
-      })),
-    ];
-
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${env.GEMINI_API_KEY}`,
+      "https://api.groq.com/openai/v1/chat/completions",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${env.GROQ_API_KEY}`,
+        },
         body: JSON.stringify({
-          contents: geminiMessages,
-          generationConfig: { maxOutputTokens: 350, temperature: 0.7 },
+          model: "llama3-8b-8192",
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...messages.map((m) => ({ role: m.role, content: m.content })),
+          ],
+          max_tokens: 350,
+          temperature: 0.7,
         }),
       }
     );
@@ -81,7 +79,7 @@ export async function onRequestPost(context) {
     if (!response.ok) throw new Error("API error");
 
     const data = await response.json();
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const reply = data.choices[0].message.content;
 
     if (!reply) throw new Error("Empty response");
 
