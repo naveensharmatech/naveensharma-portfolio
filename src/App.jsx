@@ -182,7 +182,7 @@ const TOOL_CATEGORIES = [
   {
     label: "SaaS & Project Management",
     sublabel: "Enterprise platforms implemented, managed, and supported",
-    tools: ["HHAeXchange", "Basecamp", "Zendesk", "Notion AI", "Confluence"],
+    tools: ["HHAeXchange", "Basecamp", "Notion AI"],
   },
   {
     label: "Website Design & Development",
