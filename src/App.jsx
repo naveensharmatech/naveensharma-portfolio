@@ -3,7 +3,7 @@ import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
   ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube, Briefcase,
-  MessageCircle, Send, GraduationCap, Award, ExternalLink as LinkOut,
+  MessageCircle, Send, GraduationCap, Award, ExternalLink as LinkOut, FileDown,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -148,6 +148,8 @@ const PROJECTS = [
     tag: "QA Certification Project",
     desc: "Test planning and strategy demonstrating risk analysis, regression and sanity testing, and the full defect lifecycle.",
     skills: ["Test Planning", "Risk Analysis", "Regression Testing", "Defect Lifecycle"],
+    file: "/docs/Warehouse-Management-System-Test-Plan.pdf",
+    fileLabel: "View test plan (PDF)",
   },
   {
     icon: ClipboardCheck,
@@ -155,6 +157,8 @@ const PROJECTS = [
     tag: "QA Certification Project",
     desc: "Structured QA documentation covering methodology, risk assessment, and test execution planning.",
     skills: ["Test Documentation", "QA Methodology", "Risk Assessment", "Test Execution"],
+    file: "/docs/Netflix-Subscription-Test-Plan.docx",
+    fileLabel: "Download test plan (DOCX)",
   },
   {
     icon: Code2,
@@ -162,6 +166,8 @@ const PROJECTS = [
     tag: "BCA Graduation Project",
     desc: "A content management system built to demonstrate technical learning — authentication, CRUD operations, category management, and an admin dashboard.",
     skills: ["Python", "Django", "MySQL", "MongoDB", "Bootstrap", "AJAX"],
+    file: "/docs/Django-Blogging-CMS-Project.pdf",
+    fileLabel: "View project doc (PDF)",
   },
   {
     icon: Globe,
@@ -642,6 +648,13 @@ function Projects() {
                     </span>
                   ))}
                 </div>
+                {project.file && (
+                  <a href={project.file} target="_blank" rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:gap-2.5 hover:text-blue-700">
+                    <FileDown size={16} />
+                    {project.fileLabel || "View document"}
+                  </a>
+                )}
               </div>
             );
           })}
