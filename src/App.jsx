@@ -175,9 +175,14 @@ const PROJECTS = [
 
 const TOOL_CATEGORIES = [
   {
-    label: "SaaS, QA & Technical Operations",
-    sublabel: "Core professional tooling",
-    tools: ["Postman", "Jira", "Basecamp", "Notion AI", "HHAeXchange", "Solo (Mozilla)"],
+    label: "QA & Testing",
+    sublabel: "Manual and automated quality assurance",
+    tools: ["Postman", "Jira", "TestRail", "Selenium", "BrowserStack", "Cypress", "Playwright", "Solo (Mozilla)"],
+  },
+  {
+    label: "SaaS & Project Management",
+    sublabel: "Enterprise platforms implemented, managed, and supported",
+    tools: ["HHAeXchange", "Basecamp", "Zendesk", "Notion AI", "Confluence"],
   },
   {
     label: "Website Design & Development",
@@ -187,12 +192,17 @@ const TOOL_CATEGORIES = [
   {
     label: "AI-Assisted Productivity & Development",
     sublabel: "Used to enhance and accelerate professional work",
-    tools: ["Claude", "Gemini", "GitHub Copilot", "ChatGPT", "Cursor", "v0", "Gemini Code Assist", "Google AI Studio", "Perplexity", "Gamma"],
+    tools: ["Claude", "Gemini", "GitHub Copilot", "ChatGPT", "Cursor", "v0", "Gemini Code Assist", "Google AI Studio", "Perplexity"],
   },
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
-    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io", "LinkedIn"],
+    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io"],
+  },
+  {
+    label: "Career & Branding",
+    sublabel: "Professional presence and career development",
+    tools: ["LinkedIn", "Gamma"],
   },
 ];
 
