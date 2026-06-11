@@ -187,7 +187,7 @@ const TOOL_CATEGORIES = [
   {
     label: "Website Design & Development",
     sublabel: "Tools used to build, deploy, and manage websites",
-    tools: ["React", "Next.js", "Vite", "Tailwind CSS", "WordPress", "Shopify", "Solo (Mozilla)", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
+    tools: ["React", "Next.js", "Vite", "Tailwind CSS", "WordPress", "Shopify", "Solo AI", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
   },
   {
     label: "AI-Assisted Productivity & Development",
