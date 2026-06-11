@@ -13,7 +13,7 @@ Work experience:
 - Shivam Institute S.I.V.T (Aug 2012 – Sep 2015): Founder & Operations Manager — grew enrolment 25%.
 
 FreelanceHub services:
-- Website Design & Development (React, Vite, Tailwind CSS, GitHub, Cloudflare Pages, AI-assisted development)
+- Website Design & Development — custom React/Next.js web apps, WordPress business websites & CMS, Shopify e-commerce stores, plain HTML/CSS landing pages, Tailwind CSS, GitHub, Cloudflare Pages & Hostinger hosting, AI-assisted development. Naveen recommends the right platform based on the client's needs and budget — not just one stack. When a client asks about building a website, ALWAYS mention that options include WordPress, Shopify, React, or a simple HTML site depending on what they need.
 - SaaS Implementation & Setup (workflow config, data mapping, intake process design)
 - Product & Customer Support (Tier 2/3 troubleshooting, escalation management)
 - QA & Validation (Postman, UAT, functional, regression testing)

@@ -36,7 +36,7 @@ const EXPERTISE = [
   { icon: Workflow,       title: "Workflow Automation",         desc: "Intake process design, document automation, and data mapping across systems." },
   { icon: Database,       title: "API Validation",              desc: "API testing and validation with Postman across integrated healthcare workflows." },
   { icon: FileText,       title: "Technical Documentation",     desc: "SOPs, process documentation, and QA documentation that teams can rely on." },
-  { icon: Globe,          title: "Website Design & Development", desc: "Building and deploying responsive business websites using React, Tailwind CSS, GitHub, Cloudflare Pages, and AI-assisted development tools." },
+  { icon: Globe,          title: "Website Design & Development", desc: "Custom React/Next.js web apps, WordPress business sites, Shopify e-commerce stores, and HTML landing pages — the right platform chosen for your needs and budget." },
   { icon: Briefcase,     title: "Career & Professional Presence", desc: "ATS-optimized resume writing, LinkedIn profile optimization, and career portfolio setup to help professionals present themselves effectively." },
 ];
 
@@ -127,7 +127,7 @@ const CASE_STUDIES = [
 ];
 
 const SERVICES = [
-  { icon: Code2,       title: "Website Design & Development",  items: ["Portfolio & business website development", "React + Vite responsive web development", "Tailwind CSS design & styling", "GitHub version control & deployment", "Cloudflare Pages hosting & CDN setup", "AI-assisted development with Claude", "Canva, Adobe Express & Firefly design assets", "Domain setup & go-live support"] },
+  { icon: Code2,       title: "Website Design & Development",  items: ["Custom React & Next.js web applications", "WordPress business websites & CMS setup", "Shopify e-commerce stores", "Plain HTML/CSS landing pages", "Tailwind CSS design & styling", "Cloudflare Pages & Hostinger hosting", "AI-assisted development with Claude", "Domain setup & go-live support"] },
   { icon: Layers,      title: "SaaS Implementation & Setup",  items: ["SaaS implementation support", "Workflow configuration", "System setup", "Data mapping", "Intake process design"] },
   { icon: Headset,     title: "Product & Customer Support",    items: ["Product support", "Technical troubleshooting", "Customer support operations", "Escalation management"] },
   { icon: ShieldCheck, title: "QA & Validation",               items: ["UAT", "Functional testing", "Regression testing", "API validation", "Validation processes"] },
@@ -182,7 +182,7 @@ const TOOL_CATEGORIES = [
   {
     label: "Website Design & Development",
     sublabel: "Tools used to build, deploy, and manage websites",
-    tools: ["React", "Vite", "Tailwind CSS", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Wix", "Squarespace", "Hostinger", "SITE123", "Carrd", "Lovable", "Base44", "Manus", "Square"],
+    tools: ["React", "Next.js", "Vite", "Tailwind CSS", "WordPress", "Shopify", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
   },
   {
     label: "AI-Assisted Productivity & Development",
@@ -829,7 +829,7 @@ function Footer() {
 const FAQS = [
   {
     q: "What services do you offer?",
-    a: "As an employee, I specialise in SaaS implementation & workflow configuration, product and technical support (Tier 2/3), QA & UAT engineering, API validation with Postman, and workflow automation. Through FreelanceHub as a B2B contractor, I offer website design & development (React, Tailwind CSS, Cloudflare Pages) and career & professional presence services — including ATS-optimised resume writing and LinkedIn profile optimisation.",
+    a: "As an employee, I specialise in SaaS implementation & workflow configuration, product and technical support (Tier 2/3), QA & UAT engineering, API validation with Postman, and workflow automation. Through FreelanceHub as a B2B contractor, I offer website design & development (React/Next.js custom builds, WordPress, Shopify e-commerce) and career & professional presence services — including ATS-optimised resume writing and LinkedIn profile optimisation.",
   },
   {
     q: "Are you available for remote or international work?",
@@ -849,7 +849,7 @@ const FAQS = [
   },
   {
     q: "Can you build a website for my business?",
-    a: "Yes — I build professional, responsive business websites using React + Vite and Tailwind CSS, deployed on Cloudflare Pages with GitHub version control. This portfolio site itself is an example of my work. I handle everything from design to go-live, including domain setup.",
+    a: "Yes — I build websites for businesses and professionals across multiple platforms depending on your needs: custom React/Next.js apps for full control and performance, WordPress for content-managed business sites, Shopify for e-commerce, or plain HTML/CSS for fast landing pages. I handle everything from design to go-live, including domain and hosting setup.",
   },
   {
     q: "Do you work with tools like Jira, Postman, or Basecamp?",
