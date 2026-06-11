@@ -177,12 +177,12 @@ const TOOL_CATEGORIES = [
   {
     label: "QA & Testing",
     sublabel: "Manual and automated quality assurance",
-    tools: ["Postman", "Jira", "Solo (Mozilla)"],
+    tools: ["Postman", "Jira"],
   },
   {
     label: "SaaS & Project Management",
     sublabel: "Enterprise platforms implemented, managed, and supported",
-    tools: ["HHAeXchange", "Basecamp", "Zendesk", "Notion AI", "Confluence"],
+    tools: ["HHAeXchange", "Basecamp", "Zendesk", "Notion AI", "Confluence", "Solo (Mozilla)"],
   },
   {
     label: "Website Design & Development",
