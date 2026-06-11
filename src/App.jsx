@@ -182,12 +182,12 @@ const TOOL_CATEGORIES = [
   {
     label: "SaaS & Project Management",
     sublabel: "Enterprise platforms implemented, managed, and supported",
-    tools: ["HHAeXchange", "Basecamp", "Zendesk", "Notion AI", "Confluence", "Solo (Mozilla)"],
+    tools: ["HHAeXchange", "Basecamp", "Zendesk", "Notion AI", "Confluence"],
   },
   {
     label: "Website Design & Development",
     sublabel: "Tools used to build, deploy, and manage websites",
-    tools: ["React", "Next.js", "Vite", "Tailwind CSS", "WordPress", "Shopify", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
+    tools: ["React", "Next.js", "Vite", "Tailwind CSS", "WordPress", "Shopify", "Solo (Mozilla)", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
   },
   {
     label: "AI-Assisted Productivity & Development",
