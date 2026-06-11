@@ -177,7 +177,7 @@ const TOOL_CATEGORIES = [
   {
     label: "QA & Testing",
     sublabel: "Manual and automated quality assurance",
-    tools: ["Postman", "Jira", "TestRail", "Selenium", "BrowserStack", "Cypress", "Playwright", "Solo (Mozilla)"],
+    tools: ["Postman", "Jira", "Solo (Mozilla)"],
   },
   {
     label: "SaaS & Project Management",
