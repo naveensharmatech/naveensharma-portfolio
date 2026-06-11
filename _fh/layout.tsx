@@ -7,10 +7,9 @@ export const metadata: Metadata = {
   title: "FreelanceHub — Your All-in-One Tech Platform",
   description: "Courses, insights, AI tools, and IT services for tech professionals and businesses.",
   keywords: ["FreelanceHub", "tech courses", "AI tools", "QA testing", "SaaS", "web development"],
+  manifest: "/manifest.json",
   icons: {
-    icon: [
-      { url: "/ns-logo.png", type: "image/png" },
-    ],
+    icon: [{ url: "/ns-logo.png", type: "image/png" }],
     apple: "/ns-logo.png",
     shortcut: "/ns-logo.png",
   },
