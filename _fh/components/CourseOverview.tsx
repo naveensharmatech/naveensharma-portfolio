@@ -10,9 +10,12 @@ import {
   Clock,
   PlayCircle,
   Star,
+  Play,
+  Users,
 } from "lucide-react";
 import { Course } from "@/lib/courses-data";
 import { getCourseProgress } from "@/lib/progress";
+import { SOCIAL } from "@/lib/social";
 
 export function CourseOverview({ course }: { course: Course }) {
   const [completedLessons, setCompletedLessons] = useState<number[]>([]);
@@ -135,8 +138,9 @@ export function CourseOverview({ course }: { course: Course }) {
           </div>
         </div>
 
-        {/* What you'll learn */}
-        <div>
+        {/* Sidebar */}
+        <div className="space-y-4">
+          {/* What you'll learn */}
           <div className="border border-white/10 bg-white/[0.03] rounded-2xl p-5">
             <h2 className="text-white font-semibold mb-4 flex items-center gap-2">
               <BookOpen size={16} className="text-blue-400" />
@@ -150,6 +154,41 @@ export function CourseOverview({ course }: { course: Course }) {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Also available on */}
+          <div className="border border-white/10 bg-white/[0.03] rounded-2xl p-5">
+            <h2 className="text-white font-semibold mb-4 text-sm">Also Available On</h2>
+            <div className="space-y-3">
+              <a
+                href={SOCIAL.youtube.channel}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-xl border border-red-500/20 bg-red-500/10 hover:bg-red-500/15 p-3 transition-colors"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-red-600 shrink-0">
+                  <Play size={14} className="text-white fill-white ml-0.5" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-xs">YouTube</p>
+                  <p className="text-slate-400 text-xs">@nsfreelance · Video lessons</p>
+                </div>
+              </a>
+              <a
+                href={SOCIAL.facebook.page}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-xl border border-blue-500/20 bg-blue-500/10 hover:bg-blue-500/15 p-3 transition-colors"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 shrink-0">
+                  <Users size={14} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-xs">Facebook Community</p>
+                  <p className="text-slate-400 text-xs">Ask questions · Get support</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>

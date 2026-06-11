@@ -9,6 +9,7 @@ export type Lesson = {
   id: number;
   title: string;
   duration: string;
+  youtubeId?: string; // set this to auto-embed the video (e.g. "dQw4w9WgXcQ")
   sections: Section[];
 };
 
