@@ -698,7 +698,7 @@ const LEGAL_DOCS = {
   privacy: {
     title: "Privacy & Data Policy",
     content: [
-      { heading: "Who we are", body: "This website is operated by Naveen Sharma trading as Opility — a registered Osek Murshe (עוסק מורשה) under the Israel Tax Authority, Be'er Sheva. Contact: contact@naveensharma.net" },
+      { heading: "Who we are", body: "naveensharma.net is the personal professional website of Naveen Sharma, based in Be'er Sheva, Israel. B2B services are provided through Opility, a registered IT services business. Contact: contact@naveensharma.net" },
       { heading: "What personal data we collect", body: "This is a static informational website. We do not operate contact forms, user accounts, or server-side data collection of any kind.\n\nIf you contact us directly by email, LinkedIn, phone, or any other channel, we collect only the information you choose to provide (name, company, email address, message content). That data is used exclusively to respond to your enquiry and is never sold, rented, or shared with third parties." },
       { heading: "Legal basis for processing (GDPR)", body: "Where applicable, we process personal data on the basis of legitimate interest (responding to business enquiries) or pre-contractual steps (discussing a potential engagement). Data is retained only as long as necessary to fulfil the purpose for which it was provided, or as required by Israeli or EU law." },
       { heading: "Your rights", body: "If you are located in the EU/EEA or Israel, you have the right to:\n• Access the personal data we hold about you\n• Request correction or erasure of that data\n• Object to processing or request restriction\n• Lodge a complaint with your local data protection authority\n\nTo exercise any of these rights, contact contact@naveensharma.net. We will respond within 30 days." },
@@ -711,19 +711,20 @@ const LEGAL_DOCS = {
   legal: {
     title: "Legal Notice",
     content: [
-      { heading: "Business identity", body: "Naveen Sharma\nTrading as: Opility\nBe'er Sheva, Israel\nEmail: contact@naveensharma.net\nPhone: 058-789-6289\nWebsite: naveensharma.net" },
-      { heading: "Israeli business registration", body: "Registered Osek Murshe (עוסק מורשה) — Authorised Dealer\nIssued by: Israel Tax Authority (רשות המסים בישראל)\nRegistration date: 01 April 2025\n\nAs a registered Osek Murshe, Opility is authorised to issue tax invoices (חשבונית מס) and operate commercially under Israeli VAT law. Registration number is available on request for invoicing and contract purposes." },
+      { heading: "Website", body: "naveensharma.net is the personal professional website of Naveen Sharma — showcasing professional experience, services, and projects. B2B services and contracting are handled through Opility (opility.com), a separate registered business entity." },
+      { heading: "Personal contact", body: "Naveen Sharma\nBe'er Sheva, Israel\nEmail: contact@naveensharma.net\nPhone: 058-789-6289" },
+      { heading: "Business registration", body: "Services are provided through Opility, registered as an Authorised Dealer under the Israel Tax Authority.\nRegistration date: 01 April 2025\n\nOpility is authorised to issue tax invoices and operate commercially under Israeli law. Registration number is available on request for invoicing and contract purposes." },
       { heading: "Nature of services", body: "Opility provides IT services on a B2B basis including:\n• Healthcare SaaS implementation & workflow configuration\n• Systems configuration & platform administration\n• Product & technical support (Tier 2/3)\n• QA, UAT & API validation\n• Workflow automation & technical documentation\n• Website design & development\n• Career & professional presence services\n\nAll services are provided to registered businesses and contractors. Consumer services are not offered." },
-      { heading: "Invoicing & tax", body: "Invoices are issued as חשבונית מס (tax invoices) in compliance with Israeli tax law. Israeli clients are invoiced in ILS and subject to VAT (מע\"מ) at the applicable rate. International clients are invoiced in USD; VAT reverse charge applies where relevant under applicable treaty or EU/international rules." },
-      { heading: "Intellectual property", body: "All content on this website — including text, design, code, and branding — is the property of Naveen Sharma (Opility). Reproduction or reuse without prior written permission is prohibited." },
-      { heading: "Disclaimer", body: "The information on this site is provided for general informational purposes in good faith. Opility accepts no liability for decisions made solely based on website content. Specific service terms, deliverables, and liabilities are defined in a written agreement prior to each engagement." },
-      { heading: "Governing law & jurisdiction", body: "This website and all services provided by Opility are governed by the laws of the State of Israel. Any disputes shall be subject to the exclusive jurisdiction of the competent courts of Be'er Sheva, Israel." },
+      { heading: "Invoicing & tax", body: "Invoices are issued in compliance with Israeli tax law. Israeli clients are invoiced in ILS and subject to VAT at the applicable rate. International clients are invoiced in USD; VAT reverse charge applies where relevant under applicable treaty or EU/international rules." },
+      { heading: "Intellectual property", body: "All content on this website — including text, design, code, and branding — is the property of Naveen Sharma. Reproduction or reuse without prior written permission is prohibited." },
+      { heading: "Disclaimer", body: "The information on this site is provided for general informational purposes in good faith. Naveen Sharma accepts no liability for decisions made solely based on website content. Specific service terms, deliverables, and liabilities are defined in a written agreement prior to each engagement." },
+      { heading: "Governing law & jurisdiction", body: "This website and all services are governed by the laws of the State of Israel. Any disputes shall be subject to the exclusive jurisdiction of the competent courts of Be'er Sheva, Israel." },
     ],
   },
   terms: {
     title: "Terms of Service",
     content: [
-      { heading: "Scope", body: "These terms apply to all engagements with Opility (Naveen Sharma, registered Osek Murshe, Israel). They serve as a general reference; specific deliverables, timelines, and rates are defined in a written Statement of Work or contract signed before work begins." },
+      { heading: "Scope", body: "These terms apply to all B2B engagements with Opility (Naveen Sharma, Authorised Dealer, Israel). They serve as a general reference; specific deliverables, timelines, and rates are defined in a written Statement of Work or contract signed before work begins." },
       { heading: "Services & rates", body: "Opility provides B2B IT services at the following standard rates:\n\n• Healthcare SaaS Implementation & Configuration: $50–65 / hour\n• QA Engineering & API Validation: $45–55 / hour\n• Website Design & Development: $55–70 / hour\n• Minimum project engagement: $500\n\nRates are quoted in USD for international clients and in ILS for Israeli clients. Final rates for each engagement are confirmed in the project agreement. VAT is added for Israeli clients at the statutory rate." },
       { heading: "Payment terms", body: "Project work: 50% deposit required before work begins for new clients; balance due upon delivery and acceptance.\n\nOngoing retainer / support contracts: invoiced monthly in arrears; payment due within 14 days of invoice date.\n\nLate payments accrue interest at 1.5% per month (or the maximum permitted by applicable law, whichever is lower) from the due date." },
       { heading: "Engagement process", body: "No work begins without a confirmed written agreement. Typical process:\n1. Initial consultation (free, up to 30 minutes)\n2. Proposal & Statement of Work issued\n3. Agreement signed / confirmed in writing\n4. Deposit invoice issued and paid\n5. Work commences\n6. Delivery, review, and final payment" },
@@ -732,14 +733,14 @@ const LEGAL_DOCS = {
       { heading: "Revisions & acceptance", body: "Each project includes a defined number of revision rounds as stated in the agreement. Revisions beyond scope are quoted and billed separately. Delivery is deemed accepted if no written objection is received within 7 business days of submission." },
       { heading: "Termination", body: "Either party may terminate an engagement with 14 days' written notice (or as specified in the project agreement). Work completed and costs incurred to the termination date will be invoiced and are payable within 14 days. The deposit is non-refundable if termination is initiated by the client after work has commenced." },
       { heading: "Limitation of liability", body: "Opility's total liability for any claim arising from a specific engagement is limited to the total fees paid for that engagement. Opility is not liable for indirect, incidental, consequential, or loss-of-profit damages. These limitations apply to the fullest extent permitted by applicable law." },
-      { heading: "Contact", body: "For questions about these terms or to discuss an engagement:\nEmail: contact@naveensharma.net\nLinkedIn: linkedin.com/in/freelancehub\nWebsite: naveensharma.net" },
+      { heading: "Contact", body: "For questions about these terms or to discuss an engagement:\nEmail: contact@naveensharma.net\nOpility website: opility.com" },
     ],
   },
   cookies: {
     title: "Cookie Policy",
     content: [
-      { heading: "Overview", body: "This Cookie Policy explains how Opility (naveensharma.net) uses cookies and similar tracking technologies. In short: we do not set our own cookies." },
-      { heading: "Cookies we set", body: "None. Opility does not set any first-party cookies, tracking pixels, fingerprinting scripts, or analytics beacons on this website." },
+      { heading: "Overview", body: "This Cookie Policy explains how naveensharma.net uses cookies and similar tracking technologies. In short: we do not set our own cookies." },
+      { heading: "Cookies we set", body: "None. This website does not set any first-party cookies, tracking pixels, fingerprinting scripts, or analytics beacons." },
       { heading: "YouTube embed cookies", body: "This site includes embedded YouTube video players. YouTube (operated by Google LLC) may set cookies on your device when you load or interact with a video player. These cookies may be used by Google for analytics, advertising personalisation, and preference tracking, subject to Google's Cookie Policy and Privacy Policy.\n\nThese cookies are outside our control. If you prefer not to receive them, you can:\n• Use a browser extension to block YouTube embeds\n• Adjust your Google account ad settings\n• Use your browser's cookie controls to block google.com / youtube.com cookies" },
       { heading: "Cloudflare security cookies", body: "Our hosting provider Cloudflare may set strictly necessary cookies (e.g. __cf_bm) for bot detection and DDoS protection. These cookies do not track you for advertising or analytics purposes and are essential for the secure operation of the site." },
       { heading: "No analytics or advertising", body: "We do not use Google Analytics, Facebook Pixel, LinkedIn Insight Tag, Hotjar, or any other analytics or advertising tracking technology on this website." },
@@ -748,6 +749,25 @@ const LEGAL_DOCS = {
     ],
   },
 };
+
+function LegalBodyText({ text }) {
+  return (
+    <p className="text-sm leading-relaxed text-gray-600 whitespace-pre-line">
+      {text.split(/(mailto:[^\s]+|https?:\/\/[^\s]+|[\w.+-]+@[\w-]+\.[\w.]+)/g).map((part, i) => {
+        if (/^mailto:/.test(part)) {
+          return <a key={i} href={part} className="text-blue-600 hover:underline break-all">{part.replace("mailto:", "")}</a>;
+        }
+        if (/^https?:\/\//.test(part)) {
+          return <a key={i} href={part} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline break-all">{part}</a>;
+        }
+        if (/^[\w.+-]+@[\w-]+\.[\w.]+$/.test(part)) {
+          return <a key={i} href={`mailto:${part}`} className="text-blue-600 hover:underline">{part}</a>;
+        }
+        return <span key={i}>{part}</span>;
+      })}
+    </p>
+  );
+}
 
 function LegalModal({ doc, onClose }) {
   useEffect(() => {
@@ -773,10 +793,10 @@ function LegalModal({ doc, onClose }) {
           {doc.content.map(({ heading, body }) => (
             <div key={heading}>
               <h3 className="text-sm font-bold text-gray-900 mb-1">{heading}</h3>
-              <p className="text-sm leading-relaxed text-gray-600 whitespace-pre-line">{body}</p>
+              <LegalBodyText text={body} />
             </div>
           ))}
-          <p className="text-xs text-gray-400 pt-2">Opility · naveensharma.net</p>
+          <p className="text-xs text-gray-400 pt-2">Naveen Sharma · naveensharma.net</p>
         </div>
       </div>
     </div>
