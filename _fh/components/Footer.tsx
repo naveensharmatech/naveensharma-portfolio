@@ -15,11 +15,11 @@ const nav = {
 };
 
 const social = [
-  { icon: Linkedin, href: "https://linkedin.com/in/freelancehub",            label: "LinkedIn" },
+  { icon: Linkedin, href: "https://linkedin.com/in/naveensharmatech",         label: "LinkedIn" },
   { icon: Github,   href: "https://github.com/naveensharmatech",              label: "GitHub" },
   { icon: Youtube,  href: "https://youtube.com/@nsfreelance",                 label: "YouTube" },
   { icon: Facebook, href: "https://www.facebook.com/share/1CywcrZ78z/",       label: "Facebook" },
-  { icon: Mail,     href: "https://mail.google.com/mail/?view=cm&fs=1&to=naveen.freelancehub@gmail.com&su=Hello%20FreelanceHub", label: "Email" },
+  { icon: Mail,     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@opility.com&su=Hello%20Opility", label: "Email" },
 ];
 
 export default function Footer() {
@@ -31,13 +31,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/ns-logo.png" alt="FreelanceHub" className="h-9 w-9 object-contain" />
-              <span className="text-lg font-bold text-white">
-                Freelance<span className="text-orange-400">Hub</span>
+              <img src="/opility-logo.png" alt="Opility" className="h-9 w-9 object-contain" />
+              <span className="text-lg font-bold text-cyan-400">
+                Opility
               </span>
             </div>
             <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
-              Your all-in-one tech learning & services platform. Courses, insights, AI tools, and professional IT services.
+              Opility — courses, AI tools, QA testing, SaaS resources, and professional IT services for tech professionals.
             </p>
             <div className="flex gap-3 mt-5">
               {social.map(({ icon: Icon, href, label }) => (
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} FreelanceHub IT Services. Registered Business, Israel.</p>
+          <p>© {new Date().getFullYear()} Opility. Registered Authorised Dealer, Israel.</p>
           <p>Built by <a href="https://naveensharma.net" className="hover:text-white transition-colors">Naveen Sharma</a></p>
         </div>
       </div>

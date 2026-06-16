@@ -105,7 +105,7 @@ export function CertificateViewer({ course }: { course: Course }) {
               {/* Watermark logo */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/ns-logo.png"
+                src="/opility-logo.png"
                 alt=""
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 m-auto h-64 w-64 object-contain opacity-[0.08] select-none"
@@ -117,7 +117,7 @@ export function CertificateViewer({ course }: { course: Course }) {
                 <div className="h-1 w-24 bg-yellow-500 mx-auto rounded mb-8" />
 
                 <p className="text-yellow-400 text-xs font-semibold tracking-widest uppercase mb-2">
-                  FreelanceHub Academy
+                  Opility Academy
                 </p>
 
                 <p className="text-slate-400 text-sm mb-6">
@@ -158,7 +158,7 @@ export function CertificateViewer({ course }: { course: Course }) {
                   <div className="text-center">
                     <div className="h-px w-32 bg-white/20 mb-2" />
                     <p className="text-slate-400 text-xs">Naveen Sharma</p>
-                    <p className="text-slate-600 text-xs">FreelanceHub Academy</p>
+                    <p className="text-slate-600 text-xs">Opility Academy</p>
                   </div>
                 </div>
 

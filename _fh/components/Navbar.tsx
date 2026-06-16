@@ -22,12 +22,12 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2.5 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/ns-logo.png"
-            alt="FreelanceHub"
+            src="/opility-logo.png"
+            alt="Opility"
             className="h-9 w-9 object-contain"
           />
-          <span className="text-lg font-bold text-white">
-            Freelance<span className="text-orange-400">Hub</span>
+          <span className="text-lg font-bold text-cyan-400">
+            Opility
           </span>
         </Link>
 

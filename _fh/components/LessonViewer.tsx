@@ -202,7 +202,7 @@ export function LessonViewer({
             </div>
             <div>
               <p className="text-white font-semibold text-sm">Ask in the Community</p>
-              <p className="text-slate-400 text-xs">FreelanceHub · Facebook Group</p>
+              <p className="text-slate-400 text-xs">Opility · Facebook Group</p>
             </div>
           </a>
         </div>

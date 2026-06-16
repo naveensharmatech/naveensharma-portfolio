@@ -4,21 +4,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "FreelanceHub — Your All-in-One Tech Platform",
-  description: "Courses, insights, AI tools, and IT services for tech professionals and businesses.",
-  keywords: ["FreelanceHub", "tech courses", "AI tools", "QA testing", "SaaS", "web development"],
+  title: "Opility App — Courses, QA, SaaS & Career",
+  description: "Free tech courses, AI tools, QA testing, SaaS implementation, and professional IT services — by Opility.",
+  keywords: ["Opility", "tech courses", "AI tools", "QA testing", "SaaS", "web development"],
   manifest: "/manifest.json",
   icons: {
-    icon: [{ url: "/ns-logo.png", type: "image/png" }],
-    apple: "/ns-logo.png",
-    shortcut: "/ns-logo.png",
+    icon: [{ url: "/opility-logo.png", type: "image/png" }],
+    apple: "/opility-logo.png",
+    shortcut: "/opility-logo.png",
   },
   openGraph: {
-    title: "FreelanceHub",
-    description: "Your All-in-One Tech Learning & Services Platform",
-    url: "https://hub.naveensharma.net",
-    siteName: "FreelanceHub",
-    images: [{ url: "/ns-logo.png", width: 512, height: 512 }],
+    title: "Opility App",
+    description: "Free tech courses in QA, AI, SaaS, and web development — learn from a working professional.",
+    url: "https://app.opility.com",
+    siteName: "Opility",
+    images: [{ url: "/opility-logo.png", width: 512, height: 512 }],
     type: "website",
   },
 };

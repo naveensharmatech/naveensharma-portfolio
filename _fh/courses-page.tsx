@@ -7,7 +7,7 @@ import {
   Zap, Shield, TrendingUp,
 } from "lucide-react";
 
-const CONTACT_EMAIL = "naveen.freelancehub@gmail.com";
+const CONTACT_EMAIL = "hello@opility.com";
 const CATEGORIES = ["All", "AI & Automation", "QA & Testing", "SaaS", "Web Development", "Career"];
 
 const COURSES = [
@@ -151,7 +151,7 @@ export default function CoursesPage() {
     return matchCat && matchSearch;
   });
 
-  const mailtoHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}&su=Notify%20me%20about%20new%20FreelanceHub%20courses`;
+  const mailtoHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}&su=Notify%20me%20about%20new%20Opility%20courses`;
   const available = COURSES.filter((c) => c.available);
   const totalStudents = "6,043";
 
