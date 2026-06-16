@@ -3,7 +3,7 @@ import {
   Menu, X, Mail, Github, MapPin, Globe, ArrowRight, CheckCircle2,
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
   ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube, Briefcase,
-  MessageCircle, Send, Building2,
+  MessageCircle, Send, GraduationCap, Award, ExternalLink as LinkOut,
 } from "lucide-react";
 
 /* ─── DATA ───────────────────────────────────────────────────── */
@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Expertise",    href: "#expertise" },
   { label: "Experience",   href: "#experience" },
   { label: "Case Studies", href: "#casestudies" },
-  { label: "Services",     href: "#services" },
+  { label: "Education",    href: "#education" },
   { label: "Projects",     href: "#projects" },
   { label: "FAQ",          href: "#faq" },
   { label: "Contact",      href: "#contact" },
@@ -25,7 +25,6 @@ const HEADLINES = [
   "QA & UAT Engineer",
   "API Validation Expert",
   "Product Support Specialist",
-  "Website Design & Development",
   "B2B Technical Contractor",
 ];
 
@@ -36,7 +35,7 @@ const EXPERTISE = [
   { icon: ClipboardCheck, title: "QA / UAT & Release Validation",   desc: "Functional, regression, and UAT testing across product releases. Production readiness validation from configuration to go-live." },
   { icon: Database,       title: "API Validation & Data Mapping",   desc: "API testing and validation with Postman. Data mapping, payload auditing, and integrity validation across integrated systems." },
   { icon: FileText,       title: "Technical Documentation",         desc: "SOPs, process documentation, QA documentation, and knowledge base content that implementation teams can rely on." },
-  { icon: Globe,          title: "Website Design & Development",    desc: "Custom React/Next.js web apps, WordPress business sites, Shopify e-commerce stores, and HTML landing pages — right platform for your needs." },
+  { icon: Globe,          title: "Website Design & Development",    desc: "Custom React/Next.js web apps, WordPress business sites, Shopify e-commerce stores, and HTML landing pages." },
   { icon: Briefcase,      title: "Career & Professional Presence",  desc: "ATS-optimised resume writing, LinkedIn profile optimisation, and career portfolio setup for tech professionals." },
 ];
 
@@ -44,7 +43,7 @@ const EXPERIENCES = [
   {
     company: "Bolt Healthcare",
     period: "2022 – 2026",
-    context: "Healthcare SaaS · Be'er Sheva, Israel",
+    context: "Healthcare SaaS · Remote, USA",
     roles: [
       "Dynamic File Support Agent",
       "Healthcare SaaS Implementation & Systems Configuration Specialist",
@@ -71,7 +70,7 @@ const EXPERIENCES = [
   {
     company: "Shivam Institute (S.I.V.T)",
     period: "Aug 2012 – Sep 2015",
-    context: "Technical Training Centre · Dharamshala",
+    context: "Technical Training Centre · Dharamshala, India",
     roles: ["Founder / Operations Manager"],
     points: [
       "Managed the full operational lifecycle of a technical training centre — scheduling, supplier coordination, staff management, and IT infrastructure.",
@@ -84,7 +83,7 @@ const CASE_STUDIES = [
   {
     title: "Healthcare Intake Workflow Configuration",
     tag: "Bolt Healthcare · Case Study",
-    challenge: "A healthcare agency using the Bolt Intake App needed complex intake workflows configured and validated before go-live. Misconfigured workflows were causing data gaps in client onboarding pipelines and creating downstream compliance risk.",
+    challenge: "A healthcare agency needed complex intake workflows configured and validated before go-live. Misconfigured workflows were causing data gaps in client onboarding pipelines and creating downstream compliance risk.",
     role: "Healthcare SaaS Implementation & Systems Configuration Specialist — led end-to-end workflow configuration, UAT planning, and pre-production validation.",
     solution: "Configured system workflows and intake form logic against business and compliance requirements. Ran structured UAT cycles, documented failures, and iterated with engineering until the workflow met production standards.",
     outcome: "Delivered a validated intake configuration that passed UAT, met healthcare compliance expectations, and was successfully promoted to production.",
@@ -113,39 +112,33 @@ const CASE_STUDIES = [
     solution: "Executed integration testing, tracked data inconsistencies, and resolved issues through structured escalation. Maintained defect logs in Jira and coordinated fixes in Basecamp.",
     outcome: "Integration reliability maintained across multiple rollouts with improved escalation response time.",
   },
-  {
-    title: "Opility Platform — Courses, Resources & Tools",
-    tag: "Opility · Live Project",
-    challenge: "Needed a professional learning and services platform to deliver courses, resources, and tools to tech professionals and business clients — without the limitations of third-party course platforms.",
-    role: "Founder, Designer & Developer — full end-to-end ownership from architecture to deployment.",
-    solution: "Designed and built a full-stack Next.js application with a complete course system, certificate generation, YouTube and Facebook community integration, Udemy-style UI, and PWA support for mobile installation.",
-    outcome: "Live at hub.naveensharma.net — a complete business platform delivering free courses in AI, QA, and SaaS implementation with certificate generation and community integration.",
-  },
-  {
-    title: "Ella — AI Chat Assistant",
-    tag: "Opility · Live Project",
-    challenge: "The website needed a way to engage visitors 24/7, answer questions about services and availability, and convert browsers into leads — without requiring constant availability.",
-    role: "Full-stack developer & project owner — designed, built, and deployed the entire chatbot end-to-end.",
-    solution: "Built a React chat widget integrated with a Cloudflare Pages serverless function proxying to the Groq AI API (Llama 3). System prompt trained on the full professional profile, services, and experience.",
-    outcome: "Live on naveensharma.net — Ella answers visitor questions instantly, 24/7. Demonstrates AI integration, serverless backend development, and full-stack capability.",
-  },
-  {
-    title: "naveensharma.net — Personal Brand Website",
-    tag: "Opility · Live Project",
-    challenge: "Needed a professional online presence to establish the personal brand, showcase healthcare SaaS and QA expertise, and attract employment and B2B clients.",
-    role: "Designer, Developer & Project Owner — full ownership from concept to deployment.",
-    solution: "Designed and built a custom single-page React application with Tailwind CSS, GitHub version control, and Cloudflare Pages hosting. AI-assisted development throughout to accelerate delivery.",
-    outcome: "Live at naveensharma.net — deployed to Cloudflare's global edge network. Demonstrates full-stack web development capability alongside core SaaS and QA services.",
-  },
 ];
 
-const SERVICES = [
-  { icon: Code2,       title: "Website Design & Development",           items: ["Custom React & Next.js web applications", "WordPress business websites & CMS setup", "Shopify e-commerce stores", "Plain HTML/CSS landing pages", "Tailwind CSS design & styling", "Cloudflare Pages & Hostinger hosting", "AI-assisted development", "Domain setup & go-live support"] },
-  { icon: Layers,      title: "Healthcare SaaS Implementation & Setup",  items: ["SaaS implementation support", "Workflow configuration", "Platform administration", "Data mapping & validation", "Intake process design", "Go-live & hypercare support"] },
-  { icon: Headset,     title: "Product & Customer Support",              items: ["Tier 2/3 product support", "Technical troubleshooting", "Customer onboarding support", "Escalation management", "Defect tracking & resolution"] },
-  { icon: ShieldCheck, title: "QA / UAT & Release Validation",           items: ["UAT planning & execution", "Functional & regression testing", "API validation with Postman", "Production readiness validation", "QA documentation & test plans"] },
-  { icon: FileText,    title: "Automation & Documentation",              items: ["Workflow automation", "Document automation", "Technical documentation", "SOPs & process documentation", "Knowledge base creation"] },
-  { icon: Briefcase,   title: "Career & Professional Presence",          items: ["ATS-optimised resume writing", "LinkedIn profile optimisation", "Career portfolio website setup", "Professional bio & personal branding", "AI-assisted career document creation"] },
+const EDUCATION = [
+  {
+    icon: GraduationCap,
+    institution: "Amity University Online",
+    degree: "BCA — Bachelor of Computer Applications",
+    focus: "Cloud Computing & Security",
+    period: "2022 – 2026",
+    type: "Degree",
+  },
+  {
+    icon: Award,
+    institution: "Smart College",
+    degree: "QA Engineering Certification",
+    focus: "Web & Mobile Testing",
+    period: "Sep 2021",
+    type: "Certification",
+  },
+  {
+    icon: Award,
+    institution: "Professional Development",
+    degree: "Software Testing & Automation Foundation",
+    focus: "Test planning, defect lifecycle, automation fundamentals",
+    period: "2021",
+    type: "Certification",
+  },
 ];
 
 const PROJECTS = [
@@ -167,29 +160,22 @@ const PROJECTS = [
     icon: Code2,
     title: "Django Blogging CMS",
     tag: "BCA Graduation Project",
-    desc: "A content management system built to demonstrate technical learning and development skills — authentication, CRUD operations, category management, and an admin dashboard.",
+    desc: "A content management system built to demonstrate technical learning — authentication, CRUD operations, category management, and an admin dashboard.",
     skills: ["Python", "Django", "MySQL", "MongoDB", "Bootstrap", "AJAX"],
   },
   {
     icon: Globe,
-    title: "naveensharma.net — Personal Brand Website",
-    tag: "Opility · Live Project",
-    desc: "Designed, built, and deployed a professional personal brand website end-to-end — from concept and layout through to domain go-live on Cloudflare Pages.",
-    skills: ["React", "Vite", "Tailwind CSS", "GitHub", "Cloudflare Pages", "AI-Assisted Dev"],
+    title: "naveensharma.net — Personal Portfolio",
+    tag: "Personal Project",
+    desc: "Designed, built, and deployed this professional portfolio site end-to-end — from concept through to domain go-live on Cloudflare Pages.",
+    skills: ["React", "Vite", "Tailwind CSS", "GitHub", "Cloudflare Pages"],
   },
   {
     icon: MessageCircle,
     title: "Ella — AI Chat Assistant",
-    tag: "Opility · Live Project",
-    desc: "Built and deployed a full-stack AI chat assistant — React frontend, Cloudflare Pages serverless backend, and Groq AI (Llama 3) integration. Live 24/7.",
-    skills: ["React", "Cloudflare Pages Functions", "Groq API", "Llama 3", "Serverless", "AI Integration"],
-  },
-  {
-    icon: Building2,
-    title: "Opility Platform — Courses & Resources Hub",
-    tag: "Opility · Live Project",
-    desc: "Designed and built the full Opility learning platform — course system, certificates, YouTube integration, PWA, and Udemy-style UI.",
-    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "PWA"],
+    tag: "Personal Project",
+    desc: "Full-stack AI chat assistant — React frontend, Cloudflare Pages serverless backend, Groq AI (Llama 3) integration. Live 24/7 on this site.",
+    skills: ["React", "Cloudflare Pages Functions", "Groq API", "Llama 3", "Serverless"],
   },
 ];
 
@@ -197,7 +183,7 @@ const TOOL_CATEGORIES = [
   {
     label: "SaaS, QA & Technical Operations",
     sublabel: "Core professional tooling",
-    tools: ["Postman", "Jira", "Basecamp", "Notion AI", "HHAeXchange", "Solo (Mozilla)"],
+    tools: ["Postman", "Jira", "Basecamp", "Notion AI", "HHAeXchange", "Solo AI (Mozilla)"],
   },
   {
     label: "Website Design & Development",
@@ -212,7 +198,7 @@ const TOOL_CATEGORIES = [
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
-    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io", "LinkedIn"],
+    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io"],
   },
 ];
 
@@ -234,23 +220,27 @@ function Navbar() {
         <a href="#top" className="flex items-center gap-3">
           <img
             src="/opility-logo.png"
-            alt="Opility"
+            alt="Naveen Sharma"
             className="h-10 w-auto object-contain"
             onError={(e) => { e.target.style.display = "none"; }}
           />
           <div className="flex flex-col leading-tight">
             <span className="text-base font-bold tracking-tight text-gray-900">Naveen Sharma</span>
-            <span className="text-xs font-medium text-blue-600">Opility · IT Services</span>
+            <span className="text-xs font-medium text-blue-600">Healthcare SaaS · QA · Systems Configuration</span>
           </div>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href}
               className="text-sm font-medium text-gray-600 transition hover:text-blue-600">
               {link.label}
             </a>
           ))}
+          <a href="https://opility.com" target="_blank" rel="noreferrer"
+            className="text-sm font-medium text-blue-600 transition hover:text-blue-700 flex items-center gap-1">
+            Opility <LinkOut size={12} />
+          </a>
           <a href="#contact"
             className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
             Get in touch
@@ -273,6 +263,10 @@ function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a href="https://opility.com" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}
+              className="border-b border-gray-100 py-3 text-sm font-medium text-blue-600 flex items-center gap-1">
+              Opility <LinkOut size={12} />
+            </a>
             <a href="#contact" onClick={() => setOpen(false)}
               className="mt-3 mb-2 rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white">
               Get in touch
@@ -302,8 +296,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
-          <span className="font-extrabold text-blue-600">Opility</span>
-          {" "}— Healthcare SaaS Implementation, Systems Configuration, QA &amp; Technical Services
+          Healthcare SaaS Implementation &amp; Systems Configuration Specialist
         </p>
 
         <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
@@ -316,28 +309,28 @@ function Hero() {
         </div>
 
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
-          Available for employment in healthcare SaaS implementation, systems configuration, product support,
-          and quality assurance — and through Opility as a B2B contractor for website design &amp;
-          development, technical services, and career support.
+          8+ years of professional experience, including 4+ years in healthcare SaaS at Bolt Healthcare.
+          Available for full-time, hybrid, and remote employment in SaaS implementation, systems configuration,
+          QA engineering, and product support.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          <a href="#contact"
+          <a href="/Naveen Sharma General CV.pdf" download
             className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white transition hover:bg-blue-700">
-            Work with me <ArrowRight size={18} />
+            Download CV <ArrowRight size={18} />
           </a>
-          <a href="#services"
+          <a href="#contact"
             className="inline-flex items-center gap-2 rounded-lg border-2 border-gray-200 px-8 py-4 text-base font-semibold text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
-            View services
+            Get in touch
           </a>
         </div>
 
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-gray-100 pt-12">
           {[
-            { num: "8+",     label: "Years Experience" },
-            { num: "4+",     label: "Years Healthcare SaaS" },
+            { num: "8+",       label: "Years Experience" },
+            { num: "4+",       label: "Years Healthcare SaaS" },
             { num: "Tier 2/3", label: "Technical Support" },
-            { num: "B2B",    label: "Registered Contractor" },
+            { num: "Remote",   label: "Available Globally" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-3xl font-extrabold text-blue-600">{s.num}</p>
@@ -388,21 +381,30 @@ function About() {
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation & Systems Configuration Specialist"
-              description="Naveen Sharma is a Healthcare SaaS Implementation & Systems Configuration Specialist available for full-time, hybrid, and remote employment — and the founder of Opility, a registered IT services business offering technical contracting, website development, and professional services." />
+            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation & Systems Configuration Specialist" />
             <p className="text-base leading-relaxed text-gray-600">
-              With 8+ years of professional experience, including 4+ years in healthcare SaaS at Bolt Healthcare,
-              I partner with engineering, product, and operations teams to configure, validate, and support
-              SaaS platforms from first workflow through to production release.
+              I'm Naveen Sharma — a Healthcare SaaS Implementation & Systems Configuration Specialist
+              with 8+ years of professional experience, including 4+ years at Bolt Healthcare working
+              directly on intake workflows, platform administration, API validation, and QA across a
+              regulated healthcare SaaS environment.
             </p>
             <p className="mt-4 text-base leading-relaxed text-gray-600">
-              Through Opility, I also work with businesses and professionals on website builds,
-              QA consulting, ATS-optimised resumes, and LinkedIn optimisation — as a registered B2B contractor.
+              I'm available for full-time, hybrid, and remote roles in SaaS implementation, systems
+              configuration, product support, and quality assurance. I'm also the founder of{" "}
+              <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">Opility</a>
+              {" "}— a registered B2B IT services business.
             </p>
-            <a href="#contact"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline">
-              Get in touch <ArrowRight size={16} />
-            </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#contact"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline">
+                Contact me <ArrowRight size={16} />
+              </a>
+              <span className="text-gray-300">·</span>
+              <a href="https://opility.com" target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-blue-600 hover:underline">
+                B2B services at Opility <LinkOut size={14} />
+              </a>
+            </div>
           </div>
           <div className="flex flex-col items-center gap-6 lg:items-start">
             <img
@@ -412,10 +414,10 @@ function About() {
             />
             <div className="grid w-full grid-cols-2 gap-4">
               {[
-                { label: "As Employee",    value: "SaaS Implementation · QA · API · Product Support" },
-                { label: "Experience",     value: "8+ years · 4+ in healthcare SaaS" },
-                { label: "Via Opility",    value: "Web Dev · QA · SaaS · Career Services" },
-                { label: "Availability",   value: "Full-time · Hybrid · Remote · B2B" },
+                { label: "Role focus",   value: "SaaS Implementation · QA · Systems Configuration" },
+                { label: "Experience",   value: "8+ years · 4+ in healthcare SaaS" },
+                { label: "Location",     value: "Be'er Sheva, Israel · Remote OK" },
+                { label: "Availability", value: "Full-time · Hybrid · Remote" },
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
@@ -434,8 +436,8 @@ function Expertise() {
   return (
     <section id="expertise" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Expertise" center title="Core areas I work in"
-          description="The practical capabilities I bring to healthcare SaaS implementation, systems configuration, quality assurance, and website development." />
+        <SectionHeading eyebrow="Expertise" center title="Core competencies"
+          description="The practical skills I bring to healthcare SaaS implementation, systems configuration, quality assurance, and technical support." />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EXPERTISE.map((item) => {
             const Icon = item.icon;
@@ -502,9 +504,9 @@ function CaseStudies() {
   return (
     <section id="casestudies" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Case Studies"
+        <SectionHeading eyebrow="Case Studies · Bolt Healthcare"
           title="Real-world implementation work"
-          description="A closer look at the types of challenges I solved across healthcare SaaS implementation, QA, API validation, and platform development. No confidential data is disclosed." />
+          description="A closer look at the challenges I solved across healthcare SaaS implementation, QA, and API validation during my time at Bolt Healthcare. No confidential data is disclosed." />
         <div className="grid gap-6 md:grid-cols-2">
           {CASE_STUDIES.map((cs) => (
             <div key={cs.title}
@@ -514,7 +516,7 @@ function CaseStudies() {
               <div className="mt-6 space-y-4">
                 {[
                   { label: "Challenge", text: cs.challenge, color: "bg-red-50 text-red-700" },
-                  { label: "Role",      text: cs.role,      color: "bg-blue-50 text-blue-700" },
+                  { label: "My Role",   text: cs.role,      color: "bg-blue-50 text-blue-700" },
                   { label: "Solution",  text: cs.solution,  color: "bg-gray-100 text-gray-700" },
                   { label: "Outcome",   text: cs.outcome,   color: "bg-green-50 text-green-700" },
                 ].map(({ label, text, color }) => (
@@ -532,38 +534,79 @@ function CaseStudies() {
   );
 }
 
-function Services() {
+function AvailableFor() {
+  const roles = [
+    { title: "SaaS Implementation", items: ["Workflow configuration", "Platform setup & administration", "Go-live & hypercare", "Customer onboarding"] },
+    { title: "QA & Release Validation", items: ["UAT planning & execution", "Functional & regression testing", "API validation with Postman", "Production readiness"] },
+    { title: "Product & Technical Support", items: ["Tier 2/3 support", "Escalation management", "Defect tracking (Jira)", "Documentation & SOPs"] },
+  ];
   return (
-    <section id="services" className="bg-blue-600 text-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-200">Opility</p>
-          <h2 className="text-4xl font-extrabold tracking-tight">Services for healthcare, SaaS, web &amp; growing teams</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">
-            As a registered independent B2B contractor, I support healthcare SaaS companies,
-            startups, and international clients through Opility.
+    <section className="bg-blue-600 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="mb-12 text-center">
+          <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-200">Open to opportunities</p>
+          <h2 className="text-3xl font-extrabold tracking-tight">Available for full-time, hybrid &amp; remote roles</h2>
+          <p className="mx-auto mt-4 max-w-xl text-blue-100">
+            I'm actively looking for roles in healthcare SaaS implementation, systems configuration,
+            QA engineering, and product support.
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {SERVICES.map((service, index) => {
-            const Icon = service.icon;
+        <div className="grid gap-6 sm:grid-cols-3 mb-10">
+          {roles.map((r) => (
+            <div key={r.title} className="rounded-2xl bg-blue-700/50 border border-blue-500/30 p-6">
+              <h3 className="font-bold text-white mb-4">{r.title}</h3>
+              <ul className="space-y-2">
+                {r.items.map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-blue-100">
+                    <CheckCircle2 size={14} className="shrink-0 text-blue-300" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="text-center">
+          <p className="text-blue-200 text-sm mb-4">
+            Looking for B2B services or contracting?{" "}
+            <a href="https://opility.com" target="_blank" rel="noreferrer"
+              className="text-white font-semibold underline underline-offset-2 hover:text-blue-100">
+              Visit Opility →
+            </a>
+          </p>
+          <a href="#contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-blue-600 transition hover:bg-blue-50">
+            Get in touch <ArrowRight size={16} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Education() {
+  return (
+    <section id="education" className="bg-white">
+      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <SectionHeading eyebrow="Education & Certifications" title="Academic background & professional training" />
+        <div className="grid gap-5 sm:grid-cols-3">
+          {EDUCATION.map((item) => {
+            const Icon = item.icon;
             return (
-              <div key={service.title}
-                className={`rounded-2xl bg-blue-700/50 p-8 border border-blue-500/30 ${index === 0 ? "sm:col-span-2" : ""}`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white">
+              <div key={item.degree}
+                className="rounded-2xl border border-gray-100 bg-gray-50 p-8 transition hover:shadow-md">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                     <Icon size={22} />
                   </div>
-                  <h3 className="text-lg font-bold">{service.title}</h3>
+                  <span className="rounded-full bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1">
+                    {item.type}
+                  </span>
                 </div>
-                <ul className="space-y-2.5">
-                  {service.items.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm text-blue-100">
-                      <CheckCircle2 size={16} className="shrink-0 text-blue-300" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">{item.institution}</p>
+                <h3 className="text-base font-extrabold text-gray-900 mb-1">{item.degree}</h3>
+                <p className="text-sm text-gray-500 mb-3">{item.focus}</p>
+                <p className="text-xs font-semibold text-blue-600">{item.period}</p>
               </div>
             );
           })}
@@ -575,10 +618,10 @@ function Services() {
 
 function Projects() {
   return (
-    <section id="projects" className="bg-white">
+    <section id="projects" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Projects" title="Selected work & study"
-          description="QA test planning certification projects, academic development work, and live Opility platform builds." />
+        <SectionHeading eyebrow="Projects" title="Personal projects & study work"
+          description="QA certification projects, an academic development build, and personal web projects." />
         <div className="grid gap-6 md:grid-cols-3">
           {PROJECTS.map((project) => {
             const Icon = project.icon;
@@ -610,13 +653,13 @@ function Projects() {
 
 function Tools() {
   return (
-    <section className="bg-gray-50">
+    <section className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Tools" center title="Tools I work with"
-          description="My core professional tooling spans healthcare SaaS implementation, QA, API validation, website development, and technical operations. AI tools enhance productivity — they support the work, not replace the expertise." />
+          description="Core professional tooling across healthcare SaaS, QA, API validation, and website development." />
         <div className="space-y-6">
           {TOOL_CATEGORIES.map((cat) => (
-            <div key={cat.label} className="rounded-2xl border border-gray-100 bg-white p-8">
+            <div key={cat.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-8">
               <div className="mb-5">
                 <h3 className="text-base font-extrabold text-gray-900">{cat.label}</h3>
                 <p className="mt-0.5 text-xs text-gray-400">{cat.sublabel}</p>
@@ -624,7 +667,7 @@ function Tools() {
               <div className="flex flex-wrap gap-2.5">
                 {cat.tools.map((tool) => (
                   <span key={tool}
-                    className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
+                    className="rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
                     {tool}
                   </span>
                 ))}
@@ -642,26 +685,27 @@ function Contact() {
     <section id="contact" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Contact" center
-          title="Let's talk about your implementation, web, support, or QA needs"
-          description="Available for full-time, hybrid, and remote roles, as well as B2B contract engagements through Opility." />
+          title="Let's talk"
+          description="Available for full-time, hybrid, and remote employment. Based in Be'er Sheva, Israel." />
 
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 flex justify-center gap-4">
             <a href="/Naveen Sharma General CV.pdf" target="_blank" rel="noreferrer"
               className="rounded-lg border-2 border-gray-200 px-6 py-3 text-sm font-bold text-gray-700 transition hover:border-blue-400 hover:text-blue-600">
-              View Resume
+              View CV
             </a>
             <a href="/Naveen Sharma General CV.pdf" download
               className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
-              Download Resume (PDF)
+              Download CV (PDF)
             </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { href: "mailto:contact@naveensharma.net", icon: Mail,  label: "Email",    text: "contact@naveensharma.net", external: false, link: true  },
-              { href: "tel:+972587896289",               icon: Phone,  label: "Phone",    text: "058-789-6289",             external: false, link: true  },
-              { href: null,                              icon: MapPin, label: "Location", text: "Be'er Sheva, Israel",      external: false, link: false },
+              { href: "mailto:contact@naveensharma.net",               icon: Mail,     label: "Email",    text: "contact@naveensharma.net",         external: false, link: true  },
+              { href: "https://linkedin.com/in/naveensharmatech",       icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/naveensharmatech",  external: true,  link: true  },
+              { href: "tel:+972587896289",                              icon: Phone,    label: "Phone",    text: "058-789-6289",                      external: false, link: true  },
+              { href: null,                                             icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",              external: false, link: false },
             ].map(({ href, icon: Icon, label, text, external, link }) => {
               const classes = "flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 transition hover:border-blue-300 hover:shadow-md";
               const inner = (
@@ -698,54 +742,47 @@ const LEGAL_DOCS = {
   privacy: {
     title: "Privacy & Data Policy",
     content: [
-      { heading: "Who we are", body: "naveensharma.net is the personal professional website of Naveen Sharma, based in Be'er Sheva, Israel. B2B services are provided through Opility, a registered IT services business. Contact: contact@naveensharma.net" },
-      { heading: "What personal data we collect", body: "This is a static informational website. We do not operate contact forms, user accounts, or server-side data collection of any kind.\n\nIf you contact us directly by email, LinkedIn, phone, or any other channel, we collect only the information you choose to provide (name, company, email address, message content). That data is used exclusively to respond to your enquiry and is never sold, rented, or shared with third parties." },
-      { heading: "Legal basis for processing (GDPR)", body: "Where applicable, we process personal data on the basis of legitimate interest (responding to business enquiries) or pre-contractual steps (discussing a potential engagement). Data is retained only as long as necessary to fulfil the purpose for which it was provided, or as required by Israeli or EU law." },
-      { heading: "Your rights", body: "If you are located in the EU/EEA or Israel, you have the right to:\n• Access the personal data we hold about you\n• Request correction or erasure of that data\n• Object to processing or request restriction\n• Lodge a complaint with your local data protection authority\n\nTo exercise any of these rights, contact contact@naveensharma.net. We will respond within 30 days." },
-      { heading: "Cookies & third-party embeds", body: "We do not set our own cookies or use tracking pixels, advertising networks, or analytics services. This site embeds YouTube videos hosted by Google. If you interact with a YouTube player, Google may set cookies on your device subject to Google's Privacy Policy. We have no control over those cookies." },
-      { heading: "Hosting & infrastructure", body: "This site is hosted on Cloudflare Pages (Cloudflare, Inc., USA). Cloudflare may process standard server request data (IP address, browser type, URL requested) for security, DDoS protection, and performance purposes, subject to Cloudflare's Privacy Policy." },
-      { heading: "Data transfers", body: "Cloudflare operates globally. By accessing this website, your request data may be processed outside your country of residence. Cloudflare maintains appropriate safeguards under its Privacy Shield / Standard Contractual Clauses." },
+      { heading: "Who we are", body: "naveensharma.net is the personal professional website of Naveen Sharma, based in Be'er Sheva, Israel. B2B services are provided through Opility (opility.com), a separate registered business. Contact: contact@naveensharma.net" },
+      { heading: "What personal data we collect", body: "This is a static informational website. We do not operate contact forms, user accounts, or server-side data collection of any kind.\n\nIf you contact me directly by email, LinkedIn, phone, or any other channel, I collect only the information you choose to provide (name, company, email address, message content). That data is used exclusively to respond to your enquiry and is never sold, rented, or shared with third parties." },
+      { heading: "Legal basis for processing (GDPR)", body: "Where applicable, personal data is processed on the basis of legitimate interest (responding to business enquiries) or pre-contractual steps. Data is retained only as long as necessary to fulfil the purpose for which it was provided, or as required by Israeli or EU law." },
+      { heading: "Your rights", body: "If you are located in the EU/EEA or Israel, you have the right to:\n• Access the personal data held about you\n• Request correction or erasure of that data\n• Object to processing or request restriction\n• Lodge a complaint with your local data protection authority\n\nTo exercise any of these rights, contact contact@naveensharma.net. I will respond within 30 days." },
+      { heading: "Cookies & third-party embeds", body: "This site does not set its own cookies or use tracking pixels, advertising networks, or analytics services. This site may embed YouTube videos. If you interact with a YouTube player, Google may set cookies subject to their Privacy Policy." },
+      { heading: "Hosting & infrastructure", body: "This site is hosted on Cloudflare Pages (Cloudflare, Inc., USA). Cloudflare may process standard server request data for security and performance purposes, subject to Cloudflare's Privacy Policy." },
       { heading: "Changes to this policy", body: "This policy may be updated periodically. The current version is always available at naveensharma.net. Last updated: June 2026." },
     ],
   },
   legal: {
     title: "Legal Notice",
     content: [
-      { heading: "Website", body: "naveensharma.net is the personal professional website of Naveen Sharma — showcasing professional experience, services, and projects. B2B services and contracting are handled through Opility (opility.com), a separate registered business entity." },
+      { heading: "About this website", body: "naveensharma.net is the personal professional website of Naveen Sharma. It is not the website of Opility. B2B services and client engagements are handled through Opility (opility.com)." },
       { heading: "Personal contact", body: "Naveen Sharma\nBe'er Sheva, Israel\nEmail: contact@naveensharma.net\nPhone: 058-789-6289" },
-      { heading: "Business registration", body: "Services are provided through Opility, registered as an Authorised Dealer under the Israel Tax Authority.\nRegistration date: 01 April 2025\n\nOpility is authorised to issue tax invoices and operate commercially under Israeli law. Registration number is available on request for invoicing and contract purposes." },
-      { heading: "Nature of services", body: "Opility provides IT services on a B2B basis including:\n• Healthcare SaaS implementation & workflow configuration\n• Systems configuration & platform administration\n• Product & technical support (Tier 2/3)\n• QA, UAT & API validation\n• Workflow automation & technical documentation\n• Website design & development\n• Career & professional presence services\n\nAll services are provided to registered businesses and contractors. Consumer services are not offered." },
-      { heading: "Invoicing & tax", body: "Invoices are issued in compliance with Israeli tax law. Israeli clients are invoiced in ILS and subject to VAT at the applicable rate. International clients are invoiced in USD; VAT reverse charge applies where relevant under applicable treaty or EU/international rules." },
+      { heading: "Business registration", body: "B2B services are provided through Opility, registered as an Authorised Dealer under the Israel Tax Authority.\nRegistration date: 01 April 2025\n\nFor invoicing, contract, and tax purposes, please contact: hello@opility.com" },
       { heading: "Intellectual property", body: "All content on this website — including text, design, code, and branding — is the property of Naveen Sharma. Reproduction or reuse without prior written permission is prohibited." },
-      { heading: "Disclaimer", body: "The information on this site is provided for general informational purposes in good faith. Naveen Sharma accepts no liability for decisions made solely based on website content. Specific service terms, deliverables, and liabilities are defined in a written agreement prior to each engagement." },
-      { heading: "Governing law & jurisdiction", body: "This website and all services are governed by the laws of the State of Israel. Any disputes shall be subject to the exclusive jurisdiction of the competent courts of Be'er Sheva, Israel." },
+      { heading: "Disclaimer", body: "The information on this site is provided for general informational purposes in good faith. Naveen Sharma accepts no liability for decisions made solely based on website content." },
+      { heading: "Governing law & jurisdiction", body: "This website is governed by the laws of the State of Israel. Any disputes shall be subject to the exclusive jurisdiction of the competent courts of Be'er Sheva, Israel." },
     ],
   },
   terms: {
     title: "Terms of Service",
     content: [
-      { heading: "Scope", body: "These terms apply to all B2B engagements with Opility (Naveen Sharma, Authorised Dealer, Israel). They serve as a general reference; specific deliverables, timelines, and rates are defined in a written Statement of Work or contract signed before work begins." },
-      { heading: "Services & rates", body: "Opility provides B2B IT services at the following standard rates:\n\n• Healthcare SaaS Implementation & Configuration: $50–65 / hour\n• QA Engineering & API Validation: $45–55 / hour\n• Website Design & Development: $55–70 / hour\n• Minimum project engagement: $500\n\nRates are quoted in USD for international clients and in ILS for Israeli clients. Final rates for each engagement are confirmed in the project agreement. VAT is added for Israeli clients at the statutory rate." },
-      { heading: "Payment terms", body: "Project work: 50% deposit required before work begins for new clients; balance due upon delivery and acceptance.\n\nOngoing retainer / support contracts: invoiced monthly in arrears; payment due within 14 days of invoice date.\n\nLate payments accrue interest at 1.5% per month (or the maximum permitted by applicable law, whichever is lower) from the due date." },
-      { heading: "Engagement process", body: "No work begins without a confirmed written agreement. Typical process:\n1. Initial consultation (free, up to 30 minutes)\n2. Proposal & Statement of Work issued\n3. Agreement signed / confirmed in writing\n4. Deposit invoice issued and paid\n5. Work commences\n6. Delivery, review, and final payment" },
-      { heading: "Confidentiality", body: "Opility treats all client information — business data, systems access, workflows, and communications — as strictly confidential. It will not be disclosed to any third party without written consent, except as required by Israeli law or court order.\n\nClients must treat any proprietary methods, tools, documentation, or code delivered by Opility as confidential unless agreed otherwise in writing." },
-      { heading: "Intellectual property", body: "Upon receipt of full payment, clients receive ownership of project-specific deliverables as specified in the project agreement. Opility retains ownership of any pre-existing tools, frameworks, or methods used in delivery.\n\nOpility reserves the right to reference completed work (without disclosing confidential details) in portfolio materials and case studies unless the client requests otherwise in writing." },
-      { heading: "Revisions & acceptance", body: "Each project includes a defined number of revision rounds as stated in the agreement. Revisions beyond scope are quoted and billed separately. Delivery is deemed accepted if no written objection is received within 7 business days of submission." },
-      { heading: "Termination", body: "Either party may terminate an engagement with 14 days' written notice (or as specified in the project agreement). Work completed and costs incurred to the termination date will be invoiced and are payable within 14 days. The deposit is non-refundable if termination is initiated by the client after work has commenced." },
-      { heading: "Limitation of liability", body: "Opility's total liability for any claim arising from a specific engagement is limited to the total fees paid for that engagement. Opility is not liable for indirect, incidental, consequential, or loss-of-profit damages. These limitations apply to the fullest extent permitted by applicable law." },
-      { heading: "Contact", body: "For questions about these terms or to discuss an engagement:\nEmail: contact@naveensharma.net\nOpility website: opility.com" },
+      { heading: "Scope", body: "These terms apply to B2B engagements handled through Opility (Naveen Sharma, Authorised Dealer, Israel). For full terms, please visit opility.com or contact hello@opility.com." },
+      { heading: "Services & rates", body: "Services are provided through Opility at the following standard rates:\n\n• Healthcare SaaS Implementation & Configuration: $50–65 / hour\n• QA Engineering & API Validation: $45–55 / hour\n• Website Design & Development: $55–70 / hour\n• Minimum project engagement: $500\n\nFinal rates are confirmed in a written agreement before work begins." },
+      { heading: "Payment terms", body: "Project work: 50% deposit required before work begins for new clients; balance due upon delivery and acceptance.\n\nOngoing retainer / support contracts: invoiced monthly in arrears; payment due within 14 days of invoice date." },
+      { heading: "Engagement process", body: "No work begins without a confirmed written agreement. Typical process:\n1. Initial consultation (free, up to 30 minutes)\n2. Proposal & Statement of Work issued\n3. Agreement signed\n4. Deposit invoice paid\n5. Work commences\n6. Delivery, review, and final payment" },
+      { heading: "Confidentiality", body: "All client information — business data, systems access, workflows, and communications — is treated as strictly confidential and will not be disclosed to any third party without written consent." },
+      { heading: "Contact", body: "For service enquiries: hello@opility.com\nFor support: support@opility.com\nPersonal contact: contact@naveensharma.net" },
     ],
   },
   cookies: {
     title: "Cookie Policy",
     content: [
-      { heading: "Overview", body: "This Cookie Policy explains how naveensharma.net uses cookies and similar tracking technologies. In short: we do not set our own cookies." },
+      { heading: "Overview", body: "This Cookie Policy explains how naveensharma.net uses cookies. In short: this site does not set its own cookies." },
       { heading: "Cookies we set", body: "None. This website does not set any first-party cookies, tracking pixels, fingerprinting scripts, or analytics beacons." },
-      { heading: "YouTube embed cookies", body: "This site includes embedded YouTube video players. YouTube (operated by Google LLC) may set cookies on your device when you load or interact with a video player. These cookies may be used by Google for analytics, advertising personalisation, and preference tracking, subject to Google's Cookie Policy and Privacy Policy.\n\nThese cookies are outside our control. If you prefer not to receive them, you can:\n• Use a browser extension to block YouTube embeds\n• Adjust your Google account ad settings\n• Use your browser's cookie controls to block google.com / youtube.com cookies" },
-      { heading: "Cloudflare security cookies", body: "Our hosting provider Cloudflare may set strictly necessary cookies (e.g. __cf_bm) for bot detection and DDoS protection. These cookies do not track you for advertising or analytics purposes and are essential for the secure operation of the site." },
-      { heading: "No analytics or advertising", body: "We do not use Google Analytics, Facebook Pixel, LinkedIn Insight Tag, Hotjar, or any other analytics or advertising tracking technology on this website." },
-      { heading: "Managing cookies", body: "You can control, block, or delete cookies at any time through your browser settings. Common browser guides:\n• Chrome: Settings → Privacy & Security → Cookies\n• Firefox: Settings → Privacy & Security → Cookies and Site Data\n• Safari: Preferences → Privacy → Manage Website Data\n\nBlocking cookies will not affect your ability to browse this website." },
-      { heading: "Contact", body: "For any cookie or privacy related queries: contact@naveensharma.net" },
+      { heading: "YouTube embed cookies", body: "This site may include embedded YouTube video players. YouTube (Google LLC) may set cookies on your device when you interact with a video player, subject to Google's Privacy Policy. These are outside our control." },
+      { heading: "Cloudflare security cookies", body: "Hosting provider Cloudflare may set strictly necessary cookies (e.g. __cf_bm) for bot detection and security. These do not track you for advertising purposes." },
+      { heading: "No analytics or advertising", body: "This website does not use Google Analytics, Facebook Pixel, LinkedIn Insight Tag, Hotjar, or any other analytics or advertising tracking technology." },
+      { heading: "Managing cookies", body: "You can control, block, or delete cookies at any time through your browser settings.\n• Chrome: Settings → Privacy & Security → Cookies\n• Firefox: Settings → Privacy & Security\n• Safari: Preferences → Privacy" },
+      { heading: "Contact", body: "For cookie or privacy queries: contact@naveensharma.net" },
     ],
   },
 };
@@ -813,19 +850,23 @@ function Footer() {
           <div className="flex flex-col items-center gap-4 text-center">
             <img
               src="/opility-logo.png"
-              alt="Opility"
+              alt="Naveen Sharma"
               className="h-14 w-auto object-contain"
               onError={(e) => { e.target.style.display = "none"; }}
             />
-            <p className="font-extrabold text-gray-900">Naveen Sharma · Opility</p>
-            <p className="text-sm text-gray-500">Healthcare SaaS Implementation · Systems Configuration · QA · Website Design & Development</p>
+            <p className="font-extrabold text-gray-900">Naveen Sharma</p>
+            <p className="text-sm text-gray-500">Healthcare SaaS Implementation · Systems Configuration · QA · API Validation</p>
+            <p className="text-xs text-gray-400">
+              B2B services & contracting →{" "}
+              <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">opility.com</a>
+            </p>
             <div className="flex items-center justify-center gap-3 mt-1">
               {[
-                { href: "https://linkedin.com/in/freelancehub",         icon: Linkedin, label: "LinkedIn", bg: "#0A66C2" },
-                { href: "https://github.com/naveensharmatech",          icon: Github,   label: "GitHub",   bg: "#181717" },
-                { href: "https://www.facebook.com/share/18mJRTbUFF/",  icon: Facebook, label: "Facebook", bg: "#1877F2" },
-                { href: "https://youtube.com/@nsfreelance",             icon: Youtube,  label: "YouTube",  bg: "#FF0000" },
-                { href: "mailto:contact@naveensharma.net",              icon: Mail,     label: "Email",    bg: "#34A853" },
+                { href: "https://linkedin.com/in/naveensharmatech",      icon: Linkedin, label: "LinkedIn", bg: "#0A66C2" },
+                { href: "https://github.com/naveensharmatech",           icon: Github,   label: "GitHub",   bg: "#181717" },
+                { href: "https://www.facebook.com/share/18mJRTbUFF/",   icon: Facebook, label: "Facebook", bg: "#1877F2" },
+                { href: "https://youtube.com/@nsfreelance",              icon: Youtube,  label: "YouTube",  bg: "#FF0000" },
+                { href: "mailto:contact@naveensharma.net",               icon: Mail,     label: "Email",    bg: "#34A853" },
               ].map(({ href, icon: Icon, label, bg }) => (
                 <a key={label} href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
@@ -850,7 +891,7 @@ function Footer() {
                 </button>
               ))}
             </div>
-            <p className="text-xs text-gray-400">© 2026 Naveen Sharma (Opility) All rights reserved.</p>
+            <p className="text-xs text-gray-400">© 2026 Naveen Sharma. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -860,56 +901,52 @@ function Footer() {
 
 const FAQS = [
   {
-    q: "What services do you offer?",
-    a: "As an employee, I specialise in healthcare SaaS implementation & workflow configuration, systems configuration & platform administration, product and technical support (Tier 2/3), QA & UAT engineering, and API validation with Postman. Through Opility as a B2B contractor, I offer website design & development (React/Next.js custom builds, WordPress, Shopify) and career & professional presence services — including ATS-optimised resume writing and LinkedIn profile optimisation.",
+    q: "What kind of roles are you looking for?",
+    a: "I'm looking for full-time, hybrid, or remote roles in healthcare SaaS implementation, systems configuration, QA engineering, API validation, and product support. I'm open to roles in Israel and internationally.",
+  },
+  {
+    q: "What was your role at Bolt Healthcare?",
+    a: "I started as a Dynamic File Support Agent and evolved into a Healthcare SaaS Implementation & Systems Configuration Specialist over 4+ years. My responsibilities included intake workflow configuration, caregiver and case management workflow setup, Super Admin platform administration, QA/UAT testing, Postman API validation, HHAeXchange integration validation, and Tier 2/3 product support.",
   },
   {
     q: "Are you available for remote or international work?",
-    a: "Yes — I work fully remote and am available for international B2B contracts. I'm based in Be'er Sheva, Israel, and currently work with clients in the USA and beyond. I'm also open to hybrid or on-site roles within Israel.",
-  },
-  {
-    q: "What types of engagements do you take on?",
-    a: "I'm available for full-time employment, part-time contracts, and B2B project-based engagements through Opility — my registered independent contractor business. Both short-term project work and longer-term support arrangements are welcome.",
+    a: "Yes — I work fully remote and am available for international roles and contracts. I'm based in Be'er Sheva, Israel, and have worked remotely with US-based teams for 4+ years. I'm also open to hybrid or on-site roles within Israel.",
   },
   {
     q: "What industries have you worked in?",
-    a: "My deepest experience is in healthcare SaaS (4+ years at Bolt Healthcare), where I handled intake workflow configuration, systems administration, API validation, and QA for regulated healthcare platforms. I also have a background in electronics manufacturing QA and technical training operations.",
-  },
-  {
-    q: "How do I get started working with you?",
-    a: "The easiest way is to send me an email at contact@naveensharma.net or connect on LinkedIn at linkedin.com/in/freelancehub. You can also download my CV from this page. I typically respond within one business day.",
-  },
-  {
-    q: "Can you build a website for my business?",
-    a: "Yes — I build websites for businesses and professionals across multiple platforms depending on your needs: custom React/Next.js apps for full control and performance, WordPress for content-managed business sites, Shopify for e-commerce, or plain HTML/CSS for fast landing pages. I handle everything from design to go-live, including domain and hosting setup.",
+    a: "My deepest experience is in healthcare SaaS — specifically regulated intake and caregiver management platforms at Bolt Healthcare. I also have a background in electronics manufacturing QA (Vishay Intertechnology) and technical training operations (Shivam Institute).",
   },
   {
     q: "Do you work with tools like Jira, Postman, or Basecamp?",
-    a: "These are core to my day-to-day workflow. I use Jira for defect tracking and sprint management, Postman for API validation and test collections, and Basecamp for project coordination. I'm also experienced with HHAeXchange, Notion AI, GitHub, VS Code, and a range of AI-assisted productivity tools.",
+    a: "Yes — these are core to my workflow. I use Postman for API validation and test collections, Jira for defect tracking and sprint management, and Basecamp for project coordination. I'm also experienced with HHAeXchange, Notion AI, GitHub, VS Code, and a range of AI-assisted productivity tools.",
   },
   {
-    q: "Can you write an ATS-optimised resume for me?",
-    a: "Yes — through Opility I offer ATS-optimised resume writing tailored to your target role and industry. I format and structure your experience so it passes applicant tracking systems and reads well to hiring managers. I also help with professional bios and career document creation using AI-assisted tools.",
+    q: "Can I download your CV?",
+    a: "Yes — you can download my CV directly from this page using the 'Download CV' button at the top. You can also contact me at contact@naveensharma.net and I'll send it directly.",
   },
   {
-    q: "Do you offer LinkedIn profile optimisation?",
-    a: "Yes. I review and rewrite your LinkedIn profile — headline, about section, experience entries, and skills — to improve visibility in recruiter searches and present a consistent, professional personal brand. This is offered as a standalone service or bundled with resume writing through Opility.",
+    q: "Do you offer B2B services or contracting?",
+    a: "Yes — B2B services including SaaS implementation consulting, QA services, website development, and career services are offered through Opility, my registered IT services business. Visit opility.com or email hello@opility.com for enquiries.",
+  },
+  {
+    q: "How do I get in touch?",
+    a: "Email me at contact@naveensharma.net, connect on LinkedIn at linkedin.com/in/naveensharmatech, or call 058-789-6289. I typically respond within one business day.",
   },
 ];
 
 function FAQ() {
   const [open, setOpen] = useState(null);
   return (
-    <section id="faq" className="bg-white">
+    <section id="faq" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="FAQ" center title="Frequently asked questions"
-          description="Everything you might want to know before reaching out." />
+          description="Common questions from recruiters and hiring managers." />
         <div className="mx-auto max-w-3xl space-y-3">
           {FAQS.map((item, i) => (
-            <div key={i} className="rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden">
+            <div key={i} className="rounded-2xl border border-gray-100 bg-white overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-center justify-between px-6 py-5 text-left transition hover:bg-gray-100"
+                className="flex w-full items-center justify-between px-6 py-5 text-left transition hover:bg-gray-50"
               >
                 <span className="text-base font-bold text-gray-900 pr-4">{item.q}</span>
                 <ChevronDown
@@ -937,7 +974,7 @@ function EllaChat() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "👋 Welcome to naveensharma.net! I'm Ella, Naveen's AI assistant. Ask me anything about services, healthcare SaaS implementation experience, or availability — I'm happy to help!",
+      content: "👋 Hi! I'm Ella, Naveen's AI assistant. Ask me anything about his experience, skills, or availability — I'm happy to help!",
     },
   ]);
   const [input, setInput] = useState("");
@@ -979,7 +1016,6 @@ function EllaChat() {
       {open && (
         <div className="flex w-80 sm:w-96 flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl"
           style={{ height: "500px" }}>
-          {/* Header */}
           <div className="flex items-center justify-between bg-blue-600 px-4 py-3">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full overflow-hidden ring-2 ring-white/30">
@@ -987,7 +1023,7 @@ function EllaChat() {
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Ella</p>
-                <p className="text-xs text-blue-100">Opility AI Assistant</p>
+                <p className="text-xs text-blue-100">Naveen's AI Assistant</p>
               </div>
             </div>
             <button onClick={() => setOpen(false)}
@@ -996,7 +1032,6 @@ function EllaChat() {
             </button>
           </div>
 
-          {/* Messages */}
           <div className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -1037,7 +1072,6 @@ function EllaChat() {
             <div ref={bottomRef} />
           </div>
 
-          {/* Input */}
           <div className="border-t border-gray-100 p-3">
             <div className="flex gap-2">
               <input
@@ -1055,12 +1089,11 @@ function EllaChat() {
                 <Send size={16} />
               </button>
             </div>
-            <p className="mt-2 text-center text-xs text-gray-400">Powered by Opility · AI by Groq</p>
+            <p className="mt-2 text-center text-xs text-gray-400">AI by Groq · Powered by Opility</p>
           </div>
         </div>
       )}
 
-      {/* Toggle button */}
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-2.5 rounded-full bg-blue-600 px-5 py-3.5 text-white shadow-lg transition hover:bg-blue-700 hover:shadow-xl"
@@ -1089,7 +1122,8 @@ export default function App() {
         <Expertise />
         <Experience />
         <CaseStudies />
-        <Services />
+        <AvailableFor />
+        <Education />
         <Projects />
         <Tools />
         <FAQ />
