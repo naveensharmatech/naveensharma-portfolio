@@ -1,6 +1,6 @@
 # naveensharma-portfolio
 
-Professional portfolio and FreelanceHub business website for Naveen Sharma —
+Professional portfolio and Opility business website for Naveen Sharma —
 SaaS Implementation Specialist · Product Support · Quality Assurance.
 
 Live site: https://naveensharma.net
