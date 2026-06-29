@@ -414,7 +414,7 @@ function About() {
           </div>
           <div className="flex flex-col items-center gap-6 lg:items-start">
             <img
-              src="/naveen-photo.jpg"
+              src="/headshot-round.png"
               alt="Naveen Sharma"
               className="h-52 w-52 rounded-2xl object-cover shadow-lg ring-4 ring-white"
             />
