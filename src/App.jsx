@@ -225,7 +225,7 @@ function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <a href="#top" className="flex items-center gap-3">
           <img
-            src="/headshot-round.png""
+            src="/headshot-round.png"
             alt="Naveen Sharma"
             className="h-11 w-11 rounded-full object-cover ring-2 ring-blue-100"
             onError={(e) => { e.target.style.display = "none"; }}
@@ -862,7 +862,7 @@ function Footer() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <div className="flex flex-col items-center gap-4 text-center">
             <img
-              src="/naveen-avatar.jpg"
+              src="/headshot-round.png"
               alt="Naveen Sharma"
               className="h-16 w-16 rounded-full object-cover ring-2 ring-blue-100"
               onError={(e) => { e.target.style.display = "none"; }}
