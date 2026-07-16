@@ -321,7 +321,7 @@ function Hero() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          <a href="/Naveen Sharma General CV.pdf" download
+          <a href="/Naveen_Sharma_CV.pdf" download
             className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white transition hover:bg-blue-700">
             Download CV <ArrowRight size={18} />
           </a>
@@ -703,11 +703,11 @@ function Contact() {
 
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 flex justify-center gap-4">
-            <a href="/Naveen Sharma General CV.pdf" target="_blank" rel="noreferrer"
+            <a href="/Naveen_Sharma_CV.pdf" target="_blank" rel="noreferrer"
               className="rounded-lg border-2 border-gray-200 px-6 py-3 text-sm font-bold text-gray-700 transition hover:border-blue-400 hover:text-blue-600">
               View CV
             </a>
-            <a href="/Naveen Sharma General CV.pdf" download
+            <a href="/Naveen_Sharma_CV.pdf" download
               className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
               Download CV (PDF)
             </a>
