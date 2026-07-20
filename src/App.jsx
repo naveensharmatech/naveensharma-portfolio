@@ -116,11 +116,11 @@ const EDUCATION = [
   },
   {
     icon: Award,
-    institution: "Professional Development",
+    institution: "Programming Hub / Great Learning",
     degree: "Software Testing · Automation Testing · Software Engineering",
-    focus: "Programming Hub · Great Learning",
+    focus: "Test planning, defect lifecycle, automation fundamentals",
     period: "2021",
-    type: "Certification",
+    type: "Professional Development",
   },
 ];
 
