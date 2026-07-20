@@ -20,20 +20,20 @@ const NAV_LINKS = [
 ];
 
 const HEADLINES = [
-  "Healthcare SaaS Implementation Specialist",
+  "Technical Product Operations Engineer",
+  "SaaS Implementation Specialist",
   "Systems Configuration Specialist",
-  "QA & UAT Engineer",
-  "API Validation Expert",
-  "Product Support Specialist",
+  "Workflow Automation Engineer",
+  "QA/UAT Analyst",
   "B2B Technical Contractor",
 ];
 
 const EXPERTISE = [
   { icon: Layers,         title: "Healthcare SaaS Implementation",  desc: "End-to-end implementation and configuration of healthcare SaaS platforms — workflow setup, onboarding, and go-live validation." },
   { icon: Workflow,       title: "Systems & Workflow Configuration", desc: "Intake, caregiver onboarding, case management, and compliance workflow configuration aligned to clinical and operational requirements." },
-  { icon: Headset,        title: "Product & Technical Support",     desc: "Tier 2/3 troubleshooting, escalation management, and customer support operations for SaaS products." },
-  { icon: ClipboardCheck, title: "QA / UAT & Release Validation",   desc: "Functional, regression, and UAT testing across product releases. Production readiness validation from configuration to go-live." },
-  { icon: Database,       title: "API Validation & Data Mapping",   desc: "API testing and validation with Postman. Data mapping, payload auditing, and integrity validation across integrated systems." },
+  { icon: Headset,        title: "Product & Technical Support",     desc: "Platform administration, user provisioning, and issue triage via Basecamp." },
+  { icon: ClipboardCheck, title: "QA / UAT & Release Validation",   desc: "Manual UAT and regression testing across product releases. Production readiness validation from configuration to go-live." },
+  { icon: Database,       title: "Data Mapping & Field Validation",  desc: "Field-level data mapping, payload validation, and integrity checks across integrated systems (HHAeXchange)." },
   { icon: FileText,       title: "Technical Documentation",         desc: "SOPs, process documentation, QA documentation, and knowledge base content that implementation teams can rely on." },
   { icon: Globe,          title: "Website Design & Development",    desc: "Custom React/Next.js web apps, WordPress business sites, Shopify e-commerce stores, and HTML landing pages." },
   { icon: Briefcase,      title: "Career & Professional Presence",  desc: "ATS-optimised resume writing, LinkedIn profile optimisation, and career portfolio setup for tech professionals." },
@@ -42,19 +42,18 @@ const EXPERTISE = [
 const EXPERIENCES = [
   {
     company: "Bolt Healthcare",
-    period: "2022 – 2026",
-    context: "Healthcare SaaS · Remote, USA",
+    period: "Aug 2022 – May 2026",
+    context: "Healthcare SaaS",
     roles: [
-      "Dynamic File Support Agent",
-      "Healthcare SaaS Implementation & Systems Configuration Specialist",
+      "Technical Product Operations Engineer",
     ],
     points: [
-      "Configured and validated healthcare SaaS workflows across intake, caregiver onboarding, case management, and compliance — from requirements through to production go-live.",
-      "Administered platform at Super Admin level: user access management, platform configuration, workflow management, and production readiness validation.",
-      "Performed QA/UAT testing and release validation across product cycles; designed and executed structured test plans covering functional, regression, and negative scenarios.",
-      "Validated HHAeXchange-connected workflows end-to-end; performed data mapping, payload auditing, and API validation using Postman to ensure integration integrity.",
-      "Supported customer onboarding and Tier 2/3 product support; tracked defects and escalations in Jira, coordinated delivery in Basecamp.",
-      "Automated document workflows via dynamic PDF mapping — re-mapped nested JSON API payloads to compliance form templates, resolving field mismatches and data loss.",
+      "Engineered and deployed 500+ dynamic intake and form workflows for 25+ healthcare agencies (including Elderwood Health Plan, RCIL, Rising Stars, Able Home Care, Crown HC, White Glove, Age in Place, Magic HC), automating conditional logic and data-binding schemas to ensure accurate form submission.",
+      "Architected backend data-mapping schemas and configured field-level validation rules across regulatory forms (I-9, W-4, DOH-5201, WOTC, NHTD, HHA §611.55 competency forms), reducing intake errors and ensuring HIPAA compliance.",
+      "Configured dropdown logic, e-signature workflows, and step-based conditional branching for multi-page dynamic files using Bolt's PDF Engine.",
+      "Administered multi-tenant SaaS case management system with Super-Admin access, managing user provisioning and HHAeXchange API integration.",
+      "Executed UAT and mapping validation tests on production forms; performed root-cause analysis on data-mapping and submission defects.",
+      "Coordinated task assignment and issue triage via Basecamp.",
     ],
   },
   {
@@ -81,36 +80,20 @@ const EXPERIENCES = [
 
 const CASE_STUDIES = [
   {
-    title: "Healthcare Intake Workflow Configuration",
+    title: "Healthcare Intake Form Digitization",
     tag: "Bolt Healthcare · Case Study",
-    challenge: "A healthcare agency needed complex intake workflows configured and validated before go-live. Misconfigured workflows were causing data gaps in client onboarding pipelines and creating downstream compliance risk.",
-    role: "Healthcare SaaS Implementation & Systems Configuration Specialist — led end-to-end workflow configuration, UAT planning, and pre-production validation.",
-    solution: "Configured system workflows and intake form logic against business and compliance requirements. Ran structured UAT cycles, documented failures, and iterated with engineering until the workflow met production standards.",
-    outcome: "Delivered a validated intake configuration that passed UAT, met healthcare compliance expectations, and was successfully promoted to production.",
+    challenge: "Multiple healthcare agencies relied on manual paper-based intake processes, creating delays and compliance risk.",
+    role: "Technical Product Operations Engineer — configured dynamic form workflows and conditional logic in Bolt's PDF Engine.",
+    solution: "Built 500+ digitized intake and compliance forms (I-9, WOTC, DOH-5201, NHTD, HHA competency forms) with field-level validation and e-signature workflows, mapped to agency-specific data sources.",
+    outcome: "Digitized workflows in active production use across 25+ agencies including Elderwood Health Plan, RCIL, and Rising Stars.",
   },
   {
-    title: "Dynamic PDF Mapping & Document Automation",
+    title: "Multi-Tenant Platform Administration",
     tag: "Bolt Healthcare · Case Study",
-    challenge: "Dynamic compliance PDFs were failing to compile or dropping critical fields such as Medicaid IDs. Root cause was mismatched API payloads between the intake CRM and the PDF generation engine.",
-    role: "Healthcare SaaS Implementation Specialist — responsible for payload analysis, field re-mapping, and QA validation.",
-    solution: "Audited API endpoints, re-mapped nested JSON payload variables to dynamic PDF template fields, and validated data integrity end-to-end.",
-    outcome: "Document generation failures significantly reduced, field alignment improved across compliance forms.",
-  },
-  {
-    title: "API Validation & Release Testing",
-    tag: "Bolt Healthcare · Case Study",
-    challenge: "Schema mismatches — including character truncation and mismatched variable types — were causing PDF compilation errors and data loss in high-volume submissions.",
-    role: "QA & API Validation Specialist — designed and executed Postman-based test collections covering standard and negative edge-case scenarios.",
-    solution: "Built structured Postman test collections, designed negative test cases, and tracked all defects in Jira through to engineering resolution.",
-    outcome: "Key schema mismatches identified and resolved. Test collections became reusable validation assets for subsequent release cycles.",
-  },
-  {
-    title: "HHAeXchange Integration Support",
-    tag: "Bolt Healthcare · Case Study",
-    challenge: "Ensuring reliable data exchange between Bolt Healthcare and HHAeXchange required ongoing validation and timely issue resolution across multiple rollouts.",
-    role: "SaaS Implementation & Technical Support Specialist — managed integration testing and Tier 2/3 escalation.",
-    solution: "Executed integration testing, tracked data inconsistencies, and resolved issues through structured escalation. Maintained defect logs in Jira and coordinated fixes in Basecamp.",
-    outcome: "Integration reliability maintained across multiple rollouts with improved escalation response time.",
+    challenge: "Managing user access and workflow configuration across dozens of client agencies on one SaaS platform.",
+    role: "Super-Admin platform administrator.",
+    solution: "Managed user provisioning, HHAeXchange API integration, and Basecamp-coordinated task workflows across Pending Jobs, Needs Mapping, and Needs Testing stages.",
+    outcome: "Ongoing production support and workflow configuration across the full agency base.",
   },
 ];
 
@@ -187,24 +170,25 @@ const PROJECTS = [
 
 const TOOL_CATEGORIES = [
   {
-    label: "SaaS, QA & Technical Operations",
-    sublabel: "Core professional tooling",
-    tools: ["Postman", "Jira", "Basecamp", "Notion AI", "HHAeXchange", "Solo AI (Mozilla)"],
+    label: "SaaS & Technical Operations",
+    sublabel: "Core professional tooling used at Bolt Healthcare",
+    tools: ["Basecamp", "HHAeXchange", "Zendesk"],
+    note: "Certification-trained (not production-used): Jira, Google Cloud Architecture",
   },
   {
     label: "Website Design & Development",
     sublabel: "Tools used to build, deploy, and manage websites",
-    tools: ["React", "Next.js", "Vite", "Tailwind CSS", "WordPress", "Shopify", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
+    tools: ["React", "Vite", "Tailwind CSS", "WordPress", "GitHub", "Visual Studio Code", "Cloudflare Pages", "Hostinger"],
   },
   {
-    label: "AI-Assisted Productivity & Development",
+    label: "AI-Assisted Productivity",
     sublabel: "Used to enhance and accelerate professional work",
-    tools: ["Claude", "Gemini", "GitHub Copilot", "ChatGPT", "Cursor", "v0", "Gemini Code Assist", "Google AI Studio", "Perplexity", "Gamma"],
+    tools: ["Claude", "Notion AI", "GitHub Copilot", "Gemini", "Google AI Studio"],
   },
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
-    tools: ["Canva", "Adobe Express", "Adobe Firefly", "Creative Cloud Pro", "Frame.io"],
+    tools: ["Canva", "Adobe Express"],
   },
 ];
 
@@ -232,7 +216,7 @@ function Navbar() {
           />
           <div className="flex flex-col leading-tight">
             <span className="text-base font-bold tracking-tight text-gray-900">Naveen Sharma</span>
-            <span className="text-xs font-medium text-blue-600">Healthcare SaaS · QA · Systems Configuration</span>
+            <span className="text-xs font-medium text-blue-600">Technical Product Operations · SaaS Implementation · Systems Configuration</span>
           </div>
         </a>
 
@@ -302,7 +286,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
-          Healthcare SaaS Implementation &amp; Systems Configuration Specialist
+          Technical Product Operations Engineer
         </p>
 
         <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
@@ -315,9 +299,9 @@ function Hero() {
         </div>
 
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
-          8+ years of professional experience, including 4+ years in healthcare SaaS at Bolt Healthcare.
+          7+ years of professional experience, including nearly 4 years in healthcare SaaS at Bolt Healthcare.
           Available for full-time, hybrid, and remote employment in SaaS implementation, systems configuration,
-          QA engineering, and product support.
+          workflow automation, and QA/UAT.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
@@ -333,10 +317,10 @@ function Hero() {
 
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-gray-100 pt-12">
           {[
-            { num: "8+",       label: "Years Experience" },
-            { num: "4+",       label: "Years Healthcare SaaS" },
+            { num: "7+",     label: "Years Experience" },
+            { num: "~4",     label: "Years Healthcare SaaS" },
             { num: "Tier 2/3", label: "Technical Support" },
-            { num: "Remote",   label: "Available Globally" },
+            { num: "Remote", label: "Available Globally" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-3xl font-extrabold text-blue-600">{s.num}</p>
@@ -350,7 +334,7 @@ function Hero() {
 }
 
 function TrustBar() {
-  const tools = ["Postman", "Jira", "Basecamp", "HHAeXchange", "React", "Tailwind CSS", "GitHub", "Cloudflare", "VS Code"];
+  const tools = ["Basecamp", "HHAeXchange", "Zendesk", "Cloudflare", "GitHub", "VS Code"];
   return (
     <div className="border-y border-gray-100 bg-gray-50 py-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -387,16 +371,18 @@ function About() {
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation & Systems Configuration Specialist" />
+            <SectionHeading eyebrow="About" title="Technical Product Operations Engineer" />
             <p className="text-base leading-relaxed text-gray-600">
-              I'm Naveen Sharma — a Healthcare SaaS Implementation & Systems Configuration Specialist
-              with 8+ years of professional experience, including 4+ years at Bolt Healthcare working
-              directly on intake workflows, platform administration, API validation, and QA across a
-              regulated healthcare SaaS environment.
+              I'm Naveen Sharma — a Technical Product Operations Engineer with 7+ years of professional
+              experience, including nearly 4 years at Bolt Healthcare engineering SaaS workflow automation,
+              systems configuration, and validation testing across a regulated healthcare environment. I
+              administered multi-tenant platform infrastructure, configured dynamic form workflows and
+              conditional logic for 25+ healthcare agencies, and executed UAT/mapping validation on
+              production systems.
             </p>
             <p className="mt-4 text-base leading-relaxed text-gray-600">
               I'm available for full-time, hybrid, and remote roles in SaaS implementation, systems
-              configuration, product support, and quality assurance. I'm also the founder of{" "}
+              configuration, workflow automation, and QA/UAT. I'm also the founder of{" "}
               <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">Opility</a>
               {" "}— a registered B2B IT services business.
             </p>
@@ -420,8 +406,8 @@ function About() {
             />
             <div className="grid w-full grid-cols-2 gap-4">
               {[
-                { label: "Role focus",   value: "SaaS Implementation · QA · Systems Configuration" },
-                { label: "Experience",   value: "8+ years · 4+ in healthcare SaaS" },
+                { label: "Role focus",   value: "SaaS Implementation · Systems Configuration · Workflow Automation" },
+                { label: "Experience",   value: "7+ years · nearly 4 in healthcare SaaS" },
                 { label: "Location",     value: "Be'er Sheva, Israel · Remote OK" },
                 { label: "Availability", value: "Full-time · Hybrid · Remote" },
               ].map((item) => (
@@ -543,8 +529,8 @@ function CaseStudies() {
 function AvailableFor() {
   const roles = [
     { title: "SaaS Implementation", items: ["Workflow configuration", "Platform setup & administration", "Go-live & hypercare", "Customer onboarding"] },
-    { title: "QA & Release Validation", items: ["UAT planning & execution", "Functional & regression testing", "API validation with Postman", "Production readiness"] },
-    { title: "Product & Technical Support", items: ["Tier 2/3 support", "Escalation management", "Defect tracking (Jira)", "Documentation & SOPs"] },
+    { title: "QA & Release Validation", items: ["UAT planning & execution", "Functional & regression testing", "Workflow & mapping validation", "Production readiness"] },
+    { title: "Product & Technical Support", items: ["Tier 2/3 support", "Escalation management", "Issue triage & coordination (Basecamp)", "Documentation & SOPs"] },
   ];
   return (
     <section className="bg-blue-600 text-white">
@@ -553,8 +539,8 @@ function AvailableFor() {
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-200">Open to opportunities</p>
           <h2 className="text-3xl font-extrabold tracking-tight">Available for full-time, hybrid &amp; remote roles</h2>
           <p className="mx-auto mt-4 max-w-xl text-blue-100">
-            I'm actively looking for roles in healthcare SaaS implementation, systems configuration,
-            QA engineering, and product support.
+            I'm actively looking for roles in SaaS implementation, systems configuration,
+            workflow automation, and QA/UAT.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-3 mb-10">
@@ -669,7 +655,7 @@ function Tools() {
     <section className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Tools" center title="Tools I work with"
-          description="Core professional tooling across healthcare SaaS, QA, API validation, and website development." />
+          description="Core professional tooling across SaaS implementation, systems configuration, and website development." />
         <div className="space-y-6">
           {TOOL_CATEGORIES.map((cat) => (
             <div key={cat.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-8">
@@ -685,6 +671,9 @@ function Tools() {
                   </span>
                 ))}
               </div>
+              {cat.note && (
+                <p className="mt-3 text-xs text-gray-400 italic">{cat.note}</p>
+              )}
             </div>
           ))}
         </div>
@@ -868,7 +857,7 @@ function Footer() {
               onError={(e) => { e.target.style.display = "none"; }}
             />
             <p className="font-extrabold text-gray-900">Naveen Sharma</p>
-            <p className="text-sm text-gray-500">Healthcare SaaS Implementation · Systems Configuration · QA · API Validation</p>
+            <p className="text-sm text-gray-500">Technical Product Operations · SaaS Implementation · Systems Configuration · Workflow Automation</p>
             <p className="text-xs text-gray-400">
               B2B services & contracting →{" "}
               <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">opility.com</a>
@@ -915,15 +904,15 @@ function Footer() {
 const FAQS = [
   {
     q: "What kind of roles are you looking for?",
-    a: "I'm looking for full-time, hybrid, or remote roles in healthcare SaaS implementation, systems configuration, QA engineering, API validation, and product support. I'm open to roles in Israel and internationally.",
+    a: "I'm looking for full-time, hybrid, or remote roles in SaaS implementation, systems configuration, workflow automation, and QA/UAT. I'm open to roles in Israel and internationally.",
   },
   {
     q: "What was your role at Bolt Healthcare?",
-    a: "I started as a Dynamic File Support Agent and evolved into a Healthcare SaaS Implementation & Systems Configuration Specialist over 4+ years. My responsibilities included intake workflow configuration, caregiver and case management workflow setup, Super Admin platform administration, QA/UAT testing, Postman API validation, HHAeXchange integration validation, and Tier 2/3 product support.",
+    a: "I was a Technical Product Operations Engineer, engineering SaaS workflow automation, systems configuration, and validation testing for a healthcare intake platform used by 25+ agencies.",
   },
   {
     q: "Are you available for remote or international work?",
-    a: "Yes — I work fully remote and am available for international roles and contracts. I'm based in Be'er Sheva, Israel, and have worked remotely with US-based teams for 4+ years. I'm also open to hybrid or on-site roles within Israel.",
+    a: "Yes — I work fully remote and am available for international roles and contracts. I'm based in Be'er Sheva, Israel, and have worked with US-based teams throughout my time at Bolt Healthcare. I'm also open to hybrid or on-site roles within Israel.",
   },
   {
     q: "What industries have you worked in?",
@@ -931,7 +920,7 @@ const FAQS = [
   },
   {
     q: "Do you work with tools like Jira, Postman, or Basecamp?",
-    a: "Yes — these are core to my workflow. I use Postman for API validation and test collections, Jira for defect tracking and sprint management, and Basecamp for project coordination. I'm also experienced with HHAeXchange, Notion AI, GitHub, VS Code, and a range of AI-assisted productivity tools.",
+    a: "I coordinated all healthcare SaaS implementation work at Bolt Healthcare through Basecamp. I have certification-level training in Jira but did not use it in production. I've also worked hands-on with HHAeXchange API integration and Zendesk for client support.",
   },
   {
     q: "Can I download your CV?",
