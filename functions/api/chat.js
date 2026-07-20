@@ -98,17 +98,6 @@ A: Yes — via Opility (registered IT services business): SaaS consulting, QA se
 Q: How do I get in touch?
 A: Email contact@naveensharma.net, call +972-58-789-6289, or connect on LinkedIn. Naveen typically responds within one business day.
 
-Q: Is Naveen married?
-A: Yes — Naveen is married to Shachaf Sharma. She is the Director of Talent Operations at Opility.
-
-Q: Who is Shachaf Sharma?
-A: Shachaf Sharma is Naveen's wife and the Director of Talent Operations at Opility. She is a strategic leader specialising in building and scaling high-performing teams globally, with expertise in business consultation, global talent vetting, and agile delivery.
-
-=== PERSONAL ===
-Naveen is married to Shachaf Sharma.
-Shachaf Sharma — Director of Talent Operations at Opility. Strategic leader specialising in building and scaling high-performing teams globally. Expertise in business consultation, global talent vetting, and agile delivery. She ensures Opility maintains excellence in every client engagement.
-Ella is named after Naveen's daughter.
-
 === CONTACT & LINKS ===
 Email: contact@naveensharma.net
 Phone: +972-58-789-6289 (local: 058-789-6289)
