@@ -122,6 +122,14 @@ const EDUCATION = [
     period: "2021",
     type: "Professional Development",
   },
+  {
+    icon: Award,
+    institution: "Self-Directed Learning",
+    degree: "CRM Platforms & AI Tools",
+    focus: "Monday.com, Salesforce, and advanced AI workflow tooling",
+    period: "2025 – Present",
+    type: "In Progress",
+  },
 ];
 
 const PROJECTS = [
@@ -189,6 +197,12 @@ const TOOL_CATEGORIES = [
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
     tools: ["Canva", "Adobe Express"],
+  },
+  {
+    label: "Currently Learning",
+    sublabel: "Active study — CRM platforms and AI tools",
+    tools: ["Monday.com", "Salesforce"],
+    note: "Expanding into CRM and project management platforms alongside ongoing AI skill development",
   },
 ];
 
@@ -581,7 +595,7 @@ function Education() {
     <section id="education" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Education & Certifications" title="Academic background & professional training" />
-        <div className="grid gap-5 sm:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {EDUCATION.map((item) => {
             const Icon = item.icon;
             return (
