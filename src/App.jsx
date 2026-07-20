@@ -49,7 +49,7 @@ const EXPERIENCES = [
     ],
     points: [
       "Engineered and deployed 500+ dynamic intake and form workflows for 25+ healthcare agencies (including Elderwood Health Plan, RCIL, Rising Stars, Able Home Care, Crown HC, White Glove, Age in Place, Magic HC), automating conditional logic and data-binding schemas to ensure accurate form submission.",
-      "Architected backend data-mapping schemas and configured field-level validation rules across regulatory forms (I-9, W-4, DOH-5201, WOTC, NHTD, HHA §611.55 competency forms), reducing intake errors and ensuring HIPAA compliance.",
+      "Architected backend data-mapping schemas and configured field-level validation rules across diverse regulatory, referral, eligibility, and compliance form types spanning Home Care, ABA Therapy, HCBS, and Developmental Disability service lines — including federal employment forms, state DOH filings, tax-credit and wage-parity documentation, and agency-specific intake and consent packets — reducing intake errors and ensuring HIPAA compliance.",
       "Configured dropdown logic, e-signature workflows, and step-based conditional branching for multi-page dynamic files using Bolt's PDF Engine.",
       "Administered multi-tenant SaaS case management system with Super-Admin access, managing user provisioning and HHAeXchange API integration.",
       "Executed UAT and mapping validation tests on production forms; performed root-cause analysis on data-mapping and submission defects.",
