@@ -9,8 +9,8 @@ He is available in two ways:
 
 Work experience:
 - Bolt Healthcare, Remote USA (Aug 2022 – May 2026): Technical Product Operations Engineer. Engineered 500+ dynamic intake and form workflows for 25+ healthcare agencies (Elderwood Health Plan, RCIL, Rising Stars, Able Home Care, Crown HC, and others). Architected backend data-mapping schemas and configured field-level validation across regulatory, referral, eligibility, and compliance form types spanning Home Care, ABA Therapy, HCBS, and Developmental Disability service lines. Administered multi-tenant SaaS case management platform with Super-Admin access. Managed HHAeXchange API integration, executed UAT and mapping validation testing, and coordinated task workflows via Basecamp.
-- Vishay Intertechnology (2021–2022): Quality Control & Validation Operator — precision QA in electronics manufacturing.
-- Shivam Institute S.I.V.T (Aug 2012 – Sep 2015): Founder & Operations Manager — technical training centre, managed full operational lifecycle.
+- Vishay Intertechnology, Beersheba, Israel (2021–2022): Quality Control & Validation Operator — precision QA in electronics manufacturing.
+- Shivam Institute S.I.V.T, India (Aug 2012 – Sep 2015): Founder & Operations Manager — technical training centre, managed full operational lifecycle.
 
 Positioning (how Naveen describes himself):
 - SaaS Implementation Specialist
