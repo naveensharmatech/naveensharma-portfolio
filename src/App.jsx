@@ -20,10 +20,9 @@ const NAV_LINKS = [
 ];
 
 const HEADLINES = [
-  "Technical Product Operations Engineer",
-  "SaaS Implementation Specialist",
+  "Healthcare SaaS Implementation Specialist",
   "Systems Configuration Specialist",
-  "Workflow Automation Engineer",
+  "Workflow Automation Specialist",
   "QA/UAT Analyst",
   "B2B Technical Contractor",
 ];
@@ -45,11 +44,11 @@ const EXPERIENCES = [
     period: "Aug 2022 – May 2026",
     context: "Healthcare SaaS",
     roles: [
-      "Technical Product Operations Engineer",
+      "Implementation Specialist",
     ],
     points: [
-      "Engineered and deployed 500+ dynamic intake and form workflows for 25+ healthcare agencies (including Elderwood Health Plan, RCIL, Rising Stars, Able Home Care, Crown HC, White Glove, Age in Place, Magic HC), automating conditional logic and data-binding schemas to ensure accurate form submission.",
-      "Architected backend data-mapping schemas and configured field-level validation rules across diverse regulatory, referral, eligibility, and compliance form types spanning Home Care, ABA Therapy, HCBS, and Developmental Disability service lines — including federal employment forms, state DOH filings, tax-credit and wage-parity documentation, and agency-specific intake and consent packets — reducing intake errors and ensuring HIPAA compliance.",
+      "Designed and deployed 500+ dynamic intake and form workflows for 25+ healthcare agencies (including Elderwood Health Plan, RCIL, Rising Stars, Able Home Care, Crown HC, White Glove, Age in Place, Magic HC), automating conditional logic and data-binding schemas to ensure accurate form submission.",
+      "Built backend data-mapping schemas and configured field-level validation rules across diverse regulatory, referral, eligibility, and compliance form types spanning Home Care, ABA Therapy, HCBS, and Developmental Disability service lines — including federal employment forms, state DOH filings, tax-credit and wage-parity documentation, and agency-specific intake and consent packets — reducing intake errors and ensuring HIPAA compliance.",
       "Configured dropdown logic, e-signature workflows, and step-based conditional branching for multi-page dynamic files using Bolt's PDF Engine.",
       "Administered multi-tenant SaaS case management system with Super-Admin access, managing user provisioning and HHAeXchange API integration.",
       "Executed UAT and mapping validation tests on production forms; performed root-cause analysis on data-mapping and submission defects.",
@@ -83,7 +82,7 @@ const CASE_STUDIES = [
     title: "Healthcare Intake Form Digitization",
     tag: "Bolt Healthcare · Case Study",
     challenge: "Multiple healthcare agencies relied on manual paper-based intake processes, creating delays and compliance risk.",
-    role: "Technical Product Operations Engineer — configured dynamic form workflows and conditional logic in Bolt's PDF Engine.",
+    role: "Implementation Specialist — configured dynamic form workflows and conditional logic in Bolt's PDF Engine.",
     solution: "Built 500+ digitized intake and compliance forms (I-9, WOTC, DOH-5201, NHTD, HHA competency forms) with field-level validation and e-signature workflows, mapped to agency-specific data sources.",
     outcome: "Digitized workflows in active production use across 25+ agencies including Elderwood Health Plan, RCIL, and Rising Stars.",
   },
@@ -230,7 +229,7 @@ function Navbar() {
           />
           <div className="flex flex-col leading-tight">
             <span className="text-base font-bold tracking-tight text-gray-900">Naveen Sharma</span>
-            <span className="text-xs font-medium text-blue-600">Technical Product Operations · SaaS Implementation · Systems Configuration</span>
+            <span className="text-xs font-medium text-blue-600">Healthcare SaaS Implementation · Systems Configuration · QA & UAT</span>
           </div>
         </a>
 
@@ -300,7 +299,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
-          Technical Product Operations Engineer
+          Healthcare SaaS Implementation Specialist
         </p>
 
         <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
@@ -385,10 +384,10 @@ function About() {
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="About" title="Technical Product Operations Engineer" />
+            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation Specialist" />
             <p className="text-base leading-relaxed text-gray-600">
-              I'm Naveen Sharma — a Technical Product Operations Engineer with 7+ years of professional
-              experience, including nearly 4 years at Bolt Healthcare engineering SaaS workflow automation,
+              I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of professional
+              experience, including nearly 4 years at Bolt Healthcare configuring SaaS form workflows,
               systems configuration, and validation testing across a regulated healthcare environment. I
               administered multi-tenant platform infrastructure, configured dynamic form workflows and
               conditional logic for 25+ healthcare agencies, and executed UAT/mapping validation on
@@ -871,7 +870,7 @@ function Footer() {
               onError={(e) => { e.target.style.display = "none"; }}
             />
             <p className="font-extrabold text-gray-900">Naveen Sharma</p>
-            <p className="text-sm text-gray-500">Technical Product Operations · SaaS Implementation · Systems Configuration · Workflow Automation</p>
+            <p className="text-sm text-gray-500">Healthcare SaaS Implementation · Systems Configuration · Workflow Automation · QA & UAT</p>
             <p className="text-xs text-gray-400">
               B2B services & contracting →{" "}
               <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">opility.com</a>
@@ -922,7 +921,7 @@ const FAQS = [
   },
   {
     q: "What was your role at Bolt Healthcare?",
-    a: "I was a Technical Product Operations Engineer, engineering SaaS workflow automation, systems configuration, and validation testing for a healthcare intake platform used by 25+ agencies.",
+    a: "I was an Implementation Specialist, configuring SaaS form workflows, systems configuration, and validation testing for a healthcare intake platform used by 25+ agencies.",
   },
   {
     q: "Are you available for remote or international work?",
