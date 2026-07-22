@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Intake Form Builder — Illustrative Demo | Naveen Sharma</title>
+  <meta name="description" content="An original, interactive recreation by Naveen Sharma illustrating the type of healthcare-form configuration, data mapping, conditional logic, and QA validation work he performed as an Implementation Specialist. No client data or proprietary systems." />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root{
+      --blue:#2563eb; --blue-700:#1d4ed8; --blue-50:#eff6ff; --blue-100:#dbeafe;
+      --ink:#111827; --gray-700:#374151; --gray-500:#6b7280; --gray-400:#9ca3af;
+      --gray-200:#e5e7eb; --gray-100:#f3f4f6; --gray-50:#f9fafb;
+      --green:#16a34a; --green-50:#f0fdf4; --amber:#d97706; --red:#dc2626; --red-50:#fef2f2;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+    /* top bar */
+    .topbar{background:#fff;border-bottom:1px solid var(--gray-100);position:sticky;top:0;z-index:20}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;flex-wrap:wrap}
+    .back{font-size:14px;font-weight:600;color:var(--gray-700)}
+    .back:hover{color:var(--blue)}
+    .topbar .tag{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}
+
+    /* disclaimer */
+    .disclaimer{background:var(--blue-50);border:1px solid var(--blue-100);border-radius:14px;padding:14px 18px;margin:24px 0;font-size:13.5px;color:var(--gray-700)}
+    .disclaimer strong{color:var(--ink)}
+
+    h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:28px}
+    .sub{color:var(--gray-500);font-size:15px;margin-top:8px;max-width:70ch}
+
+    /* app shell */
+    .app{background:#fff;border:1px solid var(--gray-200);border-radius:18px;overflow:hidden;margin:22px 0 40px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .app-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--gray-100);flex-wrap:wrap}
+    .form-pick{display:flex;align-items:center;gap:10px}
+    .form-pick label{font-size:12px;color:var(--gray-500);font-weight:600}
+    select,input[type=text]{font:inherit;font-size:13.5px;padding:7px 10px;border:1px solid var(--gray-200);border-radius:9px;background:#fff;color:var(--ink)}
+    .btn{font:inherit;font-weight:700;font-size:13.5px;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+    .btn-primary{background:var(--blue);color:#fff}
+    .btn-primary:hover{background:var(--blue-700)}
+    .btn-ghost{background:var(--gray-100);color:var(--gray-700)}
+    .btn-ghost:hover{background:var(--gray-200)}
+
+    .cols{display:grid;grid-template-columns:1fr;gap:0}
+    @media(min-width:860px){.cols{grid-template-columns:270px 1fr 300px}}
+
+    .panel{padding:16px 18px;border-top:1px solid var(--gray-100)}
+    @media(min-width:860px){
+      .panel{border-top:0}
+      .col-mid{border-left:1px solid var(--gray-100);border-right:1px solid var(--gray-100)}
+    }
+    .panel h2{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-400);font-weight:700;margin-bottom:12px}
+
+    /* field list */
+    .field{width:100%;text-align:left;border:1px solid var(--gray-200);background:#fff;border-radius:11px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:.12s;display:flex;align-items:center;gap:10px}
+    .field:hover{border-color:var(--blue-100);background:var(--blue-50)}
+    .field.active{border-color:var(--blue);background:var(--blue-50);box-shadow:0 0 0 3px rgba(37,99,235,.10)}
+    .field .fi-type{font-size:15px;width:22px;text-align:center}
+    .field .fi-label{font-size:13.5px;font-weight:600}
+    .field .fi-meta{font-size:11px;color:var(--gray-400)}
+    .req-dot{margin-left:auto;font-size:10px;font-weight:800;color:var(--red);letter-spacing:.04em}
+
+    /* live form preview */
+    .prev-field{margin-bottom:14px}
+    .prev-field label{display:block;font-size:12.5px;font-weight:600;color:var(--gray-700);margin-bottom:5px}
+    .prev-field .req{color:var(--red)}
+    .prev-input{width:100%;padding:9px 11px;border:1px solid var(--gray-200);border-radius:9px;font-size:13.5px;color:var(--ink);background:#fff}
+    .prev-input[readonly]{background:var(--gray-50);color:var(--gray-500)}
+    .cond{border-left:3px solid var(--blue);background:var(--blue-50);border-radius:0 10px 10px 0;padding:12px 14px;margin:6px 0 14px}
+    .cond .cbadge{font-size:10.5px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.05em}
+    .hidden{display:none}
+    .esign{border:1px dashed var(--gray-200);border-radius:10px;padding:14px;text-align:center;color:var(--gray-400);font-size:13px;font-style:italic}
+
+    /* config panel */
+    .cfg-row{margin-bottom:14px}
+    .cfg-row .k{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);font-weight:700;margin-bottom:4px}
+    .cfg-row .v{font-size:13.5px;color:var(--ink);font-weight:600}
+    .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--gray-100);color:var(--gray-700)}
+    .pill.map{background:var(--blue-50);color:var(--blue)}
+    .toggle{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600}
+    .switch{width:34px;height:20px;border-radius:999px;background:var(--gray-200);position:relative;transition:.15s}
+    .switch.on{background:var(--green)}
+    .switch::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.15s}
+    .switch.on::after{left:16px}
+    .rules li{font-size:12.5px;color:var(--gray-700);padding:6px 0 6px 20px;position:relative}
+    .rules li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+
+    /* test results */
+    .results{margin:0 0 40px}
+    .res-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;overflow:hidden}
+    .res-head{padding:16px 20px;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .res-head h3{font-size:15px;font-weight:800}
+    .res-summary{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px}
+    .res-summary.pass{background:var(--green-50);color:var(--green)}
+    .res-row{display:flex;align-items:flex-start;gap:12px;padding:11px 20px;border-top:1px solid var(--gray-100);font-size:13px}
+    .res-row .ic{font-weight:800;flex-shrink:0}
+    .res-row.ok .ic{color:var(--green)}
+    .res-row.warn .ic{color:var(--amber)}
+    .res-row .rt{color:var(--gray-700)}
+    .res-row .rt b{color:var(--ink)}
+    .progress{height:8px;border-radius:999px;background:var(--gray-100);overflow:hidden;margin-top:10px}
+    .progress span{display:block;height:100%;background:var(--green);width:0;transition:width .8s ease}
+
+    footer{border-top:1px solid var(--gray-100);background:#fff;padding:26px 0;text-align:center;color:var(--gray-400);font-size:13px}
+    .muted{color:var(--gray-400);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <a class="back" href="/">← naveensharma.net</a>
+      <span class="tag">Illustrative Demo · Built by Naveen Sharma</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h1>Dynamic Intake Form Builder</h1>
+    <p class="sub">An interactive recreation of the healthcare-form configuration work I did as an Implementation Specialist — dynamic field mapping, conditional logic, validation rules, and a mapping/UAT test runner. Everything below is generic sample content.</p>
+
+    <div class="disclaimer">
+      🔒 <strong>Original work, no confidential data.</strong> This is a from-scratch demo I built to <strong>illustrate the type of work</strong> I performed — it uses invented sample fields and agency names, contains <strong>no real patient information, no client data, and no proprietary employer systems or branding</strong>. Built with HTML, CSS, and vanilla JavaScript.
+    </div>
+
+    <div class="app">
+      <div class="app-head">
+        <div class="form-pick">
+          <label for="formSel">Form template</label>
+          <select id="formSel">
+            <option>Home Care Intake — Sample Agency</option>
+            <option>ABA Therapy Referral — Sample Agency</option>
+            <option>HCBS Eligibility — Sample Agency</option>
+          </select>
+          <span class="pill map" id="fieldCount">18 fields</span>
+        </div>
+        <button class="btn btn-primary" id="runTest">▶ Run Mapping Test</button>
+      </div>
+
+      <div class="cols">
+        <!-- LEFT: field list -->
+        <div class="panel">
+          <h2>Form fields</h2>
+          <div id="fieldList"></div>
+          <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:4px">+ Add field</button>
+        </div>
+
+        <!-- MIDDLE: live preview with conditional logic -->
+        <div class="panel col-mid">
+          <h2>Live preview · conditional logic</h2>
+
+          <div class="prev-field">
+            <label>First name <span class="req">*</span></label>
+            <input class="prev-input" type="text" placeholder="e.g. Jordan" />
+          </div>
+          <div class="prev-field">
+            <label>Date of birth <span class="req">*</span></label>
+            <input class="prev-input" type="text" placeholder="MM/DD/YYYY" value="01/01/1990" readonly />
+          </div>
+
+          <div class="prev-field">
+            <label>Diagnosis type <span class="req">*</span></label>
+            <select class="prev-input" id="dxSelect">
+              <option value="">— Select —</option>
+              <option>Single Chronic Condition</option>
+              <option>Two Chronic Conditions</option>
+              <option>Developmental Disability</option>
+            </select>
+          </div>
+
+          <div class="cond hidden" id="condBlock">
+            <span class="cbadge">▸ Conditional rule fired</span>
+            <div class="prev-field" style="margin-top:8px;margin-bottom:0">
+              <label>Chronic condition details <span class="req">*</span></label>
+              <input class="prev-input" type="text" placeholder="Required when 2+ conditions selected" />
+            </div>
+          </div>
+
+          <div class="prev-field">
+            <label>Reliable transportation?</label>
+            <select class="prev-input">
+              <option>Yes</option><option>No</option>
+            </select>
+          </div>
+
+          <div class="prev-field">
+            <label>Applicant e-signature <span class="req">*</span></label>
+            <div class="esign">✍ Signature capture field · e-sign workflow</div>
+          </div>
+
+          <p class="muted" style="margin-top:4px">Rule: <b>IF</b> Diagnosis type <b>= “Two Chronic Conditions”</b> <b>THEN</b> require “Chronic condition details”. Try changing the dropdown above.</p>
+        </div>
+
+        <!-- RIGHT: field config -->
+        <div class="panel">
+          <h2>Field configuration</h2>
+          <div id="cfg">
+            <div class="cfg-row"><div class="k">Field label</div><div class="v" id="cfgLabel">Diagnosis type</div></div>
+            <div class="cfg-row"><div class="k">Field type</div><div class="v"><span class="pill" id="cfgType">Dropdown</span></div></div>
+            <div class="cfg-row"><div class="k">Required</div>
+              <div class="toggle"><span class="switch on" id="cfgReq"></span><span id="cfgReqTxt">Required</span></div>
+            </div>
+            <div class="cfg-row"><div class="k">Maps to (backend)</div><div class="v"><span class="pill map" id="cfgMap">patient.diagnosis_type</span></div></div>
+            <div class="cfg-row"><div class="k">Validation rules</div>
+              <ul class="rules" id="cfgRules">
+                <li>Value must be in allowed option set</li>
+                <li>Triggers conditional sub-field when “Two Chronic Conditions”</li>
+                <li>Non-empty on submit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST RESULTS -->
+    <div class="results" id="results" style="display:none">
+      <div class="res-card">
+        <div class="res-head">
+          <h3>Mapping &amp; UAT test results</h3>
+          <span class="res-summary pass" id="resSummary">18 / 18 mapped · 0 errors</span>
+        </div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Field mapping</b> — all 18 fields resolve to a backend target (e.g. <b>patient.diagnosis_type</b>, <b>patient.dob</b>).</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Required-field validation</b> — 6 required fields enforce non-empty submission.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Conditional logic</b> — “Two Chronic Conditions” correctly reveals and requires the sub-field.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Data-type validation</b> — date field enforces MM/DD/YYYY; dropdown enforces allowed option set.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>E-signature workflow</b> — signature field gated behind completed required fields.</span></div>
+        <div class="res-row warn"><span class="ic">!</span><span class="rt"><b>Advisory</b> — 1 optional field (“Reliable transportation?”) has no downstream mapping. Non-blocking.</span></div>
+        <div style="padding:16px 20px"><div class="progress"><span id="bar"></span></div></div>
+      </div>
+    </div>
+
+    <p class="sub" style="margin-bottom:34px">This demo mirrors the <b>competencies</b> behind my Bolt Healthcare work — configuring 500+ dynamic forms, building conditional logic, mapping fields to backend schemas, and running UAT (“mapping tests”) — recreated here as my own original build. <a href="/#projects">← Back to projects</a></p>
+  </div>
+
+  <footer>Built by Naveen Sharma · Healthcare SaaS Implementation Specialist · <a href="/">naveensharma.net</a></footer>
+
+  <script>
+    // ── sample field data (invented, generic) ──────────────────────
+    var FIELDS = [
+      {t:"🔤", label:"First name",            type:"Text",       req:true,  map:"patient.first_name"},
+      {t:"🔤", label:"Last name",             type:"Text",       req:true,  map:"patient.last_name"},
+      {t:"📅", label:"Date of birth",         type:"Date",       req:true,  map:"patient.dob",
+        rules:["Must match MM/DD/YYYY","Age computed for eligibility","Non-empty on submit"]},
+      {t:"▾",  label:"Diagnosis type",        type:"Dropdown",   req:true,  map:"patient.diagnosis_type",
+        rules:["Value must be in allowed option set","Triggers conditional sub-field when “Two Chronic Conditions”","Non-empty on submit"]},
+      {t:"▾",  label:"Reliable transportation?", type:"Dropdown", req:false, map:"— (unmapped)",
+        rules:["Optional field","Yes/No option set"]},
+      {t:"✍",  label:"Applicant e-signature", type:"E-signature",req:true,  map:"signature.applicant",
+        rules:["Gated behind required fields","Timestamped on capture","Bound to submission record"]},
+    ];
+
+    var list = document.getElementById("fieldList");
+    var cfgLabel=document.getElementById("cfgLabel"), cfgType=document.getElementById("cfgType"),
+        cfgReq=document.getElementById("cfgReq"), cfgReqTxt=document.getElementById("cfgReqTxt"),
+        cfgMap=document.getElementById("cfgMap"), cfgRules=document.getElementById("cfgRules");
+
+    function select(i){
+      document.querySelectorAll(".field").forEach(function(el,idx){el.classList.toggle("active",idx===i);});
+      var f=FIELDS[i];
+      cfgLabel.textContent=f.label;
+      cfgType.textContent=f.type;
+      cfgReq.classList.toggle("on",f.req);
+      cfgReqTxt.textContent=f.req?"Required":"Optional";
+      cfgMap.textContent=f.map;
+      cfgMap.classList.toggle("map", f.map.indexOf("—")===-1);
+      var rules=f.rules||["Non-empty on submit","Type validation on submit"];
+      cfgRules.innerHTML=rules.map(function(r){return "<li>"+r+"</li>";}).join("");
+    }
+
+    FIELDS.forEach(function(f,i){
+      var b=document.createElement("button");
+      b.className="field"+(i===3?" active":"");
+      b.innerHTML='<span class="fi-type">'+f.t+'</span>'+
+                  '<span><span class="fi-label">'+f.label+'</span><br><span class="fi-meta">'+f.type+' · '+f.map+'</span></span>'+
+                  (f.req?'<span class="req-dot">REQ</span>':'');
+      b.onclick=function(){select(i);};
+      list.appendChild(b);
+    });
+    select(3);
+
+    // ── conditional logic (live) ──────────────────────────────────
+    var dx=document.getElementById("dxSelect"), cond=document.getElementById("condBlock");
+    dx.addEventListener("change",function(){
+      cond.classList.toggle("hidden", dx.value!=="Two Chronic Conditions");
+    });
+
+    // ── run mapping test ──────────────────────────────────────────
+    var results=document.getElementById("results"), bar=document.getElementById("bar"),
+        runBtn=document.getElementById("runTest");
+    runBtn.addEventListener("click",function(){
+      results.style.display="block";
+      bar.style.width="0";
+      results.scrollIntoView({behavior:"smooth",block:"start"});
+      setTimeout(function(){ bar.style.width="94%"; },120);
+    });
+
+    // form template switch tweaks field count (cosmetic)
+    var counts=["18 fields","14 fields","21 fields"];
+    document.getElementById("formSel").addEventListener("change",function(e){
+      document.getElementById("fieldCount").textContent=counts[e.target.selectedIndex];
+    });
+  </script>
+</body>
+</html>

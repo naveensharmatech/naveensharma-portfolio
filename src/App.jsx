@@ -160,6 +160,16 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
+    icon: Workflow,
+    title: "Dynamic Intake Form Builder — Interactive Demo",
+    tag: "Illustrative Recreation",
+    desc: "An interactive demo I built from scratch to illustrate my healthcare-form implementation work — dynamic field mapping, conditional logic, validation rules, and a live 'Run Mapping Test' (UAT) runner. Generic sample data only; no client data or proprietary systems.",
+    skills: ["Conditional Logic", "Data Mapping", "Validation Rules", "UAT", "HTML/CSS/JS"],
+    links: [
+      { href: "/intake-builder-demo.html", label: "Open interactive demo", type: "site" },
+    ],
+  },
+  {
     icon: ClipboardCheck,
     title: "Warehouse Management System — Software Test Plan",
     tag: "QA Certification Project",
@@ -682,7 +692,7 @@ function Projects() {
     <section id="projects" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Projects" title="Personal projects & study work"
-          description="QA certification projects, an academic development build, and personal web projects." />
+          description="An interactive implementation demo, QA certification projects, an academic development build, and live web projects — all original work." />
         <div className="grid gap-6 md:grid-cols-3">
           {PROJECTS.map((project) => {
             const Icon = project.icon;
