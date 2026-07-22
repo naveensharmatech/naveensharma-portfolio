@@ -190,15 +190,23 @@ const PROJECTS = [
     icon: Globe,
     title: "naveensharma.net — Personal Portfolio",
     tag: "Personal Project",
-    desc: "Designed, built, and deployed this professional portfolio site end-to-end — from concept through to domain go-live on Cloudflare Pages.",
-    skills: ["React", "Vite", "Tailwind CSS", "GitHub", "Cloudflare Pages"],
+    desc: "Designed, built, and deployed this professional portfolio site end-to-end — from concept through to domain go-live on Cloudflare Pages. Delivered solo using an AI-assisted development workflow, translating requirements into production code, SEO, and CI/CD.",
+    skills: ["React", "Vite", "Tailwind CSS", "GitHub", "Cloudflare Pages", "AI-Assisted Build"],
+    links: [
+      { href: "https://naveensharma.net", label: "Visit live site", type: "site" },
+      { href: "https://github.com/naveensharmatech/naveensharma-portfolio", label: "View source on GitHub", type: "code" },
+    ],
   },
   {
     icon: MessageCircle,
     title: "Ella — AI Chat Assistant",
     tag: "Personal Project",
-    desc: "Full-stack AI chat assistant — React frontend, Cloudflare Pages serverless backend, Groq AI (Llama 3) integration. Live 24/7 on this site.",
-    skills: ["React", "Cloudflare Pages Functions", "Groq API", "Llama 3", "Serverless"],
+    desc: "A full-stack AI chat assistant I built for this site — React frontend, Cloudflare Pages serverless functions, and an LLM (Llama 3 via Groq) grounded on a custom knowledge base. Live 24/7 in the bottom-right corner. Architected and shipped solo using an AI-assisted workflow.",
+    skills: ["React", "Cloudflare Pages Functions", "Serverless", "LLM Integration", "Prompt Engineering", "AI-Assisted Build"],
+    links: [
+      { href: "https://naveensharma.net", label: "Try Ella live (bottom-right)", type: "site" },
+      { href: "https://github.com/naveensharmatech/naveensharma-portfolio", label: "View source on GitHub", type: "code" },
+    ],
   },
 ];
 
@@ -701,6 +709,17 @@ function Projects() {
                     <FileDown size={16} />
                     {project.fileLabel || "View document"}
                   </a>
+                )}
+                {project.links && (
+                  <div className="mt-6 flex flex-col gap-2.5">
+                    {project.links.map((l) => (
+                      <a key={l.href} href={l.href} target="_blank" rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:gap-2.5 hover:text-blue-700">
+                        {l.type === "code" ? <Github size={16} /> : <ExternalLink size={16} />}
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
                 )}
               </div>
             );
