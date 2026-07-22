@@ -41,18 +41,18 @@ const EXPERTISE = [
 const EXPERIENCES = [
   {
     company: "Bolt Healthcare",
-    period: "Aug 2022 – May 2026",
-    context: "Healthcare SaaS",
+    period: "Aug 2022 – May 2026 · 3 yrs 10 mos",
+    context: "Healthcare SaaS · Contract · Remote (NY, United States)",
     roles: [
       "Implementation Specialist",
     ],
     points: [
-      "Designed and deployed 500+ dynamic intake and form workflows for 25+ healthcare agencies (including Elderwood Health Plan, RCIL, Rising Stars, Able Home Care, Crown HC, White Glove, Age in Place, Magic HC), automating conditional logic and data-binding schemas to ensure accurate form submission.",
-      "Built backend data-mapping schemas and configured field-level validation rules across diverse regulatory, referral, eligibility, and compliance form types spanning Home Care, ABA Therapy, HCBS, and Developmental Disability service lines — including federal employment forms, state DOH filings, tax-credit and wage-parity documentation, and agency-specific intake and consent packets — reducing intake errors and ensuring HIPAA compliance.",
-      "Configured dropdown logic, e-signature workflows, and step-based conditional branching for multi-page dynamic files using Bolt's PDF Engine.",
-      "Administered multi-tenant SaaS case management system with Super-Admin access, managing user provisioning and HHAeXchange API integration.",
-      "Executed UAT and mapping validation tests on production forms; performed root-cause analysis on data-mapping and submission defects.",
-      "Facilitated cross-functional collaboration via Basecamp by managing end-to-end task assignment and issue triage across Pending Jobs, Needs Mapping, and Needs Testing workflows.",
+      { label: "Workflow Configuration & Automation", text: "Designed and deployed 500+ dynamic intake workflows for 25+ enterprise healthcare agency clients, converting manual paper-based processes into fully automated, HIPAA-compliant digital systems. Built complex conditional logic and data-binding schemas to ensure accurate form submission." },
+      { label: "Data Mapping & Schema Configuration", text: "Built backend data-mapping schemas and configured field-level validation rules across diverse regulatory, referral, eligibility, and compliance form types spanning Home Care, ABA Therapy, HCBS, and Developmental Disability service lines — including federal employment forms, state DOH filings, tax-credit and wage-parity documentation, and agency-specific intake and consent packets — reducing intake errors and ensuring HIPAA compliance." },
+      { label: "E-Signature & Workflow Configuration", text: "Configured dropdown logic, e-signature workflows, and step-based conditional branching for multi-page dynamic files using Bolt's PDF Engine (boltdocs.com) and Bolt Intake App (Bolt Homecare App)." },
+      { label: "QA & System Validation", text: "Executed UAT and regression testing on production forms (\"Run Mapping Test\"); performed root-cause analysis on mapping logic failures to resolve production defects." },
+      { label: "SaaS Platform Administration", text: "Utilized Super-Admin access to configure dynamic workflows, manage dropdown logic, and enable multi-tenant agency clients to operate independently across the platform. Managed HHAeXchange API integration for seamless system interoperability." },
+      { label: "Technical Coordination", text: "Managed technical issue triage via Basecamp, prioritizing by business impact and coordinating cross-functional resolution across 'Pending Jobs,' 'Needs Mapping,' and 'Needs Testing' workflows." },
     ],
   },
   {
@@ -493,7 +493,14 @@ function Experience() {
                 {exp.points.map((point, i) => (
                   <li key={i} className="flex gap-3 text-sm leading-relaxed text-gray-600">
                     <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-blue-500" />
-                    <span>{point}</span>
+                    <span>
+                      {typeof point === "string" ? point : (
+                        <>
+                          <span className="font-semibold text-gray-900">{point.label}: </span>
+                          {point.text}
+                        </>
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>
