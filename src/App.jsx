@@ -57,22 +57,25 @@ const EXPERIENCES = [
   },
   {
     company: "Vishay Intertechnology, Inc.",
-    period: "Nov 2021 – Dec 2022",
-    context: "Electronics Manufacturing · Beersheba, Israel",
+    period: "Nov 2021 – Dec 2022 · 1 yr 2 mos",
+    context: "Electronics Manufacturing · Full-time · On-site (Be'er Sheva, Israel)",
     roles: ["Technical Operator — Quality Control & Validation"],
     points: [
-      "Performed critical functional checks and quality control gates on high-precision components in medical and telecommunications sectors.",
-      "Managed detailed operational performance records, utilizing machine data to facilitate process improvements and maintain rigorous adherence to global industry standards.",
+      { label: "Process Validation & Equipment Operation", text: "Operated and maintained specialized precision manufacturing systems in a cleanroom environment, ensuring continuous high-integrity output through rigorous calibration and adherence to complex machine protocols." },
+      { label: "Quality Engineering & Inspection", text: "Performed critical functional checks and quality control gates on chip resistor components; utilized automated machinery to identify microscopic discrepancies and maintain strict compliance with global industry standards." },
+      { label: "Technical Reporting & Efficiency", text: "Managed detailed operational records utilizing machine performance data to facilitate process improvements and maintain high throughput across enterprise manufacturing operations." },
     ],
   },
   {
-    company: "Shivam Institute for Vocational Training",
-    period: "Aug 2012 – Sep 2015",
-    context: "Technical Training Centre · Dharamshala, India",
+    company: "Shivam Institute for Vocational Trainings",
+    period: "Aug 2012 – Sep 2015 · 3 yrs 2 mos",
+    context: "Technical Training Centre · Self-employed · On-site (Dharamshala, India)",
     roles: ["Franchisee Owner — Operations & Technical Management"],
     points: [
-      "Managed full-cycle business operations including student enrollment and curriculum delivery for vocational training programs.",
-      "Supervised IT infrastructure and lab maintenance to support training operations and student learning outcomes.",
+      { label: "Operational Leadership", text: "Managed end-to-end operations for a vocational training center franchise; drove 25% growth in student enrollment through optimized course delivery and technical curriculum development." },
+      { label: "IT Infrastructure Management", text: "Supervised maintenance of IT infrastructure and lab equipment; ensured 99% uptime for student workstations and training software across all operational hours." },
+      { label: "Team Leadership & Training", text: "Led an instructor team to implement standardized training modules; achieved 15% improvement in student certification success rates through structured curriculum delivery." },
+      { label: "Business Growth", text: "Improved organizational profitability by 10% through strategic resource allocation and introduction of high-demand technical courses aligned with market needs." },
     ],
   },
 ];
@@ -102,32 +105,56 @@ const EDUCATION = [
     institution: "Amity University Online",
     degree: "BCA — Bachelor of Computer Applications",
     focus: "Cloud Computing & Security",
-    period: "2022 – 2026",
+    period: "Jan 2022 – Jan 2025",
     type: "Degree",
   },
   {
     icon: Award,
     institution: "Smart College",
-    degree: "QA Engineering Certification",
-    focus: "Web & Mobile Testing",
+    degree: "QA Engineering Certification (Web & Mobile)",
+    focus: "Software testing, defect lifecycle, test planning · Credential ID 35513261",
     period: "Sep 2021",
     type: "Professional Certification",
   },
   {
     icon: Award,
-    institution: "Programming Hub / Great Learning",
-    degree: "Software Testing · Automation Testing · Software Engineering",
-    focus: "Test planning, defect lifecycle, automation fundamentals",
-    period: "2021",
-    type: "Professional Development",
+    institution: "Programming Hub",
+    degree: "Software Engineering",
+    focus: "Software engineering & testing foundations · Credential ID 1631415278883",
+    period: "Sep 2021",
+    type: "Certification",
   },
   {
     icon: Award,
-    institution: "Self-Directed Learning",
-    degree: "CRM Platforms & AI Tools",
-    focus: "Monday.com, Salesforce, and advanced AI workflow tooling",
-    period: "2025 – Present",
-    type: "In Progress",
+    institution: "Great Learning",
+    degree: "Automation Testing",
+    focus: "Test automation fundamentals & regression testing",
+    period: "Apr 2025",
+    type: "Certification",
+  },
+  {
+    icon: Award,
+    institution: "Canva",
+    degree: "Canva Essentials Certified",
+    focus: "Visual design, branding & content layout · Credential ID 7bfd82",
+    period: "Jun 2025",
+    type: "Certification",
+  },
+  {
+    icon: Award,
+    institution: "HP LIFE",
+    degree: "Customer Relationship Management",
+    focus: "CRM fundamentals & client engagement · Credential ID 6842180172284866561",
+    period: "Sep 2021",
+    type: "Certification",
+  },
+  {
+    icon: Award,
+    institution: "Great Learning",
+    degree: "Foundational Tech Courses",
+    focus: "Intro to UI/UX, Cyber Security, HTML, and Google Analytics",
+    period: "Aug 2021",
+    type: "Professional Development",
   },
 ];
 
@@ -190,18 +217,12 @@ const TOOL_CATEGORIES = [
   {
     label: "AI-Assisted Productivity",
     sublabel: "Used to enhance and accelerate professional work",
-    tools: ["Claude", "Notion AI", "GitHub Copilot", "Gemini", "Google AI Studio"],
+    tools: ["Claude", "Notion AI", "GitHub Copilot", "Scribe", "Gemini", "Google AI Studio"],
   },
   {
     label: "Design & Content",
     sublabel: "Supporting documentation and presentation",
     tools: ["Canva", "Adobe Express"],
-  },
-  {
-    label: "Currently Learning",
-    sublabel: "Active study — CRM platforms and AI tools",
-    tools: ["Monday.com", "Salesforce"],
-    note: "Expanding into CRM and project management platforms alongside ongoing AI skill development",
   },
 ];
 
@@ -386,12 +407,16 @@ function About() {
           <div>
             <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation Specialist" />
             <p className="text-base leading-relaxed text-gray-600">
-              I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of professional
-              experience, including nearly 4 years at Bolt Healthcare configuring SaaS form workflows,
-              systems configuration, and validation testing across a regulated healthcare environment. I
-              administered multi-tenant platform infrastructure, configured dynamic form workflows and
-              conditional logic for 25+ healthcare agencies, and executed UAT/mapping validation on
-              production systems.
+              I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of technical
+              operations experience, including nearly 4 years of SaaS form-workflow configuration, healthcare
+              operations, and platform administration. I spearheaded the digital transformation of 500+
+              paper-based healthcare forms into automated, data-mapped intake systems for 25+ agencies. My
+              work bridges regulatory requirements and platform configuration.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-gray-600">
+              I specialize in end-to-end SaaS workflow automation, system validation, and platform operations
+              for healthcare environments with strict regulatory requirements — dynamic form configuration,
+              conditional logic, data mapping, multi-tenant administration, and full-cycle UAT.
             </p>
             <p className="mt-4 text-base leading-relaxed text-gray-600">
               I'm available for full-time, hybrid, and remote roles in SaaS implementation, systems
@@ -622,6 +647,22 @@ function Education() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-10 rounded-2xl border border-gray-100 bg-gray-50 p-8">
+          <h3 className="text-base font-extrabold text-gray-900 mb-5">Languages</h3>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { lang: "Hindi", level: "Native / bilingual proficiency" },
+              { lang: "English", level: "Professional working proficiency" },
+              { lang: "Hebrew", level: "Elementary proficiency" },
+            ].map((l) => (
+              <div key={l.lang} className="rounded-xl border border-gray-200 bg-white px-5 py-3">
+                <p className="text-sm font-bold text-gray-900">{l.lang}</p>
+                <p className="text-xs text-gray-500">{l.level}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

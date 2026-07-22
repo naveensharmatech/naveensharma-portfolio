@@ -16,11 +16,15 @@ Bolt Healthcare, Remote USA (Aug 2022 – May 2026) — Implementation Specialis
 • Executed UAT and mapping validation testing; root-cause analysis on data-mapping defects
 • Coordinated task assignment and issue triage via Basecamp
 
-Vishay Intertechnology, Beersheba, Israel (2021–2022) — Quality Control & Validation Operator
-• Precision QA in electronics manufacturing; structured compliance and manufacturing QA standards
+Vishay Intertechnology, Be'er Sheva, Israel (Nov 2021 – Dec 2022) — Technical Operator, Quality Control & Validation (Full-time, On-site)
+• Operated precision manufacturing systems in a cleanroom; calibration and machine-protocol adherence
+• Quality control gates and functional checks on chip resistor components; global-standard compliance
+• Managed operational records using machine performance data to drive process improvements
 
-Shivam Institute S.I.V.T, Dharamshala, India (Aug 2012 – Sep 2015) — Founder & Operations Manager
-• Founded and managed a technical training centre — scheduling, staff, supplier coordination, IT infrastructure
+Shivam Institute for Vocational Trainings, Dharamshala, India (Aug 2012 – Sep 2015) — Franchisee Owner, Operations & Technical Management (Self-employed)
+• Ran a vocational training franchise; drove 25% enrollment growth via optimized course delivery
+• Supervised IT infrastructure and lab equipment; ensured 99% workstation uptime
+• Led instructor team to standardized modules; 15% improvement in certification success; +10% profitability
 
 === CORE COMPETENCIES ===
 • Healthcare SaaS Implementation — end-to-end workflow setup, onboarding, go-live validation
@@ -54,9 +58,16 @@ Outcome: Ongoing production support and workflow configuration across the full a
 • Netflix Subscription Test Plan — QA certification project; methodology, risk assessment, test execution planning
 
 === EDUCATION & CERTIFICATIONS ===
-• BCA — Bachelor of Computer Applications, Amity University Online (2022–2026), focus: Cloud Computing & Security
+• BCA — Bachelor of Computer Applications, Amity University Online (Jan 2022 – Jan 2025), focus: Cloud Computing & Security
 • QA Engineering Certification (Web & Mobile), Smart College (Sep 2021)
-• Software Testing & Automation Foundation (2021) — test planning, defect lifecycle, automation fundamentals
+• Software Engineering, Programming Hub (Sep 2021)
+• Automation Testing, Great Learning (Apr 2025)
+• Canva Essentials Certified, Canva (Jun 2025)
+• Customer Relationship Management, HP LIFE (Sep 2021)
+• Great Learning foundational courses: Intro to UI/UX, Cyber Security, HTML, Google Analytics (Aug 2021)
+
+=== LANGUAGES ===
+Hindi (native/bilingual), English (professional working proficiency), Hebrew (elementary proficiency)
 
 === TOOLS ===
 SaaS & Technical Operations (production-used): Basecamp, HHAeXchange, Zendesk
