@@ -3,62 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamic Intake Form Builder — Illustrative Demo | Naveen Sharma</title>
-  <meta name="description" content="An original, interactive recreation by Naveen Sharma illustrating the type of healthcare-form configuration, data mapping, conditional logic, and QA validation work he performed as an Implementation Specialist. No client data or proprietary systems." />
+  <title>Implementation Workbench — Illustrative Demo | Naveen Sharma</title>
+  <meta name="description" content="An original, interactive recreation by Naveen Sharma illustrating the range of healthcare-SaaS implementation work he performed — form configuration, conditional logic, e-signature workflows, multi-tenant platform administration, API integration, and QA task triage. No client data or proprietary systems." />
   <meta name="robots" content="index, follow" />
   <style>
     :root{
       --blue:#2563eb; --blue-700:#1d4ed8; --blue-50:#eff6ff; --blue-100:#dbeafe;
       --ink:#111827; --gray-700:#374151; --gray-500:#6b7280; --gray-400:#9ca3af;
       --gray-200:#e5e7eb; --gray-100:#f3f4f6; --gray-50:#f9fafb;
-      --green:#16a34a; --green-50:#f0fdf4; --amber:#d97706; --red:#dc2626; --red-50:#fef2f2;
+      --green:#16a34a; --green-50:#f0fdf4; --amber:#d97706; --amber-50:#fffbeb;
+      --red:#dc2626; --red-50:#fef2f2; --violet:#7c3aed; --violet-50:#f5f3ff;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      color:var(--ink);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;
-    }
-    a{color:var(--blue);text-decoration:none}
-    a:hover{text-decoration:underline}
+    body{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased}
+    a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 
-    /* top bar */
     .topbar{background:#fff;border-bottom:1px solid var(--gray-100);position:sticky;top:0;z-index:20}
     .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;flex-wrap:wrap}
-    .back{font-size:14px;font-weight:600;color:var(--gray-700)}
-    .back:hover{color:var(--blue)}
+    .back{font-size:14px;font-weight:600;color:var(--gray-700)} .back:hover{color:var(--blue)}
     .topbar .tag{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}
 
-    /* disclaimer */
     .disclaimer{background:var(--blue-50);border:1px solid var(--blue-100);border-radius:14px;padding:14px 18px;margin:24px 0;font-size:13.5px;color:var(--gray-700)}
     .disclaimer strong{color:var(--ink)}
-
     h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:28px}
-    .sub{color:var(--gray-500);font-size:15px;margin-top:8px;max-width:70ch}
+    .sub{color:var(--gray-500);font-size:15px;margin-top:8px;max-width:74ch}
 
-    /* app shell */
-    .app{background:#fff;border:1px solid var(--gray-200);border-radius:18px;overflow:hidden;margin:22px 0 40px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    /* tabs */
+    .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 0}
+    .tab{font:inherit;font-size:13.5px;font-weight:700;border:1px solid var(--gray-200);background:#fff;color:var(--gray-700);border-radius:11px 11px 0 0;padding:11px 16px;cursor:pointer;border-bottom:0;display:flex;align-items:center;gap:8px}
+    .tab:hover{background:var(--gray-50)}
+    .tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .tab .n{font-size:11px;opacity:.7}
+
+    .app{background:#fff;border:1px solid var(--gray-200);border-radius:0 18px 18px 18px;overflow:hidden;margin:0 0 40px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .view{display:none} .view.active{display:block}
+
     .app-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--gray-100);flex-wrap:wrap}
-    .form-pick{display:flex;align-items:center;gap:10px}
-    .form-pick label{font-size:12px;color:var(--gray-500);font-weight:600}
+    .app-head .h-title{font-size:14px;font-weight:800}
+    .app-head .h-sub{font-size:12px;color:var(--gray-400)}
     select,input[type=text]{font:inherit;font-size:13.5px;padding:7px 10px;border:1px solid var(--gray-200);border-radius:9px;background:#fff;color:var(--ink)}
     .btn{font:inherit;font-weight:700;font-size:13.5px;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.15s}
-    .btn-primary{background:var(--blue);color:#fff}
-    .btn-primary:hover{background:var(--blue-700)}
-    .btn-ghost{background:var(--gray-100);color:var(--gray-700)}
-    .btn-ghost:hover{background:var(--gray-200)}
+    .btn-primary{background:var(--blue);color:#fff} .btn-primary:hover{background:var(--blue-700)}
+    .btn-ghost{background:var(--gray-100);color:var(--gray-700)} .btn-ghost:hover{background:var(--gray-200)}
+    .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--gray-100);color:var(--gray-700)}
+    .pill.map{background:var(--blue-50);color:var(--blue)}
+    .pill.ok{background:var(--green-50);color:var(--green)}
+    .pill.wait{background:var(--amber-50);color:var(--amber)}
+    .pill.idle{background:var(--gray-100);color:var(--gray-500)}
 
-    .cols{display:grid;grid-template-columns:1fr;gap:0}
-    @media(min-width:860px){.cols{grid-template-columns:270px 1fr 300px}}
-
+    /* ── form builder ── */
+    .cols{display:grid;grid-template-columns:1fr}
+    @media(min-width:860px){.cols{grid-template-columns:262px 1fr 288px}}
     .panel{padding:16px 18px;border-top:1px solid var(--gray-100)}
-    @media(min-width:860px){
-      .panel{border-top:0}
-      .col-mid{border-left:1px solid var(--gray-100);border-right:1px solid var(--gray-100)}
-    }
+    @media(min-width:860px){.panel{border-top:0}.col-mid{border-left:1px solid var(--gray-100);border-right:1px solid var(--gray-100)}}
     .panel h2{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-400);font-weight:700;margin-bottom:12px}
-
-    /* field list */
     .field{width:100%;text-align:left;border:1px solid var(--gray-200);background:#fff;border-radius:11px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:.12s;display:flex;align-items:center;gap:10px}
     .field:hover{border-color:var(--blue-100);background:var(--blue-50)}
     .field.active{border-color:var(--blue);background:var(--blue-50);box-shadow:0 0 0 3px rgba(37,99,235,.10)}
@@ -66,8 +65,6 @@
     .field .fi-label{font-size:13.5px;font-weight:600}
     .field .fi-meta{font-size:11px;color:var(--gray-400)}
     .req-dot{margin-left:auto;font-size:10px;font-weight:800;color:var(--red);letter-spacing:.04em}
-
-    /* live form preview */
     .prev-field{margin-bottom:14px}
     .prev-field label{display:block;font-size:12.5px;font-weight:600;color:var(--gray-700);margin-bottom:5px}
     .prev-field .req{color:var(--red)}
@@ -77,13 +74,9 @@
     .cond .cbadge{font-size:10.5px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.05em}
     .hidden{display:none}
     .esign{border:1px dashed var(--gray-200);border-radius:10px;padding:14px;text-align:center;color:var(--gray-400);font-size:13px;font-style:italic}
-
-    /* config panel */
     .cfg-row{margin-bottom:14px}
     .cfg-row .k{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);font-weight:700;margin-bottom:4px}
     .cfg-row .v{font-size:13.5px;color:var(--ink);font-weight:600}
-    .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--gray-100);color:var(--gray-700)}
-    .pill.map{background:var(--blue-50);color:var(--blue)}
     .toggle{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600}
     .switch{width:34px;height:20px;border-radius:999px;background:var(--gray-200);position:relative;transition:.15s}
     .switch.on{background:var(--green)}
@@ -92,21 +85,42 @@
     .rules li{font-size:12.5px;color:var(--gray-700);padding:6px 0 6px 20px;position:relative}
     .rules li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
 
-    /* test results */
-    .results{margin:0 0 40px}
-    .res-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;overflow:hidden}
-    .res-head{padding:16px 20px;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .res-head h3{font-size:15px;font-weight:800}
-    .res-summary{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px}
-    .res-summary.pass{background:var(--green-50);color:var(--green)}
+    /* results */
     .res-row{display:flex;align-items:flex-start;gap:12px;padding:11px 20px;border-top:1px solid var(--gray-100);font-size:13px}
-    .res-row .ic{font-weight:800;flex-shrink:0}
-    .res-row.ok .ic{color:var(--green)}
-    .res-row.warn .ic{color:var(--amber)}
-    .res-row .rt{color:var(--gray-700)}
-    .res-row .rt b{color:var(--ink)}
-    .progress{height:8px;border-radius:999px;background:var(--gray-100);overflow:hidden;margin-top:10px}
+    .res-row .ic{font-weight:800;flex-shrink:0} .res-row.ok .ic{color:var(--green)} .res-row.warn .ic{color:var(--amber)}
+    .res-row .rt{color:var(--gray-700)} .res-row .rt b{color:var(--ink)}
+    .res-head{padding:16px 20px;border-top:1px solid var(--gray-100);background:var(--gray-50);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .res-head h3{font-size:14px;font-weight:800}
+    .progress{height:8px;border-radius:999px;background:var(--gray-100);overflow:hidden;margin:10px 20px 18px}
     .progress span{display:block;height:100%;background:var(--green);width:0;transition:width .8s ease}
+
+    /* ── e-signature ── */
+    .signrow{display:flex;align-items:center;gap:14px;padding:14px 18px;border-top:1px solid var(--gray-100)}
+    .signrow:first-child{border-top:0}
+    .step{width:30px;height:30px;border-radius:50%;background:var(--blue-50);color:var(--blue);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .signrow.done .step{background:var(--green-50);color:var(--green)}
+    .signrow .who{font-size:13.5px;font-weight:700}
+    .signrow .role{font-size:12px;color:var(--gray-400)}
+    .signrow .st{margin-left:auto}
+
+    /* ── admin table ── */
+    table{width:100%;border-collapse:collapse}
+    th,td{text-align:left;font-size:13px;padding:11px 18px;border-top:1px solid var(--gray-100)}
+    th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);font-weight:700;background:var(--gray-50)}
+    td .ag{font-weight:700}
+    .barmini{height:6px;border-radius:999px;background:var(--gray-100);width:90px;overflow:hidden}
+    .barmini span{display:block;height:100%;background:var(--blue)}
+
+    /* ── QA board ── */
+    .board{display:grid;grid-template-columns:1fr;gap:14px;padding:18px}
+    @media(min-width:760px){.board{grid-template-columns:repeat(3,1fr)}}
+    .lane{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:14px;padding:12px}
+    .lane h4{font-size:12px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+    .lane h4 .cnt{font-size:11px;background:#fff;border:1px solid var(--gray-200);border-radius:999px;padding:1px 8px;color:var(--gray-500)}
+    .card{background:#fff;border:1px solid var(--gray-200);border-radius:11px;padding:11px 12px;margin-bottom:9px;font-size:13px}
+    .card .ct{font-weight:700} .card .cm{font-size:11.5px;color:var(--gray-400);margin-top:3px}
+    .card .tags{margin-top:8px;display:flex;gap:5px;flex-wrap:wrap}
+    .lane.a h4{color:var(--amber)} .lane.b h4{color:var(--blue)} .lane.c h4{color:var(--violet)}
 
     footer{border-top:1px solid var(--gray-100);background:#fff;padding:26px 0;text-align:center;color:var(--gray-400);font-size:13px}
     .muted{color:var(--gray-400);font-size:12px}
@@ -121,189 +135,191 @@
   </div>
 
   <div class="wrap">
-    <h1>Dynamic Intake Form Builder</h1>
-    <p class="sub">An interactive recreation of the healthcare-form configuration work I did as an Implementation Specialist — dynamic field mapping, conditional logic, validation rules, and a mapping/UAT test runner. Everything below is generic sample content.</p>
+    <h1>Implementation Workbench</h1>
+    <p class="sub">An interactive recreation of the range of healthcare-SaaS implementation work I did as an Implementation Specialist — form configuration, conditional logic, e-signature workflows, multi-tenant platform administration, API integration, and QA task triage. Use the tabs below.</p>
 
     <div class="disclaimer">
-      🔒 <strong>Original work, no confidential data.</strong> This is a from-scratch demo I built to <strong>illustrate the type of work</strong> I performed — it uses invented sample fields and agency names, contains <strong>no real patient information, no client data, and no proprietary employer systems or branding</strong>. Built with HTML, CSS, and vanilla JavaScript.
+      🔒 <strong>Original work, no confidential data.</strong> Every screen here is built from scratch to <strong>illustrate the type of work</strong> I performed. It uses invented sample fields, agency names, and people — and contains <strong>no real patient information, no client data, and no proprietary employer systems or branding</strong>. Built with HTML, CSS, and vanilla JavaScript.
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-view="builder">🧩 Form Builder <span class="n">config + logic</span></button>
+      <button class="tab" data-view="esign">✍ E-Signature <span class="n">multi-signer</span></button>
+      <button class="tab" data-view="admin">🛠 Platform Admin <span class="n">multi-tenant</span></button>
+      <button class="tab" data-view="qa">✅ QA &amp; Testing <span class="n">triage board</span></button>
     </div>
 
     <div class="app">
-      <div class="app-head">
-        <div class="form-pick">
-          <label for="formSel">Form template</label>
-          <select id="formSel">
-            <option>Home Care Intake — Sample Agency</option>
-            <option>ABA Therapy Referral — Sample Agency</option>
-            <option>HCBS Eligibility — Sample Agency</option>
-          </select>
-          <span class="pill map" id="fieldCount">18 fields</span>
+      <!-- ═══ VIEW 1: FORM BUILDER ═══ -->
+      <div class="view active" id="view-builder">
+        <div class="app-head">
+          <div><div class="h-title">Dynamic Intake Form Builder</div><div class="h-sub">Field mapping · conditional logic · validation rules</div></div>
+          <button class="btn btn-primary" id="runTest">▶ Run Mapping Test</button>
         </div>
-        <button class="btn btn-primary" id="runTest">▶ Run Mapping Test</button>
-      </div>
-
-      <div class="cols">
-        <!-- LEFT: field list -->
-        <div class="panel">
-          <h2>Form fields</h2>
-          <div id="fieldList"></div>
-          <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:4px">+ Add field</button>
-        </div>
-
-        <!-- MIDDLE: live preview with conditional logic -->
-        <div class="panel col-mid">
-          <h2>Live preview · conditional logic</h2>
-
-          <div class="prev-field">
-            <label>First name <span class="req">*</span></label>
-            <input class="prev-input" type="text" placeholder="e.g. Jordan" />
+        <div class="cols">
+          <div class="panel">
+            <h2>Form fields</h2>
+            <div id="fieldList"></div>
+            <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:4px">+ Add field</button>
           </div>
-          <div class="prev-field">
-            <label>Date of birth <span class="req">*</span></label>
-            <input class="prev-input" type="text" placeholder="MM/DD/YYYY" value="01/01/1990" readonly />
-          </div>
-
-          <div class="prev-field">
-            <label>Diagnosis type <span class="req">*</span></label>
-            <select class="prev-input" id="dxSelect">
-              <option value="">— Select —</option>
-              <option>Single Chronic Condition</option>
-              <option>Two Chronic Conditions</option>
-              <option>Developmental Disability</option>
-            </select>
-          </div>
-
-          <div class="cond hidden" id="condBlock">
-            <span class="cbadge">▸ Conditional rule fired</span>
-            <div class="prev-field" style="margin-top:8px;margin-bottom:0">
-              <label>Chronic condition details <span class="req">*</span></label>
-              <input class="prev-input" type="text" placeholder="Required when 2+ conditions selected" />
+          <div class="panel col-mid">
+            <h2>Live preview · conditional logic</h2>
+            <div class="prev-field"><label>First name <span class="req">*</span></label><input class="prev-input" type="text" placeholder="e.g. Jordan" /></div>
+            <div class="prev-field"><label>Date of birth <span class="req">*</span></label><input class="prev-input" type="text" value="01/01/1990" readonly /></div>
+            <div class="prev-field"><label>Diagnosis type <span class="req">*</span></label>
+              <select class="prev-input" id="dxSelect">
+                <option value="">— Select —</option><option>Single Chronic Condition</option><option>Two Chronic Conditions</option><option>Developmental Disability</option>
+              </select>
             </div>
+            <div class="cond hidden" id="condBlock">
+              <span class="cbadge">▸ Conditional rule fired</span>
+              <div class="prev-field" style="margin-top:8px;margin-bottom:0"><label>Chronic condition details <span class="req">*</span></label><input class="prev-input" type="text" placeholder="Required when 2+ conditions selected" /></div>
+            </div>
+            <div class="prev-field"><label>Applicant e-signature <span class="req">*</span></label><div class="esign">✍ Signature capture field · e-sign workflow</div></div>
+            <p class="muted"><b>Rule:</b> IF Diagnosis type = “Two Chronic Conditions” THEN require “Chronic condition details”. Try the dropdown.</p>
           </div>
-
-          <div class="prev-field">
-            <label>Reliable transportation?</label>
-            <select class="prev-input">
-              <option>Yes</option><option>No</option>
-            </select>
-          </div>
-
-          <div class="prev-field">
-            <label>Applicant e-signature <span class="req">*</span></label>
-            <div class="esign">✍ Signature capture field · e-sign workflow</div>
-          </div>
-
-          <p class="muted" style="margin-top:4px">Rule: <b>IF</b> Diagnosis type <b>= “Two Chronic Conditions”</b> <b>THEN</b> require “Chronic condition details”. Try changing the dropdown above.</p>
-        </div>
-
-        <!-- RIGHT: field config -->
-        <div class="panel">
-          <h2>Field configuration</h2>
-          <div id="cfg">
+          <div class="panel">
+            <h2>Field configuration</h2>
             <div class="cfg-row"><div class="k">Field label</div><div class="v" id="cfgLabel">Diagnosis type</div></div>
             <div class="cfg-row"><div class="k">Field type</div><div class="v"><span class="pill" id="cfgType">Dropdown</span></div></div>
-            <div class="cfg-row"><div class="k">Required</div>
-              <div class="toggle"><span class="switch on" id="cfgReq"></span><span id="cfgReqTxt">Required</span></div>
-            </div>
+            <div class="cfg-row"><div class="k">Required</div><div class="toggle"><span class="switch on" id="cfgReq"></span><span id="cfgReqTxt">Required</span></div></div>
             <div class="cfg-row"><div class="k">Maps to (backend)</div><div class="v"><span class="pill map" id="cfgMap">patient.diagnosis_type</span></div></div>
-            <div class="cfg-row"><div class="k">Validation rules</div>
-              <ul class="rules" id="cfgRules">
-                <li>Value must be in allowed option set</li>
-                <li>Triggers conditional sub-field when “Two Chronic Conditions”</li>
-                <li>Non-empty on submit</li>
-              </ul>
-            </div>
+            <div class="cfg-row"><div class="k">Validation rules</div><ul class="rules" id="cfgRules"></ul></div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- TEST RESULTS -->
-    <div class="results" id="results" style="display:none">
-      <div class="res-card">
-        <div class="res-head">
-          <h3>Mapping &amp; UAT test results</h3>
-          <span class="res-summary pass" id="resSummary">18 / 18 mapped · 0 errors</span>
+        <div id="results" style="display:none">
+          <div class="res-head"><h3>Mapping &amp; UAT test results</h3><span class="pill ok" id="resSummary">18 / 18 mapped · 0 errors</span></div>
+          <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Field mapping</b> — all 18 fields resolve to a backend target (e.g. patient.diagnosis_type).</span></div>
+          <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Required-field validation</b> — 6 required fields enforce non-empty submission.</span></div>
+          <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Conditional logic</b> — “Two Chronic Conditions” reveals and requires the sub-field.</span></div>
+          <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Data-type validation</b> — date enforces MM/DD/YYYY; dropdown enforces allowed option set.</span></div>
+          <div class="res-row warn"><span class="ic">!</span><span class="rt"><b>Advisory</b> — 1 optional field has no downstream mapping. Non-blocking.</span></div>
+          <div class="progress"><span id="bar"></span></div>
         </div>
-        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Field mapping</b> — all 18 fields resolve to a backend target (e.g. <b>patient.diagnosis_type</b>, <b>patient.dob</b>).</span></div>
-        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Required-field validation</b> — 6 required fields enforce non-empty submission.</span></div>
-        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Conditional logic</b> — “Two Chronic Conditions” correctly reveals and requires the sub-field.</span></div>
-        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Data-type validation</b> — date field enforces MM/DD/YYYY; dropdown enforces allowed option set.</span></div>
-        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>E-signature workflow</b> — signature field gated behind completed required fields.</span></div>
-        <div class="res-row warn"><span class="ic">!</span><span class="rt"><b>Advisory</b> — 1 optional field (“Reliable transportation?”) has no downstream mapping. Non-blocking.</span></div>
-        <div style="padding:16px 20px"><div class="progress"><span id="bar"></span></div></div>
+      </div>
+
+      <!-- ═══ VIEW 2: E-SIGNATURE ═══ -->
+      <div class="view" id="view-esign">
+        <div class="app-head">
+          <div><div class="h-title">E-Signature Links Manager</div><div class="h-sub">Sequential multi-signer workflow with status tracking</div></div>
+          <button class="btn btn-primary" id="advanceSign">▶ Advance next signer</button>
+        </div>
+        <div id="signRows">
+          <div class="signrow done"><div class="step">1</div><div><div class="who">Applicant</div><div class="role">Signs intake &amp; consent packet</div></div><div class="st"><span class="pill ok">✓ Signed</span></div></div>
+          <div class="signrow"><div class="step">2</div><div><div class="who">Caregiver</div><div class="role">Countersigns service agreement</div></div><div class="st"><span class="pill wait">● Awaiting</span></div></div>
+          <div class="signrow"><div class="step">3</div><div><div class="who">Program Coordinator</div><div class="role">Final approval &amp; submission</div></div><div class="st"><span class="pill idle">Not started</span></div></div>
+        </div>
+        <div class="res-head"><h3>Workflow logic</h3><span class="pill" id="signState">1 of 3 signed</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Sequential gating</b> — each signer unlocks only after the previous signature is captured.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Timestamped capture</b> — every signature is bound to the submission record with a timestamp.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Auto-submit</b> — on the final signature, the completed packet is routed for submission.</span></div>
+      </div>
+
+      <!-- ═══ VIEW 3: PLATFORM ADMIN ═══ -->
+      <div class="view" id="view-admin">
+        <div class="app-head">
+          <div><div class="h-title">Multi-Tenant Platform Administration</div><div class="h-sub">Super-Admin view · user provisioning · integration sync</div></div>
+          <span class="pill map">Super-Admin</span>
+        </div>
+        <table>
+          <thead><tr><th>Agency (sample)</th><th>Users</th><th>Form templates</th><th>API / EVV sync</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ag">Riverside Home Care</span></td><td>24</td><td>18</td><td><span class="pill ok">Connected</span></td><td><span class="pill ok">Live</span></td></tr>
+            <tr><td><span class="ag">Community Care Partners</span></td><td>11</td><td>14</td><td><span class="pill ok">Connected</span></td><td><span class="pill ok">Live</span></td></tr>
+            <tr><td><span class="ag">Maple Grove Support Svcs</span></td><td>7</td><td>21</td><td><span class="pill wait">Pending</span></td><td><span class="pill wait">Onboarding</span></td></tr>
+            <tr><td><span class="ag">Harbor Health Agency</span></td><td>16</td><td>12</td><td><span class="pill ok">Connected</span></td><td><span class="pill ok">Live</span></td></tr>
+          </tbody>
+        </table>
+        <div class="res-head"><h3>Admin capabilities demonstrated</h3><span class="pill">4 sample tenants</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>User provisioning</b> — role-based access created and managed per agency.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Multi-tenant isolation</b> — each agency operates independently with its own templates.</span></div>
+        <div class="res-row ok"><span class="ic">✓</span><span class="rt"><b>Integration sync</b> — external payer/EVV API connection managed per tenant (generic recreation).</span></div>
+      </div>
+
+      <!-- ═══ VIEW 4: QA BOARD ═══ -->
+      <div class="view" id="view-qa">
+        <div class="app-head">
+          <div><div class="h-title">QA &amp; Task Triage Board</div><div class="h-sub">Coordinating configuration &amp; testing work across a team</div></div>
+          <span class="pill">Role: QA / Coordination</span>
+        </div>
+        <div class="board">
+          <div class="lane a"><h4>Pending Jobs <span class="cnt">3</span></h4>
+            <div class="card"><div class="ct">New agency form set</div><div class="cm">Home Care intake · 18 fields to configure</div><div class="tags"><span class="pill idle">config</span></div></div>
+            <div class="card"><div class="ct">Referral packet update</div><div class="cm">Add 2 conditional sub-fields</div><div class="tags"><span class="pill idle">logic</span></div></div>
+            <div class="card"><div class="ct">E-sign order change</div><div class="cm">Reorder signer sequence</div><div class="tags"><span class="pill idle">e-sign</span></div></div>
+          </div>
+          <div class="lane b"><h4>Needs Mapping <span class="cnt">2</span></h4>
+            <div class="card"><div class="ct">Eligibility form</div><div class="cm">Map 12 fields → backend schema</div><div class="tags"><span class="pill map">mapping</span></div></div>
+            <div class="card"><div class="ct">Consent form v2</div><div class="cm">Validation rules pending</div><div class="tags"><span class="pill map">mapping</span></div></div>
+          </div>
+          <div class="lane c"><h4>Needs Testing <span class="cnt">3</span></h4>
+            <div class="card"><div class="ct">Diagnosis-tree logic</div><div class="cm">UAT: verify conditional branches</div><div class="tags"><span class="pill" style="background:var(--violet-50);color:var(--violet)">UAT</span></div></div>
+            <div class="card"><div class="ct">Mapping defect #142</div><div class="cm">Root-cause: option value mismatch → fixed, re-test</div><div class="tags"><span class="pill" style="background:var(--violet-50);color:var(--violet)">RCA</span></div></div>
+            <div class="card"><div class="ct">Multi-signer flow</div><div class="cm">Regression after signer reorder</div><div class="tags"><span class="pill" style="background:var(--violet-50);color:var(--violet)">regression</span></div></div>
+          </div>
+        </div>
+        <div class="res-row ok" style="border-top:1px solid var(--gray-100)"><span class="ic">✓</span><span class="rt"><b>Triage &amp; coordination</b> — prioritised work by business impact and moved it through Pending → Mapping → Testing, directing developers and verifying completed configuration.</span></div>
       </div>
     </div>
 
-    <p class="sub" style="margin-bottom:34px">This demo mirrors the <b>competencies</b> behind my Bolt Healthcare work — configuring 500+ dynamic forms, building conditional logic, mapping fields to backend schemas, and running UAT (“mapping tests”) — recreated here as my own original build. <a href="/#projects">← Back to projects</a></p>
+    <p class="sub" style="margin-bottom:34px">This workbench mirrors the <b>breadth</b> of my Bolt Healthcare work — configuring 500+ dynamic forms, building conditional logic and e-signature flows, administering a multi-tenant platform with API integration, and coordinating QA/UAT across a team — recreated here as my own original build. <a href="/#projects">← Back to projects</a></p>
   </div>
 
   <footer>Built by Naveen Sharma · Healthcare SaaS Implementation Specialist · <a href="/">naveensharma.net</a></footer>
 
   <script>
-    // ── sample field data (invented, generic) ──────────────────────
-    var FIELDS = [
-      {t:"🔤", label:"First name",            type:"Text",       req:true,  map:"patient.first_name"},
-      {t:"🔤", label:"Last name",             type:"Text",       req:true,  map:"patient.last_name"},
-      {t:"📅", label:"Date of birth",         type:"Date",       req:true,  map:"patient.dob",
-        rules:["Must match MM/DD/YYYY","Age computed for eligibility","Non-empty on submit"]},
-      {t:"▾",  label:"Diagnosis type",        type:"Dropdown",   req:true,  map:"patient.diagnosis_type",
-        rules:["Value must be in allowed option set","Triggers conditional sub-field when “Two Chronic Conditions”","Non-empty on submit"]},
-      {t:"▾",  label:"Reliable transportation?", type:"Dropdown", req:false, map:"— (unmapped)",
-        rules:["Optional field","Yes/No option set"]},
-      {t:"✍",  label:"Applicant e-signature", type:"E-signature",req:true,  map:"signature.applicant",
-        rules:["Gated behind required fields","Timestamped on capture","Bound to submission record"]},
+    // tabs
+    document.querySelectorAll(".tab").forEach(function(t){
+      t.addEventListener("click",function(){
+        document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+        document.querySelectorAll(".view").forEach(function(v){v.classList.remove("active");});
+        t.classList.add("active");
+        document.getElementById("view-"+t.dataset.view).classList.add("active");
+      });
+    });
+
+    // form builder data
+    var FIELDS=[
+      {t:"🔤",label:"First name",type:"Text",req:true,map:"patient.first_name",rules:["Non-empty on submit","Trimmed text"]},
+      {t:"🔤",label:"Last name",type:"Text",req:true,map:"patient.last_name",rules:["Non-empty on submit","Trimmed text"]},
+      {t:"📅",label:"Date of birth",type:"Date",req:true,map:"patient.dob",rules:["Must match MM/DD/YYYY","Age computed for eligibility","Non-empty on submit"]},
+      {t:"▾",label:"Diagnosis type",type:"Dropdown",req:true,map:"patient.diagnosis_type",rules:["Value must be in allowed option set","Triggers conditional sub-field when “Two Chronic Conditions”","Non-empty on submit"]},
+      {t:"▾",label:"Reliable transportation?",type:"Dropdown",req:false,map:"— (unmapped)",rules:["Optional field","Yes/No option set"]},
+      {t:"✍",label:"Applicant e-signature",type:"E-signature",req:true,map:"signature.applicant",rules:["Gated behind required fields","Timestamped on capture","Bound to submission record"]}
     ];
-
-    var list = document.getElementById("fieldList");
-    var cfgLabel=document.getElementById("cfgLabel"), cfgType=document.getElementById("cfgType"),
-        cfgReq=document.getElementById("cfgReq"), cfgReqTxt=document.getElementById("cfgReqTxt"),
-        cfgMap=document.getElementById("cfgMap"), cfgRules=document.getElementById("cfgRules");
-
+    var list=document.getElementById("fieldList");
+    var cfgLabel=document.getElementById("cfgLabel"),cfgType=document.getElementById("cfgType"),cfgReq=document.getElementById("cfgReq"),cfgReqTxt=document.getElementById("cfgReqTxt"),cfgMap=document.getElementById("cfgMap"),cfgRules=document.getElementById("cfgRules");
     function select(i){
-      document.querySelectorAll(".field").forEach(function(el,idx){el.classList.toggle("active",idx===i);});
-      var f=FIELDS[i];
-      cfgLabel.textContent=f.label;
-      cfgType.textContent=f.type;
-      cfgReq.classList.toggle("on",f.req);
-      cfgReqTxt.textContent=f.req?"Required":"Optional";
-      cfgMap.textContent=f.map;
-      cfgMap.classList.toggle("map", f.map.indexOf("—")===-1);
-      var rules=f.rules||["Non-empty on submit","Type validation on submit"];
-      cfgRules.innerHTML=rules.map(function(r){return "<li>"+r+"</li>";}).join("");
+      document.querySelectorAll("#fieldList .field").forEach(function(el,idx){el.classList.toggle("active",idx===i);});
+      var f=FIELDS[i];cfgLabel.textContent=f.label;cfgType.textContent=f.type;cfgReq.classList.toggle("on",f.req);cfgReqTxt.textContent=f.req?"Required":"Optional";cfgMap.textContent=f.map;cfgMap.classList.toggle("map",f.map.indexOf("—")===-1);
+      cfgRules.innerHTML=f.rules.map(function(r){return "<li>"+r+"</li>";}).join("");
     }
-
     FIELDS.forEach(function(f,i){
-      var b=document.createElement("button");
-      b.className="field"+(i===3?" active":"");
-      b.innerHTML='<span class="fi-type">'+f.t+'</span>'+
-                  '<span><span class="fi-label">'+f.label+'</span><br><span class="fi-meta">'+f.type+' · '+f.map+'</span></span>'+
-                  (f.req?'<span class="req-dot">REQ</span>':'');
-      b.onclick=function(){select(i);};
-      list.appendChild(b);
+      var b=document.createElement("button");b.className="field"+(i===3?" active":"");
+      b.innerHTML='<span class="fi-type">'+f.t+'</span><span><span class="fi-label">'+f.label+'</span><br><span class="fi-meta">'+f.type+' · '+f.map+'</span></span>'+(f.req?'<span class="req-dot">REQ</span>':'');
+      b.onclick=function(){select(i);};list.appendChild(b);
     });
     select(3);
-
-    // ── conditional logic (live) ──────────────────────────────────
-    var dx=document.getElementById("dxSelect"), cond=document.getElementById("condBlock");
-    dx.addEventListener("change",function(){
-      cond.classList.toggle("hidden", dx.value!=="Two Chronic Conditions");
+    var dx=document.getElementById("dxSelect"),cond=document.getElementById("condBlock");
+    dx.addEventListener("change",function(){cond.classList.toggle("hidden",dx.value!=="Two Chronic Conditions");});
+    var results=document.getElementById("results"),bar=document.getElementById("bar");
+    document.getElementById("runTest").addEventListener("click",function(){
+      results.style.display="block";bar.style.width="0";results.scrollIntoView({behavior:"smooth",block:"nearest"});
+      setTimeout(function(){bar.style.width="94%";},120);
     });
 
-    // ── run mapping test ──────────────────────────────────────────
-    var results=document.getElementById("results"), bar=document.getElementById("bar"),
-        runBtn=document.getElementById("runTest");
-    runBtn.addEventListener("click",function(){
-      results.style.display="block";
-      bar.style.width="0";
-      results.scrollIntoView({behavior:"smooth",block:"start"});
-      setTimeout(function(){ bar.style.width="94%"; },120);
-    });
-
-    // form template switch tweaks field count (cosmetic)
-    var counts=["18 fields","14 fields","21 fields"];
-    document.getElementById("formSel").addEventListener("change",function(e){
-      document.getElementById("fieldCount").textContent=counts[e.target.selectedIndex];
+    // e-signature advance
+    var signState=document.getElementById("signState");
+    var rows=document.querySelectorAll("#signRows .signrow");
+    var signed=1;
+    document.getElementById("advanceSign").addEventListener("click",function(){
+      if(signed>=rows.length)return;
+      var r=rows[signed];r.classList.add("done");
+      r.querySelector(".st").innerHTML='<span class="pill ok">✓ Signed</span>';
+      signed++;
+      if(signed<rows.length){rows[signed].querySelector(".st").innerHTML='<span class="pill wait">● Awaiting</span>';}
+      signState.textContent=signed+" of "+rows.length+" signed";
+      if(signed===rows.length){signState.className="pill ok";signState.textContent="Complete · packet submitted";}
     });
   </script>
 </body>

@@ -161,10 +161,10 @@ const EDUCATION = [
 const PROJECTS = [
   {
     icon: Workflow,
-    title: "Dynamic Intake Form Builder — Interactive Demo",
+    title: "Implementation Workbench — Interactive Demo",
     tag: "Illustrative Recreation",
-    desc: "An interactive demo I built from scratch to illustrate my healthcare-form implementation work — dynamic field mapping, conditional logic, validation rules, and a live 'Run Mapping Test' (UAT) runner. Generic sample data only; no client data or proprietary systems.",
-    skills: ["Conditional Logic", "Data Mapping", "Validation Rules", "UAT", "HTML/CSS/JS"],
+    desc: "A 4-part interactive demo I built from scratch to illustrate the range of my healthcare-SaaS implementation work: dynamic form builder (field mapping, conditional logic, UAT 'Run Mapping Test'), multi-signer e-signature workflow, multi-tenant platform administration, and a QA task-triage board. Generic sample data only; no client data or proprietary systems.",
+    skills: ["Form Config", "Conditional Logic", "E-Signature Flows", "Platform Admin", "Data Mapping", "QA / UAT"],
     links: [
       { href: "/intake-builder-demo.html", label: "Open interactive demo", type: "site" },
     ],
