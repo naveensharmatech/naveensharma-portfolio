@@ -107,6 +107,9 @@ const HEADLINES = [
   "B2B Technical Contractor",
 ];
 
+// Short tags for the circular orbit badges (full titles still shown in the static row below).
+const ORBIT_SHORT_LABELS = ["SaaS", "Sys Config", "Workflow", "QA/UAT", "B2B"];
+
 const EXPERTISE = [
   { icon: Layers,         title: "Healthcare SaaS Implementation",  desc: "End-to-end SaaS implementation including enterprise client onboarding, intake process automation, platform configuration, and go-live validation across healthcare service lines." },
   { icon: Workflow,       title: "Systems & Workflow Configuration", desc: "Dynamic form configuration, conditional logic engineering, business rules configuration, and compliance workflow setup aligned to clinical and operational requirements." },
@@ -466,8 +469,9 @@ function Hero() {
                     <div className="absolute left-1/2 top-0 -translate-x-1/2">
                       <div style={{ transform: `rotate(${-angle}deg)` }}>
                         <div className="orbit-item-counter">
-                          <span className="inline-block whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-indigo-700 shadow-lg ring-1 ring-indigo-100">
-                            {h}
+                          <span title={h}
+                            className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-1 text-center text-[10px] font-bold leading-tight text-indigo-700 shadow-lg ring-2 ring-indigo-100">
+                            {ORBIT_SHORT_LABELS[i]}
                           </span>
                         </div>
                       </div>
