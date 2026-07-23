@@ -487,17 +487,8 @@ function Hero() {
           Naveen Sharma
         </Reveal>
 
-        <Reveal as="p" className="text-xl font-medium text-gray-500 sm:text-2xl mb-8">
+        <Reveal as="p" className="text-xl font-medium text-gray-500 sm:text-2xl mb-9">
           Healthcare SaaS Implementation Specialist
-        </Reveal>
-
-        <Reveal stagger className="mx-auto mb-9 flex max-w-3xl flex-wrap items-center justify-center gap-3">
-          {HEADLINES.map((h) => (
-            <span key={h}
-              className="tilt-card rounded-full border border-blue-100 bg-blue-50 px-5 py-2.5 text-lg font-semibold text-blue-700">
-              {h}
-            </span>
-          ))}
         </Reveal>
 
         <Reveal as="p" className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-600 mb-11">
