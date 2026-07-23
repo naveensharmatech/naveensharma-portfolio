@@ -110,6 +110,16 @@ const HEADLINES = [
 // Short tags for the circular orbit badges (full titles still shown in the static row below).
 const ORBIT_SHORT_LABELS = ["SaaS", "Sys Config", "Workflow", "QA/UAT", "B2B"];
 
+// Literal Tailwind classes per badge (Tailwind's build-time scanner needs full literal
+// class strings in the source, not ones assembled via template-string interpolation).
+const ORBIT_BADGE_STYLES = [
+  "bg-indigo-600 text-white ring-indigo-200",
+  "bg-violet-600 text-white ring-violet-200",
+  "bg-sky-600 text-white ring-sky-200",
+  "bg-emerald-600 text-white ring-emerald-200",
+  "bg-rose-600 text-white ring-rose-200",
+];
+
 const EXPERTISE = [
   { icon: Layers,         title: "Healthcare SaaS Implementation",  desc: "End-to-end SaaS implementation including enterprise client onboarding, intake process automation, platform configuration, and go-live validation across healthcare service lines." },
   { icon: Workflow,       title: "Systems & Workflow Configuration", desc: "Dynamic form configuration, conditional logic engineering, business rules configuration, and compliance workflow setup aligned to clinical and operational requirements." },
@@ -470,7 +480,7 @@ function Hero() {
                       <div style={{ transform: `rotate(${-angle}deg)` }}>
                         <div className="orbit-item-counter">
                           <span title={h}
-                            className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-1 text-center text-[10px] font-bold leading-tight text-indigo-700 shadow-lg ring-2 ring-indigo-100">
+                            className={`flex h-20 w-20 items-center justify-center rounded-full p-1.5 text-center text-xs font-bold leading-tight shadow-lg ring-4 ${ORBIT_BADGE_STYLES[i]}`}>
                             {ORBIT_SHORT_LABELS[i]}
                           </span>
                         </div>
