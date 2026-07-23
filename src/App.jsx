@@ -71,14 +71,14 @@ function Reveal({ as: Tag = "div", stagger = false, className = "", children, ..
 /* ─── DATA ───────────────────────────────────────────────────── */
 
 const NAV_LINKS = [
-  { label: "About",        href: "#about" },
-  { label: "Expertise",    href: "#expertise" },
-  { label: "Process",      href: "#process" },
-  { label: "Experience",   href: "#experience" },
-  { label: "Case Studies", href: "#casestudies" },
-  { label: "Projects",     href: "#projects" },
-  { label: "Education",    href: "#education" },
-  { label: "Contact",      href: "#contact" },
+  { label: "About",        href: "#about",       icon: Search },
+  { label: "Expertise",    href: "#expertise",    icon: Layers },
+  { label: "Process",      href: "#process",      icon: Workflow },
+  { label: "Experience",   href: "#experience",   icon: Briefcase },
+  { label: "Case Studies", href: "#casestudies",  icon: ClipboardCheck },
+  { label: "Projects",     href: "#projects",     icon: Code2 },
+  { label: "Education",    href: "#education",    icon: GraduationCap },
+  { label: "Contact",      href: "#contact",      icon: Mail },
 ];
 
 const HEADLINES = [
@@ -341,39 +341,50 @@ function Navbar() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-5 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href}
-              className="text-base font-medium text-gray-600 transition hover:text-blue-600">
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden items-center gap-1 rounded-full border border-gray-100 bg-gray-50 p-1.5 lg:flex">
+          {NAV_LINKS.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a key={link.href} href={link.href}
+                className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-gray-600 transition hover:bg-white hover:text-blue-600 hover:shadow-sm">
+                <Icon size={15} />
+                {link.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        <div className="hidden items-center gap-3 lg:flex">
           <a href="https://opility.com" target="_blank" rel="noreferrer"
-            className="text-base font-medium text-blue-600 transition hover:text-blue-700 flex items-center gap-1">
+            className="text-sm font-semibold text-blue-600 transition hover:text-blue-700 flex items-center gap-1 whitespace-nowrap">
             Opility <LinkOut size={12} />
           </a>
           <a href="#contact"
-            className="rounded-lg bg-blue-600 px-5 py-2.5 text-base font-semibold text-white transition hover:bg-blue-700">
+            className="whitespace-nowrap rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
             Get in touch
           </a>
-        </nav>
+        </div>
 
         <button onClick={() => setOpen((v) => !v)}
-          className="rounded-lg p-2 text-gray-700 transition hover:bg-gray-100 md:hidden"
+          className="rounded-lg p-2 text-gray-700 transition hover:bg-gray-100 lg:hidden"
           aria-label="Toggle menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-gray-100 bg-white md:hidden">
+        <nav className="border-t border-gray-100 bg-white lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
-            {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setOpen(false)}
-                className="border-b border-gray-100 py-3 text-base font-medium text-gray-700 transition hover:text-blue-600">
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a key={link.href} href={link.href} onClick={() => setOpen(false)}
+                  className="flex items-center gap-2.5 border-b border-gray-100 py-3 text-base font-medium text-gray-700 transition hover:text-blue-600">
+                  <Icon size={17} />
+                  {link.label}
+                </a>
+              );
+            })}
             <a href="https://opility.com" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}
               className="border-b border-gray-100 py-3 text-base font-medium text-blue-600 flex items-center gap-1">
               Opility <LinkOut size={12} />
