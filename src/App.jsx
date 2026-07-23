@@ -71,15 +71,33 @@ function Reveal({ as: Tag = "div", stagger = false, className = "", children, ..
 /* ─── DATA ───────────────────────────────────────────────────── */
 
 const NAV_LINKS = [
-  { label: "About",        href: "#about",       icon: Search },
-  { label: "Expertise",    href: "#expertise",    icon: Layers },
-  { label: "Process",      href: "#process",      icon: Workflow },
-  { label: "Experience",   href: "#experience",   icon: Briefcase },
-  { label: "Case Studies", href: "#casestudies",  icon: ClipboardCheck },
-  { label: "Projects",     href: "#projects",     icon: Code2 },
-  { label: "Education",    href: "#education",    icon: GraduationCap },
-  { label: "Contact",      href: "#contact",      icon: Mail },
+  { label: "About",        href: "#about",       icon: Search,        color: "indigo" },
+  { label: "Expertise",    href: "#expertise",    icon: Layers,        color: "violet" },
+  { label: "Process",      href: "#process",      icon: Workflow,      color: "sky"    },
+  { label: "Experience",   href: "#experience",   icon: Briefcase,     color: "cyan"   },
+  { label: "Case Studies", href: "#casestudies",  icon: ClipboardCheck,color: "emerald"},
+  { label: "Projects",     href: "#projects",     icon: Code2,         color: "amber"  },
+  { label: "Education",    href: "#education",    icon: GraduationCap, color: "rose"   },
+  { label: "Contact",      href: "#contact",      icon: Mail,          color: "pink"   },
 ];
+
+// Literal Tailwind class strings per color (Tailwind's build-time scanner needs literal
+// text in the source — it cannot see classes assembled via `bg-${color}-600` at runtime).
+const NAV_COLOR_STYLES = {
+  indigo:  { active: "bg-indigo-600 text-white shadow-md shadow-indigo-200",   hover: "hover:bg-indigo-50 hover:text-indigo-700"   },
+  violet:  { active: "bg-violet-600 text-white shadow-md shadow-violet-200",   hover: "hover:bg-violet-50 hover:text-violet-700"   },
+  sky:     { active: "bg-sky-600 text-white shadow-md shadow-sky-200",         hover: "hover:bg-sky-50 hover:text-sky-700"         },
+  cyan:    { active: "bg-cyan-600 text-white shadow-md shadow-cyan-200",       hover: "hover:bg-cyan-50 hover:text-cyan-700"       },
+  emerald: { active: "bg-emerald-600 text-white shadow-md shadow-emerald-200", hover: "hover:bg-emerald-50 hover:text-emerald-700" },
+  amber:   { active: "bg-amber-500 text-white shadow-md shadow-amber-200",    hover: "hover:bg-amber-50 hover:text-amber-700"     },
+  rose:    { active: "bg-rose-600 text-white shadow-md shadow-rose-200",      hover: "hover:bg-rose-50 hover:text-rose-700"       },
+  pink:    { active: "bg-pink-600 text-white shadow-md shadow-pink-200",      hover: "hover:bg-pink-50 hover:text-pink-700"       },
+};
+
+const NAV_ICON_TEXT_COLOR = {
+  indigo: "text-indigo-600", violet: "text-violet-600", sky: "text-sky-600", cyan: "text-cyan-600",
+  emerald: "text-emerald-600", amber: "text-amber-600", rose: "text-rose-600", pink: "text-pink-600",
+};
 
 const HEADLINES = [
   "Healthcare SaaS Implementation Specialist",
@@ -318,6 +336,7 @@ const TOOL_CATEGORIES = [
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeNav, setActiveNav] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -340,9 +359,14 @@ function Navbar() {
         <nav className="hidden items-center gap-1 rounded-full border border-gray-100 bg-gray-50 p-1.5 lg:flex">
           {NAV_LINKS.map((link) => {
             const Icon = link.icon;
+            const styles = NAV_COLOR_STYLES[link.color];
+            const isActive = activeNav === link.href;
             return (
               <a key={link.href} href={link.href}
-                className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-gray-600 transition hover:bg-white hover:text-blue-600 hover:shadow-sm">
+                onClick={() => setActiveNav(link.href)}
+                className={`flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold transition-all duration-200 ${
+                  isActive ? styles.active : `text-gray-600 ${styles.hover}`
+                }`}>
                 <Icon size={15} />
                 {link.label}
               </a>
@@ -373,10 +397,11 @@ function Navbar() {
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
             {NAV_LINKS.map((link) => {
               const Icon = link.icon;
+              const iconColor = NAV_ICON_TEXT_COLOR[link.color];
               return (
-                <a key={link.href} href={link.href} onClick={() => setOpen(false)}
+                <a key={link.href} href={link.href} onClick={() => { setOpen(false); setActiveNav(link.href); }}
                   className="flex items-center gap-2.5 border-b border-gray-100 py-3 text-base font-medium text-gray-700 transition hover:text-blue-600">
-                  <Icon size={17} />
+                  <Icon size={17} className={iconColor} />
                   {link.label}
                 </a>
               );
