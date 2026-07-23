@@ -337,24 +337,24 @@ function Navbar() {
             onError={(e) => { e.target.style.display = "none"; }}
           />
           <div className="flex flex-col leading-tight">
-            <span className="text-lg font-extrabold tracking-tight text-gray-900">Naveen Sharma</span>
-            <span className="text-xs font-semibold text-blue-600">Healthcare SaaS Implementation · Systems Configuration · QA & UAT</span>
+            <span className="text-xl font-extrabold tracking-tight text-gray-900">Naveen Sharma</span>
+            <span className="text-sm font-semibold text-blue-600">Healthcare SaaS Implementation · Systems Configuration · QA & UAT</span>
           </div>
         </a>
 
         <nav className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href}
-              className="text-sm font-medium text-gray-600 transition hover:text-blue-600">
+              className="text-base font-medium text-gray-600 transition hover:text-blue-600">
               {link.label}
             </a>
           ))}
           <a href="https://opility.com" target="_blank" rel="noreferrer"
-            className="text-sm font-medium text-blue-600 transition hover:text-blue-700 flex items-center gap-1">
+            className="text-base font-medium text-blue-600 transition hover:text-blue-700 flex items-center gap-1">
             Opility <LinkOut size={12} />
           </a>
           <a href="#contact"
-            className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
+            className="rounded-lg bg-blue-600 px-5 py-2.5 text-base font-semibold text-white transition hover:bg-blue-700">
             Get in touch
           </a>
         </nav>
@@ -371,16 +371,16 @@ function Navbar() {
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} onClick={() => setOpen(false)}
-                className="border-b border-gray-100 py-3 text-sm font-medium text-gray-700 transition hover:text-blue-600">
+                className="border-b border-gray-100 py-3 text-base font-medium text-gray-700 transition hover:text-blue-600">
                 {link.label}
               </a>
             ))}
             <a href="https://opility.com" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}
-              className="border-b border-gray-100 py-3 text-sm font-medium text-blue-600 flex items-center gap-1">
+              className="border-b border-gray-100 py-3 text-base font-medium text-blue-600 flex items-center gap-1">
               Opility <LinkOut size={12} />
             </a>
             <a href="#contact" onClick={() => setOpen(false)}
-              className="mt-3 mb-2 rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white">
+              className="mt-3 mb-2 rounded-lg bg-blue-600 px-4 py-3 text-center text-base font-semibold text-white">
               Get in touch
             </a>
           </div>
@@ -417,7 +417,7 @@ function Hero() {
         <Reveal stagger className="mx-auto mb-9 flex max-w-3xl flex-wrap items-center justify-center gap-3">
           {HEADLINES.map((h) => (
             <span key={h}
-              className="tilt-card rounded-full border border-blue-100 bg-blue-50 px-5 py-2.5 text-base font-semibold text-blue-700">
+              className="tilt-card rounded-full border border-blue-100 bg-blue-50 px-5 py-2.5 text-lg font-semibold text-blue-700">
               {h}
             </span>
           ))}
@@ -431,11 +431,11 @@ function Hero() {
 
         <Reveal className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <a href="/Naveen_Sharma_CV.pdf" download
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-9 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl">
+            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-9 py-4 text-xl font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl">
             Download CV <ArrowRight size={20} />
           </a>
           <a href="#contact"
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 px-9 py-4 text-lg font-semibold text-gray-700 transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600">
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 px-9 py-4 text-xl font-semibold text-gray-700 transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600">
             Get in touch
           </a>
         </Reveal>
@@ -449,7 +449,7 @@ function Hero() {
           ].map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-4xl font-extrabold text-blue-600">{s.num}</p>
-              <p className="mt-1.5 text-base text-gray-500">{s.label}</p>
+              <p className="mt-1.5 text-lg text-gray-500">{s.label}</p>
             </div>
           ))}
         </Reveal>
@@ -463,12 +463,12 @@ function TrustBar() {
   return (
     <div className="border-y border-gray-100 bg-gray-50 py-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <p className="mb-4 text-center text-xs font-semibold uppercase tracking-widest text-gray-400">
+        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-widest text-gray-400">
           Core tools & platforms
         </p>
         <div className="flex flex-wrap items-center justify-center gap-6">
           {tools.map((t) => (
-            <span key={t} className="text-sm font-semibold text-gray-400">{t}</span>
+            <span key={t} className="text-base font-semibold text-gray-400">{t}</span>
           ))}
         </div>
       </div>
@@ -480,7 +480,7 @@ function SectionHeading({ eyebrow, title, description, center }) {
   return (
     <Reveal className={`mb-16 ${center ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}`}>
       {eyebrow && (
-        <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">{eyebrow}</p>
+        <p className="mb-3 text-base font-bold uppercase tracking-widest text-blue-600">{eyebrow}</p>
       )}
       <h2 className="text-5xl font-extrabold tracking-tight text-gray-900">{title}</h2>
       {description && (
@@ -497,19 +497,19 @@ function About() {
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation Specialist" />
-            <p className="text-base leading-relaxed text-gray-600">
+            <p className="text-lg leading-relaxed text-gray-600">
               I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of technical
               operations experience, including nearly 4 years of SaaS form-workflow configuration, healthcare
               operations, and platform administration. I spearheaded the digital transformation of 500+
               paper-based healthcare forms into automated, data-mapped intake systems for 25+ agencies. My
               work bridges regulatory requirements and platform configuration.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-gray-600">
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">
               I specialize in end-to-end SaaS workflow automation, system validation, and platform operations
               for healthcare environments with strict regulatory requirements — dynamic form configuration,
               conditional logic, data mapping, multi-tenant administration, and full-cycle UAT.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-gray-600">
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">
               I'm available for full-time, hybrid, and remote roles in SaaS implementation, systems
               configuration, workflow automation, and QA/UAT. I'm also the founder of{" "}
               <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">Opility</a>
@@ -517,12 +517,12 @@ function About() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#contact"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline">
+                className="inline-flex items-center gap-2 text-base font-semibold text-blue-600 hover:underline">
                 Contact me <ArrowRight size={16} />
               </a>
               <span className="text-gray-300">·</span>
               <a href="https://opility.com" target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-blue-600 hover:underline">
+                className="inline-flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-blue-600 hover:underline">
                 B2B services at Opility <LinkOut size={14} />
               </a>
             </div>
@@ -541,8 +541,8 @@ function About() {
                 { label: "Availability", value: "Full-time · Hybrid · Remote" },
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
-                  <p className="mt-2 text-sm font-bold text-gray-900">{item.value}</p>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
+                  <p className="mt-2 text-base font-bold text-gray-900">{item.value}</p>
                 </div>
               ))}
             </div>
@@ -569,7 +569,7 @@ function Expertise() {
                   <Icon size={26} />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-gray-900">{item.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-gray-600">{item.desc}</p>
+                <p className="mt-3 text-lg leading-relaxed text-gray-600">{item.desc}</p>
               </div>
             );
           })}
@@ -596,9 +596,9 @@ function Process() {
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-600/25">
                     <Icon size={28} />
                   </div>
-                  <p className="mt-4 text-xs font-bold uppercase tracking-widest text-blue-500">Step {p.step}</p>
+                  <p className="mt-4 text-sm font-bold uppercase tracking-widest text-blue-500">Step {p.step}</p>
                   <h3 className="mt-1 text-xl font-extrabold text-gray-900">{p.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{p.desc}</p>
+                  <p className="mt-3 text-base leading-relaxed text-gray-600">{p.desc}</p>
                 </div>
               </Reveal>
             );
@@ -621,23 +621,23 @@ function Experience() {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 className="text-xl font-extrabold text-gray-900">{exp.company}</h3>
-                  <p className="mt-1 text-sm font-semibold text-blue-600">{exp.context}</p>
+                  <p className="mt-1 text-base font-semibold text-blue-600">{exp.context}</p>
                 </div>
-                <span className="rounded-full bg-blue-50 px-4 py-1.5 text-xs font-bold text-blue-600">
+                <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-bold text-blue-600">
                   {exp.period}
                 </span>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {exp.roles.map((role) => (
                   <span key={role}
-                    className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700">
+                    className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-1 text-sm font-medium text-gray-700">
                     {role}
                   </span>
                 ))}
               </div>
               <ul className="mt-6 space-y-3">
                 {exp.points.map((point, i) => (
-                  <li key={i} className="flex gap-3 text-sm leading-relaxed text-gray-600">
+                  <li key={i} className="flex gap-3 text-base leading-relaxed text-gray-600">
                     <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-blue-500" />
                     <span>
                       {typeof point === "string" ? point : (
@@ -669,8 +669,8 @@ function CaseStudies() {
           {CASE_STUDIES.map((cs) => (
             <div key={cs.title}
               className="tilt-card rounded-2xl border border-gray-100 bg-white p-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{cs.tag}</span>
-              <h3 className="mt-3 text-lg font-extrabold text-gray-900">{cs.title}</h3>
+              <span className="text-sm font-bold uppercase tracking-widest text-blue-600">{cs.tag}</span>
+              <h3 className="mt-3 text-xl font-extrabold text-gray-900">{cs.title}</h3>
               <div className="mt-6 space-y-4">
                 {[
                   { label: "Challenge", text: cs.challenge, color: "bg-red-50 text-red-700" },
@@ -679,8 +679,8 @@ function CaseStudies() {
                   { label: "Outcome",   text: cs.outcome,   color: "bg-green-50 text-green-700" },
                 ].map(({ label, text, color }) => (
                   <div key={label}>
-                    <span className={`inline-block rounded-md px-2 py-0.5 text-xs font-bold ${color}`}>{label}</span>
-                    <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{text}</p>
+                    <span className={`inline-block rounded-md px-2 py-0.5 text-sm font-bold ${color}`}>{label}</span>
+                    <p className="mt-1.5 text-base leading-relaxed text-gray-600">{text}</p>
                   </div>
                 ))}
               </div>
@@ -702,7 +702,7 @@ function AvailableFor() {
     <section className="bg-blue-600 text-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-200">Open to opportunities</p>
+          <p className="mb-3 text-base font-bold uppercase tracking-widest text-blue-200">Open to opportunities</p>
           <h2 className="text-3xl font-extrabold tracking-tight">Available for full-time, hybrid &amp; remote roles</h2>
           <p className="mx-auto mt-4 max-w-xl text-blue-100">
             I'm actively looking for roles in SaaS implementation, systems configuration,
@@ -715,7 +715,7 @@ function AvailableFor() {
               <h3 className="font-bold text-white mb-4">{r.title}</h3>
               <ul className="space-y-2">
                 {r.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-blue-100">
+                  <li key={item} className="flex items-center gap-2 text-base text-blue-100">
                     <CheckCircle2 size={14} className="shrink-0 text-blue-300" />
                     {item}
                   </li>
@@ -725,7 +725,7 @@ function AvailableFor() {
           ))}
         </div>
         <div className="text-center">
-          <p className="text-blue-200 text-sm mb-4">
+          <p className="text-blue-200 text-base mb-4">
             Looking for B2B services or contracting?{" "}
             <a href="https://opility.com" target="_blank" rel="noreferrer"
               className="text-white font-semibold underline underline-offset-2 hover:text-blue-100">
@@ -733,7 +733,7 @@ function AvailableFor() {
             </a>
           </p>
           <a href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-blue-600 transition hover:bg-blue-50">
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-bold text-blue-600 transition hover:bg-blue-50">
             Get in touch <ArrowRight size={16} />
           </a>
         </div>
@@ -757,21 +757,21 @@ function Education() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                     <Icon size={22} />
                   </div>
-                  <span className="rounded-full bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1">
+                  <span className="rounded-full bg-blue-50 text-blue-600 text-sm font-bold px-3 py-1">
                     {item.type}
                   </span>
                 </div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">{item.institution}</p>
-                <h3 className="text-base font-extrabold text-gray-900 mb-1">{item.degree}</h3>
-                <p className="text-sm text-gray-500 mb-3">{item.focus}</p>
-                <p className="text-xs font-semibold text-blue-600">{item.period}</p>
+                <p className="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-1">{item.institution}</p>
+                <h3 className="text-lg font-extrabold text-gray-900 mb-1">{item.degree}</h3>
+                <p className="text-base text-gray-500 mb-3">{item.focus}</p>
+                <p className="text-sm font-semibold text-blue-600">{item.period}</p>
               </div>
             );
           })}
         </div>
 
         <div className="mt-10 rounded-2xl border border-gray-100 bg-gray-50 p-8">
-          <h3 className="text-base font-extrabold text-gray-900 mb-5">Languages</h3>
+          <h3 className="text-lg font-extrabold text-gray-900 mb-5">Languages</h3>
           <div className="flex flex-wrap gap-3">
             {[
               { lang: "Hindi", level: "Native / bilingual proficiency" },
@@ -779,8 +779,8 @@ function Education() {
               { lang: "Hebrew", level: "Elementary proficiency" },
             ].map((l) => (
               <div key={l.lang} className="rounded-xl border border-gray-200 bg-white px-5 py-3">
-                <p className="text-sm font-bold text-gray-900">{l.lang}</p>
-                <p className="text-xs text-gray-500">{l.level}</p>
+                <p className="text-base font-bold text-gray-900">{l.lang}</p>
+                <p className="text-sm text-gray-500">{l.level}</p>
               </div>
             ))}
           </div>
@@ -805,20 +805,20 @@ function Projects() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-900 text-white">
                   <Icon size={22} />
                 </div>
-                <span className="mt-6 text-xs font-bold uppercase tracking-widest text-blue-600">{project.tag}</span>
-                <h3 className="mt-2 text-base font-extrabold leading-snug text-gray-900">{project.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600">{project.desc}</p>
+                <span className="mt-6 text-sm font-bold uppercase tracking-widest text-blue-600">{project.tag}</span>
+                <h3 className="mt-2 text-lg font-extrabold leading-snug text-gray-900">{project.title}</h3>
+                <p className="mt-3 flex-1 text-base leading-relaxed text-gray-600">{project.desc}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {project.skills.map((skill) => (
                     <span key={skill}
-                      className="rounded-lg bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
+                      className="rounded-lg bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-700">
                       {skill}
                     </span>
                   ))}
                 </div>
                 {project.file && (
                   <a href={project.file} target="_blank" rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:gap-2.5 hover:text-blue-700">
+                    className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-blue-600 transition hover:gap-2.5 hover:text-blue-700">
                     <FileDown size={16} />
                     {project.fileLabel || "View document"}
                   </a>
@@ -827,7 +827,7 @@ function Projects() {
                   <div className="mt-6 flex flex-col gap-2.5">
                     {project.links.map((l) => (
                       <a key={l.href} href={l.href} target="_blank" rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:gap-2.5 hover:text-blue-700">
+                        className="inline-flex items-center gap-2 text-base font-semibold text-blue-600 transition hover:gap-2.5 hover:text-blue-700">
                         {l.type === "code" ? <Github size={16} /> : <ExternalLink size={16} />}
                         {l.label}
                       </a>
@@ -853,19 +853,19 @@ function Tools() {
           {TOOL_CATEGORIES.map((cat) => (
             <div key={cat.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-8">
               <div className="mb-5">
-                <h3 className="text-base font-extrabold text-gray-900">{cat.label}</h3>
-                <p className="mt-0.5 text-xs text-gray-400">{cat.sublabel}</p>
+                <h3 className="text-lg font-extrabold text-gray-900">{cat.label}</h3>
+                <p className="mt-0.5 text-sm text-gray-400">{cat.sublabel}</p>
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {cat.tools.map((tool) => (
                   <span key={tool}
-                    className="rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
+                    className="rounded-lg border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
                     {tool}
                   </span>
                 ))}
               </div>
               {cat.note && (
-                <p className="mt-3 text-xs text-gray-400 italic">{cat.note}</p>
+                <p className="mt-3 text-sm text-gray-400 italic">{cat.note}</p>
               )}
             </div>
           ))}
@@ -886,11 +886,11 @@ function Contact() {
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 flex justify-center gap-4">
             <a href="/Naveen_Sharma_CV.pdf" target="_blank" rel="noreferrer"
-              className="rounded-lg border-2 border-gray-200 px-6 py-3 text-sm font-bold text-gray-700 transition hover:border-blue-400 hover:text-blue-600">
+              className="rounded-lg border-2 border-gray-200 px-6 py-3 text-base font-bold text-gray-700 transition hover:border-blue-400 hover:text-blue-600">
               View CV
             </a>
             <a href="/Naveen_Sharma_CV.pdf" download
-              className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
+              className="rounded-lg bg-blue-600 px-6 py-3 text-base font-bold text-white transition hover:bg-blue-700">
               Download CV (PDF)
             </a>
           </div>
@@ -909,8 +909,8 @@ function Contact() {
                     <Icon size={18} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-semibold text-gray-400">{label}</p>
-                    <p className="truncate text-sm font-bold text-gray-900">{text}</p>
+                    <p className="text-sm font-semibold text-gray-400">{label}</p>
+                    <p className="truncate text-base font-bold text-gray-900">{text}</p>
                   </div>
                   {external && <ExternalLink size={13} className="shrink-0 text-gray-300" />}
                 </>
@@ -984,7 +984,7 @@ const LEGAL_DOCS = {
 
 function LegalBodyText({ text }) {
   return (
-    <p className="text-sm leading-relaxed text-gray-600 whitespace-pre-line">
+    <p className="text-base leading-relaxed text-gray-600 whitespace-pre-line">
       {text.split(/(mailto:[^\s]+|https?:\/\/[^\s]+|[\w.+-]+@[\w-]+\.[\w.]+)/g).map((part, i) => {
         if (/^mailto:/.test(part)) {
           return <a key={i} href={part} className="text-blue-600 hover:underline break-all">{part.replace("mailto:", "")}</a>;
@@ -1015,7 +1015,7 @@ function LegalModal({ doc, onClose }) {
       <div className="relative bg-white w-full sm:max-w-2xl sm:rounded-2xl shadow-2xl max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-          <h2 className="text-lg font-extrabold text-gray-900">{doc.title}</h2>
+          <h2 className="text-xl font-extrabold text-gray-900">{doc.title}</h2>
           <button onClick={onClose}
             className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition">
             <X size={20} />
@@ -1024,11 +1024,11 @@ function LegalModal({ doc, onClose }) {
         <div className="overflow-y-auto px-6 py-5 space-y-5">
           {doc.content.map(({ heading, body }) => (
             <div key={heading}>
-              <h3 className="text-sm font-bold text-gray-900 mb-1">{heading}</h3>
+              <h3 className="text-base font-bold text-gray-900 mb-1">{heading}</h3>
               <LegalBodyText text={body} />
             </div>
           ))}
-          <p className="text-xs text-gray-400 pt-2">Naveen Sharma · naveensharma.net</p>
+          <p className="text-sm text-gray-400 pt-2">Naveen Sharma · naveensharma.net</p>
         </div>
       </div>
     </div>
@@ -1050,8 +1050,8 @@ function Footer() {
               onError={(e) => { e.target.style.display = "none"; }}
             />
             <p className="font-extrabold text-gray-900">Naveen Sharma</p>
-            <p className="text-sm text-gray-500">Healthcare SaaS Implementation · Systems Configuration · Workflow Automation · QA & UAT</p>
-            <p className="text-xs text-gray-400">
+            <p className="text-base text-gray-500">Healthcare SaaS Implementation · Systems Configuration · Workflow Automation · QA & UAT</p>
+            <p className="text-sm text-gray-400">
               B2B services & contracting →{" "}
               <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">opility.com</a>
             </p>
@@ -1081,12 +1081,12 @@ function Footer() {
                 { key: "cookies",  label: "Cookie Policy" },
               ].map(({ key, label }) => (
                 <button key={key} onClick={() => setActiveDoc(key)}
-                  className="text-xs text-gray-400 hover:text-blue-600 transition underline-offset-2 hover:underline text-center">
+                  className="text-sm text-gray-400 hover:text-blue-600 transition underline-offset-2 hover:underline text-center">
                   {label}
                 </button>
               ))}
             </div>
-            <p className="text-xs text-gray-400">© 2026 Naveen Sharma. All rights reserved.</p>
+            <p className="text-sm text-gray-400">© 2026 Naveen Sharma. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -1143,7 +1143,7 @@ function FAQ() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="flex w-full items-center justify-between px-6 py-5 text-left transition hover:bg-gray-50"
               >
-                <span className="text-base font-bold text-gray-900 pr-4">{item.q}</span>
+                <span className="text-lg font-bold text-gray-900 pr-4">{item.q}</span>
                 <ChevronDown
                   size={20}
                   className={`shrink-0 text-blue-600 transition-transform duration-200 ${open === i ? "rotate-180" : ""}`}
@@ -1151,7 +1151,7 @@ function FAQ() {
               </button>
               {open === i && (
                 <div className="px-6 pb-5">
-                  <p className="text-sm leading-relaxed text-gray-600">{item.a}</p>
+                  <p className="text-base leading-relaxed text-gray-600">{item.a}</p>
                 </div>
               )}
             </div>
@@ -1229,8 +1229,8 @@ function EllaChat() {
                 <img src="/ella-avatar.png" alt="Ella" className="h-full w-full object-cover object-center" />
               </div>
               <div>
-                <p className="text-sm font-bold text-white">Ella</p>
-                <p className="text-xs text-blue-100">Naveen's AI Assistant</p>
+                <p className="text-base font-bold text-white">Ella</p>
+                <p className="text-sm text-blue-100">Naveen's AI Assistant</p>
               </div>
             </div>
             <button onClick={() => setOpen(false)}
@@ -1242,7 +1242,7 @@ function EllaChat() {
           <div className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-base leading-relaxed ${
                   m.role === "user"
                     ? "rounded-br-sm bg-blue-600 text-white"
                     : "rounded-bl-sm bg-gray-100 text-gray-800"
@@ -1265,13 +1265,13 @@ function EllaChat() {
             ))}
             {showChips && (
               <div className="flex flex-col items-start gap-2 pt-1">
-                <p className="px-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Popular questions</p>
+                <p className="px-1 text-sm font-semibold uppercase tracking-wide text-gray-400">Popular questions</p>
                 <div className="flex flex-wrap gap-2">
                   {QUICK_QUESTIONS.map((q) => (
                     <button
                       key={q}
                       onClick={() => send(q)}
-                      className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 transition hover:bg-blue-100">
+                      className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 transition hover:bg-blue-100">
                       {q}
                     </button>
                   ))}
@@ -1301,7 +1301,7 @@ function EllaChat() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && send()}
                 placeholder="Ask me anything…"
-                className="flex-1 rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
+                className="flex-1 rounded-xl border border-gray-200 px-4 py-2.5 text-base outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
               />
               <button
                 onClick={() => send()}
@@ -1311,7 +1311,7 @@ function EllaChat() {
                 <Send size={16} />
               </button>
             </div>
-            <p className="mt-2 text-center text-xs text-gray-400">AI by Groq · Powered by Opility</p>
+            <p className="mt-2 text-center text-sm text-gray-400">AI by Groq · Powered by Opility</p>
           </div>
         </div>
       )}
@@ -1325,7 +1325,7 @@ function EllaChat() {
             <img src="/ella-avatar.png" alt="Ella" className="h-full w-full object-cover object-top" />
           </div>
         )}
-        <span className="text-sm font-semibold">{open ? "Close" : "Ask Ella"}</span>
+        <span className="text-base font-semibold">{open ? "Close" : "Ask Ella"}</span>
       </button>
     </div>
   );
