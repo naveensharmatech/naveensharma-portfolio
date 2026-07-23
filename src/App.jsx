@@ -1164,12 +1164,21 @@ function FAQ() {
 
 /* ─── ELLA CHAT ──────────────────────────────────────────────── */
 
+const QUICK_QUESTIONS = [
+  "What was your role at Bolt Healthcare?",
+  "What tools and tech do you use?",
+  "Are you open to remote work?",
+  "What's your education background?",
+  "Do you offer B2B / contract services?",
+  "How do I get in touch?",
+];
+
 function EllaChat() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "👋 Hi! I'm Ella, Naveen's AI assistant. Ask me anything about his experience, skills, or availability — I'm happy to help!",
+      content: "👋 Hi! I'm Ella, Naveen's AI assistant. Ask me anything, or tap a question below to get started!",
     },
   ]);
   const [input, setInput] = useState("");
@@ -1180,8 +1189,8 @@ function EllaChat() {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
-  const send = async () => {
-    const text = input.trim();
+  const send = async (override) => {
+    const text = (override ?? input).trim();
     if (!text || loading) return;
     const userMsg = { role: "user", content: text };
     const next = [...messages, userMsg];
@@ -1199,12 +1208,15 @@ function EllaChat() {
     } catch {
       setMessages([
         ...next,
-        { role: "assistant", content: "Sorry, something went wrong. Reach Naveen directly at contact@naveensharma.net" },
+        { role: "assistant", content: "Sorry, I'm unable to answer that right now. Please reach Naveen directly at contact@naveensharma.net 📧" },
       ]);
     } finally {
       setLoading(false);
     }
   };
+
+  // Only show quick-question chips before the visitor has asked anything (keeps the UI tidy after).
+  const showChips = messages.length === 1 && !loading;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
@@ -1251,6 +1263,21 @@ function EllaChat() {
                 </div>
               </div>
             ))}
+            {showChips && (
+              <div className="flex flex-col items-start gap-2 pt-1">
+                <p className="px-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Popular questions</p>
+                <div className="flex flex-wrap gap-2">
+                  {QUICK_QUESTIONS.map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => send(q)}
+                      className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 transition hover:bg-blue-100">
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
             {loading && (
               <div className="flex justify-start">
                 <div className="rounded-2xl rounded-bl-sm bg-gray-100 px-4 py-3">
@@ -1277,7 +1304,7 @@ function EllaChat() {
                 className="flex-1 rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
               />
               <button
-                onClick={send}
+                onClick={() => send()}
                 disabled={!input.trim() || loading}
                 className="flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-white transition hover:bg-blue-700 disabled:opacity-40"
                 aria-label="Send message">

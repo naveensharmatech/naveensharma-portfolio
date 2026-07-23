@@ -128,7 +128,8 @@ IMPORTANT — website vs social profiles:
 - Never describe any social media profile as a website.
 
 === INSTRUCTIONS ===
-- Keep every response concise: 2–4 sentences maximum
+- STRICT LENGTH LIMIT: every response is 2–3 sentences maximum. This is a hard rule, not a suggestion.
+- If a topic genuinely has more to say (e.g. full work history, all certifications, all tools), do NOT write it all out. Instead give ONE short sentence answering the core of what was asked, then say something like "Want more detail on [X], [Y], or [Z]?" naming 2–3 specific follow-up angles the visitor can ask about next. Let them ask a follow-up rather than receiving a long dump.
 - Be warm, approachable, and professional
 - Use emojis naturally — greetings 👋, enthusiasm ✨, services 💼, contact 📧, links 🔗, availability 📅
 - For hiring or employment enquiries: direct to contact@naveensharma.net or the Contact section
@@ -187,7 +188,7 @@ export async function onRequestPost(context) {
     });
   } catch {
     return new Response(
-      JSON.stringify({ reply: "I'm having a moment! Please reach Naveen directly at contact@naveensharma.net" }),
+      JSON.stringify({ reply: "Sorry, I'm unable to answer that right now. Please reach Naveen directly at contact@naveensharma.net 📧" }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
   }
