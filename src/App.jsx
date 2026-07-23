@@ -335,10 +335,6 @@ function Navbar() {
             className="h-12 w-12 rounded-full object-cover ring-2 ring-blue-100 transition-transform group-hover:scale-105"
             onError={(e) => { e.target.style.display = "none"; }}
           />
-          <div className="flex flex-col leading-tight shrink-0">
-            <span className="text-xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap">Naveen Sharma</span>
-            <span className="hidden text-sm font-semibold text-blue-600 whitespace-nowrap lg:block">Healthcare SaaS Implementation Specialist</span>
-          </div>
         </a>
 
         <nav className="hidden items-center gap-1 rounded-full border border-gray-100 bg-gray-50 p-1.5 lg:flex">
