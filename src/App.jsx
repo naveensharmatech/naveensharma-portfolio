@@ -4,13 +4,76 @@ import {
   Workflow, Headset, ShieldCheck, FileText, Layers, Database,
   ClipboardCheck, Code2, ExternalLink, Phone, Linkedin, Facebook, ChevronDown, Youtube, Briefcase,
   MessageCircle, Send, GraduationCap, Award, ExternalLink as LinkOut, FileDown,
+  Search, Settings2, FlaskConical, LifeBuoy,
 } from "lucide-react";
+
+/* ─── SCROLL-REVEAL WRAPPER ──────────────────────────────────── */
+/* Reveals content on scroll. Defended with three independent triggers so
+   content can never get stuck invisible: (1) an immediate on-mount
+   viewport check, (2) IntersectionObserver for elements scrolled into
+   view later, (3) a scroll-listener fallback, and (4) a hard timeout
+   safety net. Any one of these firing is enough to reveal the content. */
+function Reveal({ as: Tag = "div", stagger = false, className = "", children, ...rest }) {
+  const ref = useRef(null);
+  const revealedRef = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const reveal = () => {
+      if (revealedRef.current) return;
+      revealedRef.current = true;
+      el.classList.add("is-visible");
+    };
+
+    const inViewport = () => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight * 1.05 && r.bottom > -50;
+    };
+
+    // 1) Reveal immediately if already on-screen at mount (fixes above-the-fold content).
+    if (inViewport()) { reveal(); return; }
+
+    // 2) IntersectionObserver for below-the-fold elements.
+    let io;
+    if ("IntersectionObserver" in window) {
+      io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) reveal(); }),
+        { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
+      );
+      io.observe(el);
+    }
+
+    // 3) Scroll-listener fallback in case IO doesn't fire in some environment.
+    const onScroll = () => { if (inViewport()) reveal(); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    // 4) Hard timeout safety net — never leave content permanently hidden.
+    const failsafe = setTimeout(reveal, 2500);
+
+    return () => {
+      if (io) io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      clearTimeout(failsafe);
+    };
+  }, []);
+
+  return (
+    <Tag ref={ref} className={`${stagger ? "reveal-stagger" : "reveal"} ${className}`} {...rest}>
+      {children}
+    </Tag>
+  );
+}
 
 /* ─── DATA ───────────────────────────────────────────────────── */
 
 const NAV_LINKS = [
   { label: "About",        href: "#about" },
   { label: "Expertise",    href: "#expertise" },
+  { label: "Process",      href: "#process" },
   { label: "Experience",   href: "#experience" },
   { label: "Case Studies", href: "#casestudies" },
   { label: "Education",    href: "#education" },
@@ -36,6 +99,13 @@ const EXPERTISE = [
   { icon: FileText,       title: "Technical Documentation",         desc: "SOPs, process documentation, QA documentation, and knowledge base content that implementation teams can rely on." },
   { icon: Globe,          title: "Website Design & Development",    desc: "Custom React/Next.js web apps, WordPress business sites, Shopify e-commerce stores, and HTML landing pages." },
   { icon: Briefcase,      title: "Career & Professional Presence",  desc: "ATS-optimised resume writing, LinkedIn profile optimisation, and career portfolio setup for tech professionals." },
+];
+
+const PROCESS = [
+  { icon: Search,      step: "01", title: "Discover",  desc: "Understand the client's existing paper or manual process, regulatory requirements, and the fields, forms, and edge cases involved before any configuration begins." },
+  { icon: Settings2,   step: "02", title: "Configure",  desc: "Build the dynamic form: field mapping, conditional logic, business rules, e-signature workflows, and data-binding schemas that connect front-end inputs to the backend." },
+  { icon: FlaskConical,step: "03", title: "Validate",   desc: "Run UAT and mapping tests, chase down root causes on defects, and iterate with the team via structured task triage until every field is provably correct." },
+  { icon: LifeBuoy,    step: "04", title: "Support",    desc: "Go live, monitor real submissions, administer platform access for the agency, and stay the point of contact for fixes and future changes." },
 ];
 
 const EXPERIENCES = [
@@ -257,18 +327,18 @@ function Navbar() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition-all ${scrolled ? "bg-white shadow-sm border-b border-gray-100" : "bg-white"}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm border-b border-gray-100" : "bg-transparent"}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center gap-3 group">
           <img
             src="/headshot-round.png"
             alt="Naveen Sharma"
-            className="h-11 w-11 rounded-full object-cover ring-2 ring-blue-100"
+            className="h-12 w-12 rounded-full object-cover ring-2 ring-blue-100 transition-transform group-hover:scale-105"
             onError={(e) => { e.target.style.display = "none"; }}
           />
           <div className="flex flex-col leading-tight">
-            <span className="text-base font-bold tracking-tight text-gray-900">Naveen Sharma</span>
-            <span className="text-xs font-medium text-blue-600">Healthcare SaaS Implementation · Systems Configuration · QA & UAT</span>
+            <span className="text-lg font-extrabold tracking-tight text-gray-900">Naveen Sharma</span>
+            <span className="text-xs font-semibold text-blue-600">Healthcare SaaS Implementation · Systems Configuration · QA & UAT</span>
           </div>
         </a>
 
@@ -322,52 +392,55 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="top" className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 text-center">
+    <section id="top" className="relative overflow-hidden bg-white">
+      <div className="orb h-72 w-72 bg-blue-300/50" style={{ top: "-40px", right: "6%" }} />
+      <div className="orb h-64 w-64 bg-violet-300/40" style={{ top: "180px", left: "2%", animationDelay: "3s" }} />
 
-        <div className="mb-4 w-full overflow-hidden rounded-2xl shadow-sm">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 text-center">
+
+        <Reveal className="mb-4 w-full overflow-hidden rounded-2xl shadow-lg">
           <img
             src="/linkedin-cover.jpeg"
             alt="Naveen Sharma — Healthcare SaaS Implementation Specialist"
             className="w-full h-auto"
           />
-        </div>
+        </Reveal>
 
-        <h1 className="text-6xl font-extrabold tracking-tight text-gray-900 sm:text-7xl mb-3 mt-6">
+        <Reveal as="h1" className="gradient-text text-7xl font-extrabold tracking-tight sm:text-8xl mb-4 mt-8">
           Naveen Sharma
-        </h1>
+        </Reveal>
 
-        <p className="text-lg font-medium text-gray-500 sm:text-xl mb-7">
+        <Reveal as="p" className="text-xl font-medium text-gray-500 sm:text-2xl mb-8">
           Healthcare SaaS Implementation Specialist
-        </p>
+        </Reveal>
 
-        <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
+        <Reveal stagger className="mx-auto mb-9 flex max-w-3xl flex-wrap items-center justify-center gap-3">
           {HEADLINES.map((h) => (
             <span key={h}
-              className="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+              className="tilt-card rounded-full border border-blue-100 bg-blue-50 px-5 py-2.5 text-base font-semibold text-blue-700">
               {h}
             </span>
           ))}
-        </div>
+        </Reveal>
 
-        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 mb-10">
+        <Reveal as="p" className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-600 mb-11">
           7+ years of professional experience, including nearly 4 years in healthcare SaaS at Bolt Healthcare.
           Available for full-time, hybrid, and remote employment in SaaS implementation, systems configuration,
           workflow automation, and QA/UAT.
-        </p>
+        </Reveal>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
+        <Reveal className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <a href="/Naveen_Sharma_CV.pdf" download
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white transition hover:bg-blue-700">
-            Download CV <ArrowRight size={18} />
+            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-9 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl">
+            Download CV <ArrowRight size={20} />
           </a>
           <a href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-gray-200 px-8 py-4 text-base font-semibold text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 px-9 py-4 text-lg font-semibold text-gray-700 transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600">
             Get in touch
           </a>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-gray-100 pt-12">
+        <Reveal stagger className="grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-gray-100 pt-12">
           {[
             { num: "7+",     label: "Years Experience" },
             { num: "~4",     label: "Years Healthcare SaaS" },
@@ -375,11 +448,11 @@ function Hero() {
             { num: "Remote", label: "Available Globally" },
           ].map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-3xl font-extrabold text-blue-600">{s.num}</p>
-              <p className="mt-1 text-sm text-gray-500">{s.label}</p>
+              <p className="text-4xl font-extrabold text-blue-600">{s.num}</p>
+              <p className="mt-1.5 text-base text-gray-500">{s.label}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -405,15 +478,15 @@ function TrustBar() {
 
 function SectionHeading({ eyebrow, title, description, center }) {
   return (
-    <div className={`mb-16 ${center ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}`}>
+    <Reveal className={`mb-16 ${center ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}`}>
       {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">{eyebrow}</p>
+        <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">{eyebrow}</p>
       )}
-      <h2 className="text-4xl font-extrabold tracking-tight text-gray-900">{title}</h2>
+      <h2 className="text-5xl font-extrabold tracking-tight text-gray-900">{title}</h2>
       {description && (
-        <p className="mt-4 text-lg leading-relaxed text-gray-600">{description}</p>
+        <p className="mt-5 text-xl leading-relaxed text-gray-600">{description}</p>
       )}
-    </div>
+    </Reveal>
   );
 }
 
@@ -486,18 +559,48 @@ function Expertise() {
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Expertise" center title="Core competencies"
           description="The practical skills I bring to healthcare SaaS implementation, systems configuration, quality assurance, and technical support." />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EXPERTISE.map((item) => {
             const Icon = item.icon;
             return (
               <div key={item.title}
-                className="rounded-2xl border border-gray-100 bg-white p-8 transition hover:shadow-lg hover:-translate-y-1">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                  <Icon size={24} />
+                className="tilt-card rounded-2xl border border-gray-100 bg-white p-8">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <Icon size={26} />
                 </div>
-                <h3 className="mt-6 text-lg font-bold text-gray-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.desc}</p>
+                <h3 className="mt-6 text-xl font-bold text-gray-900">{item.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-gray-600">{item.desc}</p>
               </div>
+            );
+          })}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Process() {
+  return (
+    <section id="process" className="relative overflow-hidden bg-white">
+      <div className="orb h-56 w-56 bg-blue-200/40" style={{ bottom: "10%", right: "4%" }} />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <SectionHeading eyebrow="How I Work" center title="From manual process to production go-live"
+          description="A consistent four-stage approach I apply to every implementation engagement — whether configuring a single form or onboarding a new agency end-to-end." />
+        <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="pointer-events-none absolute left-0 right-0 top-9 hidden h-0.5 bg-gradient-to-r from-blue-100 via-blue-300 to-violet-200 lg:block" />
+          {PROCESS.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <Reveal key={p.step} className="relative" style={{ transitionDelay: `${i * 0.08}s` }}>
+                <div className="tilt-card relative z-10 rounded-2xl border border-gray-100 bg-white p-7 text-center shadow-sm">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-600/25">
+                    <Icon size={28} />
+                  </div>
+                  <p className="mt-4 text-xs font-bold uppercase tracking-widest text-blue-500">Step {p.step}</p>
+                  <h3 className="mt-1 text-xl font-extrabold text-gray-900">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{p.desc}</p>
+                </div>
+              </Reveal>
             );
           })}
         </div>
@@ -514,7 +617,7 @@ function Experience() {
         <div className="space-y-6">
           {EXPERIENCES.map((exp) => (
             <div key={exp.company}
-              className="rounded-2xl border border-gray-100 bg-white p-8 transition hover:shadow-lg">
+              className="tilt-card rounded-2xl border border-gray-100 bg-white p-8">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 className="text-xl font-extrabold text-gray-900">{exp.company}</h3>
@@ -565,7 +668,7 @@ function CaseStudies() {
         <div className="grid gap-6 md:grid-cols-2">
           {CASE_STUDIES.map((cs) => (
             <div key={cs.title}
-              className="rounded-2xl border border-gray-100 bg-white p-8 transition hover:shadow-lg">
+              className="tilt-card rounded-2xl border border-gray-100 bg-white p-8">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{cs.tag}</span>
               <h3 className="mt-3 text-lg font-extrabold text-gray-900">{cs.title}</h3>
               <div className="mt-6 space-y-4">
@@ -649,7 +752,7 @@ function Education() {
             const Icon = item.icon;
             return (
               <div key={item.degree}
-                className="rounded-2xl border border-gray-100 bg-gray-50 p-8 transition hover:shadow-md">
+                className="tilt-card rounded-2xl border border-gray-100 bg-gray-50 p-8">
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                     <Icon size={22} />
@@ -698,7 +801,7 @@ function Projects() {
             const Icon = project.icon;
             return (
               <div key={project.title}
-                className="flex flex-col rounded-2xl border border-gray-100 bg-white p-8 transition hover:shadow-lg hover:-translate-y-1">
+                className="tilt-card flex flex-col rounded-2xl border border-gray-100 bg-white p-8">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-900 text-white">
                   <Icon size={22} />
                 </div>
@@ -1212,6 +1315,7 @@ export default function App() {
         <TrustBar />
         <About />
         <Expertise />
+        <Process />
         <Experience />
         <CaseStudies />
         <AvailableFor />
