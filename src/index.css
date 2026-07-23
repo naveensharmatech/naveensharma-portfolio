@@ -20,6 +20,12 @@ body {
   transform: translateY(28px);
   transition: opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1);
   will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.reveal.is-visible {
+  /* Once settled, drop out of a GPU layer so text renders at full native sharpness (no residual blur). */
+  will-change: auto;
 }
 .reveal.is-visible {
   opacity: 1;
@@ -73,8 +79,13 @@ body {
 
 .tilt-card {
   transition: transform .35s cubic-bezier(.16,.84,.44,1), box-shadow .35s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .tilt-card:hover {
-  transform: translateY(-6px) scale(1.015);
+  /* translateY only — no scale(). Scaling text/HTML content (unlike images) makes browsers
+     re-rasterize it at a non-1:1 ratio mid-transition, which is what caused the blur-until-settled
+     effect on hover. A pure translate keeps text crisp at every frame. */
+  transform: translateY(-6px);
   box-shadow: 0 20px 40px -18px rgba(37,99,235,.28);
 }
