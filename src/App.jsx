@@ -1166,7 +1166,7 @@ function FAQ() {
 
 const QUICK_QUESTIONS = [
   "What was your role at Bolt Healthcare?",
-  "What tools and tech do you use?",
+  "What tools and tech does Naveen use?",
   "Are you open to remote work?",
   "What's your education background?",
   "Do you offer B2B / contract services?",
