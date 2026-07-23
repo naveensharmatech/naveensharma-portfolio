@@ -908,35 +908,43 @@ function Tools() {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <section id="contact" className="relative overflow-hidden bg-gray-50">
+      <div className="orb h-72 w-72 bg-indigo-300/40" style={{ top: "-30px", left: "4%" }} />
+      <div className="orb h-64 w-64 bg-rose-300/30" style={{ bottom: "0%", right: "3%", animationDelay: "2s" }} />
+      <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Contact" center
           title="Let's talk"
           description="Available for full-time, hybrid, and remote employment. Based in Be'er Sheva, Israel." />
 
         <div className="mx-auto max-w-2xl">
-          <div className="mb-6 flex justify-center gap-4">
+          <div className="mb-8 flex justify-center gap-4">
             <a href="/Naveen_Sharma_CV.pdf" target="_blank" rel="noreferrer"
-              className="rounded-lg border-2 border-gray-200 px-6 py-3 text-base font-bold text-gray-700 transition hover:border-blue-400 hover:text-blue-600">
+              className="rounded-full border-2 border-gray-200 bg-white px-6 py-3 text-base font-bold text-gray-700 transition hover:border-blue-400 hover:text-blue-600">
               View CV
             </a>
             <a href="/Naveen_Sharma_CV.pdf" download
-              className="rounded-lg bg-blue-600 px-6 py-3 text-base font-bold text-white transition hover:bg-blue-700">
+              className="rounded-full bg-blue-600 px-6 py-3 text-base font-bold text-white shadow-md shadow-blue-200 transition hover:bg-blue-700 hover:shadow-lg">
               Download CV (PDF)
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: "mailto:contact@naveensharma.net",               icon: Mail,     label: "Email",    text: "contact@naveensharma.net",         external: false, link: true  },
-              { href: "https://linkedin.com/in/naveensharmatech",       icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/naveensharmatech",  external: true,  link: true  },
-              { href: "tel:+972587896289",                              icon: Phone,    label: "Phone",    text: "058-789-6289",                      external: false, link: true  },
-              { href: null,                                             icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",              external: false, link: false },
-            ].map(({ href, icon: Icon, label, text, external, link }) => {
-              const classes = "flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 transition hover:border-blue-300 hover:shadow-md";
+              { href: "mailto:contact@naveensharma.net",               icon: Mail,     label: "Email",    text: "contact@naveensharma.net",         external: false, link: true,  color: "indigo"  },
+              { href: "https://linkedin.com/in/naveensharmatech",       icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/naveensharmatech",  external: true,  link: true,  color: "sky"     },
+              { href: "tel:+972587896289",                              icon: Phone,    label: "Phone",    text: "058-789-6289",                      external: false, link: true,  color: "emerald" },
+              { href: null,                                             icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",              external: false, link: false, color: "rose"    },
+            ].map(({ href, icon: Icon, label, text, external, link, color }) => {
+              const classes = "tilt-card flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 hover:border-gray-200";
+              const iconBg = {
+                indigo: "bg-indigo-50 text-indigo-600",
+                sky: "bg-sky-50 text-sky-600",
+                emerald: "bg-emerald-50 text-emerald-600",
+                rose: "bg-rose-50 text-rose-600",
+              }[color];
               const inner = (
                 <>
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${iconBg}`}>
                     <Icon size={18} />
                   </div>
                   <div className="min-w-0 flex-1">
