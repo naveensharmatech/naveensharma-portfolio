@@ -437,7 +437,49 @@ function Hero() {
           />
         </Reveal>
 
-        <Reveal as="h1" className="gradient-text text-7xl font-extrabold tracking-tight sm:text-8xl mb-4 mt-8">
+        <Reveal className="mb-2 mt-4 flex justify-center">
+          <div className="relative scale-[0.72] sm:scale-100" style={{ width: 340, height: 340 }}>
+            {/* dark techy backdrop sphere — labels orbit just past its rim */}
+            <div className="tech-grid absolute overflow-hidden rounded-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900" style={{ inset: 28 }}>
+              <div className="absolute h-32 w-32 rounded-full bg-blue-500/50 blur-3xl" style={{ top: -10, left: -10 }} />
+              <div className="absolute h-28 w-28 rounded-full bg-violet-500/50 blur-3xl" style={{ bottom: -10, right: -10 }} />
+              <div className="absolute h-24 w-24 rounded-full bg-cyan-400/40 blur-2xl" style={{ top: "38%", right: "8%" }} />
+            </div>
+
+            {/* soft glow behind the photo */}
+            <div className="glow-ring absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-blue-400 to-violet-500 blur-xl" />
+
+            {/* photo, centered */}
+            <img
+              src="/headshot-round.png"
+              alt="Naveen Sharma"
+              className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full object-cover ring-4 ring-white shadow-2xl"
+              onError={(e) => { e.target.style.display = "none"; }}
+            />
+
+            {/* orbiting title pills */}
+            <div className="orbit-ring absolute inset-0">
+              {HEADLINES.map((h, i) => {
+                const angle = i * (360 / HEADLINES.length);
+                return (
+                  <div key={h} className="absolute inset-0" style={{ transform: `rotate(${angle}deg)` }}>
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2">
+                      <div style={{ transform: `rotate(${-angle}deg)` }}>
+                        <div className="orbit-item-counter">
+                          <span className="inline-block whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-indigo-700 shadow-lg ring-1 ring-indigo-100">
+                            {h}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal as="h1" className="gradient-text text-7xl font-extrabold tracking-tight sm:text-8xl mb-4 mt-2">
           Naveen Sharma
         </Reveal>
 
