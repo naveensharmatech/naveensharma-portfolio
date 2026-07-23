@@ -507,11 +507,17 @@ function TrustBar() {
   );
 }
 
-function SectionHeading({ eyebrow, title, description, center }) {
+const EYEBROW_COLOR = {
+  indigo: "text-indigo-600", violet: "text-violet-600", sky: "text-sky-600", cyan: "text-cyan-600",
+  emerald: "text-emerald-600", amber: "text-amber-600", rose: "text-rose-600", pink: "text-pink-600",
+};
+
+function SectionHeading({ eyebrow, title, description, center, color }) {
+  const eyebrowColor = EYEBROW_COLOR[color] || "text-blue-600";
   return (
     <Reveal className={`mb-16 ${center ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}`}>
       {eyebrow && (
-        <p className="mb-3 text-base font-bold uppercase tracking-widest text-blue-600">{eyebrow}</p>
+        <p className={`mb-3 text-base font-bold uppercase tracking-widest ${eyebrowColor}`}>{eyebrow}</p>
       )}
       <h2 className="text-5xl font-extrabold tracking-tight text-gray-900">{title}</h2>
       {description && (
@@ -527,7 +533,7 @@ function About() {
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation Specialist" />
+            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation Specialist" color="indigo" />
             <p className="text-lg leading-relaxed text-gray-600">
               I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of technical
               operations experience, including nearly 4 years of SaaS form-workflow configuration, healthcare
@@ -588,7 +594,7 @@ function Expertise() {
   return (
     <section id="expertise" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Expertise" center title="Core competencies"
+        <SectionHeading eyebrow="Expertise" center color="violet" title="Core competencies"
           description="The practical skills I bring to healthcare SaaS implementation, systems configuration, quality assurance, and technical support." />
         <Reveal stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EXPERTISE.map((item) => {
@@ -596,7 +602,7 @@ function Expertise() {
             return (
               <div key={item.title}
                 className="tilt-card rounded-2xl border border-gray-100 bg-white p-8">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
                   <Icon size={26} />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-gray-900">{item.title}</h3>
@@ -613,21 +619,21 @@ function Expertise() {
 function Process() {
   return (
     <section id="process" className="relative overflow-hidden bg-white">
-      <div className="orb h-56 w-56 bg-blue-200/40" style={{ bottom: "10%", right: "4%" }} />
+      <div className="orb h-56 w-56 bg-sky-200/40" style={{ bottom: "10%", right: "4%" }} />
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="How I Work" center title="From manual process to production go-live"
+        <SectionHeading eyebrow="How I Work" center color="sky" title="From manual process to production go-live"
           description="A consistent four-stage approach I apply to every implementation engagement — whether configuring a single form or onboarding a new agency end-to-end." />
         <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="pointer-events-none absolute left-0 right-0 top-9 hidden h-0.5 bg-gradient-to-r from-blue-100 via-blue-300 to-violet-200 lg:block" />
+          <div className="pointer-events-none absolute left-0 right-0 top-9 hidden h-0.5 bg-gradient-to-r from-sky-100 via-sky-300 to-cyan-200 lg:block" />
           {PROCESS.map((p, i) => {
             const Icon = p.icon;
             return (
               <Reveal key={p.step} className="relative" style={{ transitionDelay: `${i * 0.08}s` }}>
                 <div className="tilt-card relative z-10 rounded-2xl border border-gray-100 bg-white p-7 text-center shadow-sm">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-600/25">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-600 to-cyan-600 text-white shadow-lg shadow-sky-600/25">
                     <Icon size={28} />
                   </div>
-                  <p className="mt-4 text-sm font-bold uppercase tracking-widest text-blue-500">Step {p.step}</p>
+                  <p className="mt-4 text-sm font-bold uppercase tracking-widest text-sky-500">Step {p.step}</p>
                   <h3 className="mt-1 text-xl font-extrabold text-gray-900">{p.title}</h3>
                   <p className="mt-3 text-base leading-relaxed text-gray-600">{p.desc}</p>
                 </div>
@@ -644,7 +650,7 @@ function Experience() {
   return (
     <section id="experience" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Experience" title="Where I've worked" />
+        <SectionHeading eyebrow="Experience" title="Where I've worked" color="cyan" />
         <div className="space-y-6">
           {EXPERIENCES.map((exp) => (
             <div key={exp.company}
@@ -652,9 +658,9 @@ function Experience() {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 className="text-xl font-extrabold text-gray-900">{exp.company}</h3>
-                  <p className="mt-1 text-base font-semibold text-blue-600">{exp.context}</p>
+                  <p className="mt-1 text-base font-semibold text-cyan-600">{exp.context}</p>
                 </div>
-                <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-bold text-blue-600">
+                <span className="rounded-full bg-cyan-50 px-4 py-1.5 text-sm font-bold text-cyan-600">
                   {exp.period}
                 </span>
               </div>
@@ -669,7 +675,7 @@ function Experience() {
               <ul className="mt-6 space-y-3">
                 {exp.points.map((point, i) => (
                   <li key={i} className="flex gap-3 text-base leading-relaxed text-gray-600">
-                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-blue-500" />
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-cyan-500" />
                     <span>
                       {typeof point === "string" ? point : (
                         <>
@@ -693,19 +699,19 @@ function CaseStudies() {
   return (
     <section id="casestudies" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Case Studies · Bolt Healthcare"
+        <SectionHeading eyebrow="Case Studies · Bolt Healthcare" color="emerald"
           title="Real-world implementation work"
           description="A closer look at the challenges I solved across healthcare SaaS implementation, QA, and API validation during my time at Bolt Healthcare. No confidential data is disclosed." />
         <div className="grid gap-6 md:grid-cols-2">
           {CASE_STUDIES.map((cs) => (
             <div key={cs.title}
               className="tilt-card rounded-2xl border border-gray-100 bg-white p-8">
-              <span className="text-sm font-bold uppercase tracking-widest text-blue-600">{cs.tag}</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-emerald-600">{cs.tag}</span>
               <h3 className="mt-3 text-xl font-extrabold text-gray-900">{cs.title}</h3>
               <div className="mt-6 space-y-4">
                 {[
                   { label: "Challenge", text: cs.challenge, color: "bg-red-50 text-red-700" },
-                  { label: "My Role",   text: cs.role,      color: "bg-blue-50 text-blue-700" },
+                  { label: "My Role",   text: cs.role,      color: "bg-emerald-50 text-emerald-700" },
                   { label: "Solution",  text: cs.solution,  color: "bg-gray-100 text-gray-700" },
                   { label: "Outcome",   text: cs.outcome,   color: "bg-green-50 text-green-700" },
                 ].map(({ label, text, color }) => (
@@ -777,7 +783,7 @@ function Education() {
   return (
     <section id="education" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Education & Certifications" title="Academic background & professional training" />
+        <SectionHeading eyebrow="Education & Certifications" title="Academic background & professional training" color="rose" />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {EDUCATION.map((item) => {
             const Icon = item.icon;
@@ -785,10 +791,10 @@ function Education() {
               <div key={item.degree}
                 className="tilt-card rounded-2xl border border-gray-100 bg-gray-50 p-8">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
                     <Icon size={22} />
                   </div>
-                  <span className="rounded-full bg-blue-50 text-blue-600 text-sm font-bold px-3 py-1">
+                  <span className="rounded-full bg-rose-50 text-rose-600 text-sm font-bold px-3 py-1">
                     {item.type}
                   </span>
                 </div>
@@ -825,7 +831,7 @@ function Projects() {
   return (
     <section id="projects" className="bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Projects" title="Personal projects & study work"
+        <SectionHeading eyebrow="Projects" title="Personal projects & study work" color="amber"
           description="An interactive implementation demo, QA certification projects, an academic development build, and live web projects — all original work." />
         <div className="grid gap-6 md:grid-cols-3">
           {PROJECTS.map((project) => {
@@ -833,10 +839,10 @@ function Projects() {
             return (
               <div key={project.title}
                 className="tilt-card flex flex-col rounded-2xl border border-gray-100 bg-white p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-900 text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
                   <Icon size={22} />
                 </div>
-                <span className="mt-6 text-sm font-bold uppercase tracking-widest text-blue-600">{project.tag}</span>
+                <span className="mt-6 text-sm font-bold uppercase tracking-widest text-amber-600">{project.tag}</span>
                 <h3 className="mt-2 text-lg font-extrabold leading-snug text-gray-900">{project.title}</h3>
                 <p className="mt-3 flex-1 text-base leading-relaxed text-gray-600">{project.desc}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -912,7 +918,7 @@ function Contact() {
       <div className="orb h-72 w-72 bg-indigo-300/40" style={{ top: "-30px", left: "4%" }} />
       <div className="orb h-64 w-64 bg-rose-300/30" style={{ bottom: "0%", right: "3%", animationDelay: "2s" }} />
       <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="Contact" center
+        <SectionHeading eyebrow="Contact" center color="pink"
           title="Let's talk"
           description="Available for full-time, hybrid, and remote employment. Based in Be'er Sheva, Israel." />
 
