@@ -76,9 +76,8 @@ const NAV_LINKS = [
   { label: "Process",      href: "#process" },
   { label: "Experience",   href: "#experience" },
   { label: "Case Studies", href: "#casestudies" },
-  { label: "Education",    href: "#education" },
   { label: "Projects",     href: "#projects" },
-  { label: "FAQ",          href: "#faq" },
+  { label: "Education",    href: "#education" },
   { label: "Contact",      href: "#contact" },
 ];
 
@@ -336,13 +335,13 @@ function Navbar() {
             className="h-12 w-12 rounded-full object-cover ring-2 ring-blue-100 transition-transform group-hover:scale-105"
             onError={(e) => { e.target.style.display = "none"; }}
           />
-          <div className="flex flex-col leading-tight">
-            <span className="text-xl font-extrabold tracking-tight text-gray-900">Naveen Sharma</span>
-            <span className="text-sm font-semibold text-blue-600">Healthcare SaaS Implementation · Systems Configuration · QA & UAT</span>
+          <div className="flex flex-col leading-tight shrink-0">
+            <span className="text-xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap">Naveen Sharma</span>
+            <span className="hidden text-sm font-semibold text-blue-600 whitespace-nowrap lg:block">Healthcare SaaS Implementation Specialist</span>
           </div>
         </a>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-5 md:flex">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href}
               className="text-base font-medium text-gray-600 transition hover:text-blue-600">
