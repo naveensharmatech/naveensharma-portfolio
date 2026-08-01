@@ -444,8 +444,8 @@ function Hero() {
 
         <Reveal className="mb-4 w-full overflow-hidden rounded-2xl shadow-lg">
           <img
-            src="/linkedin-cover.jpeg"
-            alt="Naveen Sharma — Healthcare SaaS Implementation Specialist"
+            src="/healthcare-saas-hero.jpg"
+            alt="Naveen Sharma — Healthcare SaaS Implementation Specialist & Systems Onboarding Specialist"
             className="w-full h-auto"
           />
         </Reveal>
