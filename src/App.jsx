@@ -368,8 +368,12 @@ function Navbar() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm border-b border-gray-100" : "bg-transparent"}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="text-xl font-extrabold tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors">Naveen Sharma</span>
+        <a href="#top" className="flex items-center gap-3 group">
+          <img
+            src="/nav-logo.png"
+            alt="Naveen Sharma"
+            className="h-11 w-11 rounded-full object-cover ring-2 ring-cyan-400/50 shadow-md transition-transform group-hover:scale-110"
+          />
         </a>
 
         <nav className="hidden items-center gap-1 rounded-full border border-gray-100 bg-gray-50 p-1.5 lg:flex">
