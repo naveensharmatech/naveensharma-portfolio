@@ -66,6 +66,8 @@ function Reveal({ as: Tag = "div", stagger = false, className = "", children, ..
       {children}
     </Tag>
   );
+}
+
 function XIcon({ size = 16, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
