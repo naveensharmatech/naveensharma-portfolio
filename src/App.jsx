@@ -979,19 +979,25 @@ function Contact() {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { href: "mailto:contact@naveensharma.net",               icon: Mail,     label: "Email",    text: "contact@naveensharma.net",         external: false, link: true,  color: "indigo"  },
-              { href: "https://linkedin.com/in/naveensharmatech",       icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/naveensharmatech",  external: true,  link: true,  color: "sky"     },
-              { href: "tel:+972587896289",                              icon: Phone,    label: "Phone",    text: "058-789-6289",                      external: false, link: true,  color: "emerald" },
-              { href: null,                                             icon: MapPin,   label: "Location", text: "Be'er Sheva, Israel",              external: false, link: false, color: "rose"    },
+              { href: "mailto:contact@naveensharma.net",               icon: Mail,     label: "Email",       text: "contact@naveensharma.net",         external: false, link: true,  color: "indigo"  },
+              { href: "https://linkedin.com/in/naveensharmatech",       icon: Linkedin, label: "LinkedIn",    text: "linkedin.com/in/naveensharmatech",  external: true,  link: true,  color: "sky"     },
+              { href: "https://x.com/NaveenSharmaX",                   icon: XIcon,    label: "X (Twitter)", text: "x.com/NaveenSharmaX",              external: true,  link: true,  color: "slate"   },
+              { href: "https://www.facebook.com/NaveenSharmaTech",     icon: Facebook, label: "Facebook",    text: "facebook.com/NaveenSharmaTech",    external: true,  link: true,  color: "blue"    },
+              { href: "https://www.youtube.com/@naveensharmatech",     icon: Youtube,  label: "YouTube",     text: "youtube.com/@naveensharmatech",     external: true,  link: true,  color: "rose"    },
+              { href: "tel:+972587896289",                              icon: Phone,    label: "Phone",       text: "058-789-6289",                      external: false, link: true,  color: "emerald" },
+              { href: null,                                             icon: MapPin,   label: "Location",    text: "Be'er Sheva, Israel",              external: false, link: false, color: "violet"  },
             ].map(({ href, icon: Icon, label, text, external, link, color }) => {
               const classes = "tilt-card flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 hover:border-gray-200";
               const iconBg = {
                 indigo: "bg-indigo-50 text-indigo-600",
                 sky: "bg-sky-50 text-sky-600",
-                emerald: "bg-emerald-50 text-emerald-600",
+                slate: "bg-gray-100 text-gray-900",
+                blue: "bg-blue-50 text-blue-600",
                 rose: "bg-rose-50 text-rose-600",
+                emerald: "bg-emerald-50 text-emerald-600",
+                violet: "bg-violet-50 text-violet-600",
               }[color];
               const inner = (
                 <>
