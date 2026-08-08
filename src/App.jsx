@@ -584,55 +584,54 @@ function SectionHeading({ eyebrow, title, description, center, color }) {
 function About() {
   return (
     <section id="about" className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-          <div>
-            <SectionHeading eyebrow="About" title="Healthcare SaaS Implementation Specialist" color="indigo" />
-            <p className="text-lg leading-relaxed text-gray-600">
-              I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of technical
-              operations experience, including nearly 4 years of SaaS form-workflow configuration, healthcare
-              operations, and platform administration. I spearheaded the digital transformation of 500+
-              paper-based healthcare forms into automated, data-mapped intake systems for 25+ agencies. My
-              work bridges regulatory requirements and platform configuration.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-gray-600">
-              I specialize in end-to-end SaaS workflow automation, system validation, and platform operations
-              for healthcare environments with strict regulatory requirements — dynamic form configuration,
-              conditional logic, data mapping, multi-tenant administration, and full-cycle UAT.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-gray-600">
-              I'm available for full-time, hybrid, and remote roles in SaaS implementation, systems
-              configuration, workflow automation, and QA/UAT. I'm also the founder of{" "}
-              <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">Opility</a>
-              {" "}— a registered B2B IT services business.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#contact"
-                className="inline-flex items-center gap-2 text-base font-semibold text-blue-600 hover:underline">
-                Contact me <ArrowRight size={16} />
-              </a>
-              <span className="text-gray-300">·</span>
-              <a href="https://opility.com" target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-blue-600 hover:underline">
-                B2B services at Opility <LinkOut size={14} />
-              </a>
+      <div className="mx-auto max-w-4xl px-4 py-24 sm:px-6 text-center">
+        <SectionHeading eyebrow="About" center color="indigo" title="Healthcare SaaS Implementation Specialist" />
+        
+        <div className="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-gray-600">
+          <p>
+            I'm Naveen Sharma — a Healthcare SaaS Implementation Specialist with 7+ years of technical
+            operations experience, including nearly 4 years of SaaS form-workflow configuration, healthcare
+            operations, and platform administration. I spearheaded the digital transformation of 500+
+            paper-based healthcare forms into automated, data-mapped intake systems for 25+ agencies. My
+            work bridges regulatory requirements and platform configuration.
+          </p>
+          <p>
+            I specialize in end-to-end SaaS workflow automation, system validation, and platform operations
+            for healthcare environments with strict regulatory requirements — dynamic form configuration,
+            conditional logic, data mapping, multi-tenant administration, and full-cycle UAT.
+          </p>
+          <p>
+            I'm available for full-time, hybrid, and remote roles in SaaS implementation, systems
+            configuration, workflow automation, and QA/UAT. I'm also the founder of{" "}
+            <a href="https://opility.com" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-medium">Opility</a>
+            {" "}— a registered B2B IT services business.
+          </p>
+        </div>
+
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <a href="#contact"
+            className="inline-flex items-center gap-2 text-base font-semibold text-blue-600 hover:underline">
+            Contact me <ArrowRight size={16} />
+          </a>
+          <span className="text-gray-300">·</span>
+          <a href="https://opility.com" target="_blank" rel="noreferrer"
+            className="inline-flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-blue-600 hover:underline">
+            B2B services at Opility <LinkOut size={14} />
+          </a>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+          {[
+            { label: "Role focus",   value: "SaaS Implementation · Systems Configuration · Workflow Automation" },
+            { label: "Experience",   value: "7+ years · nearly 4 in healthcare SaaS" },
+            { label: "Location",     value: "Be'er Sheva, Israel · Remote OK" },
+            { label: "Availability", value: "Full-time · Hybrid · Remote" },
+          ].map((item) => (
+            <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6 flex flex-col justify-between">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
+              <p className="mt-3 text-base font-bold text-gray-900 leading-snug">{item.value}</p>
             </div>
-          </div>
-          <div className="flex flex-col items-center gap-6 lg:items-start">
-            <div className="grid w-full grid-cols-2 gap-4">
-              {[
-                { label: "Role focus",   value: "SaaS Implementation · Systems Configuration · Workflow Automation" },
-                { label: "Experience",   value: "7+ years · nearly 4 in healthcare SaaS" },
-                { label: "Location",     value: "Be'er Sheva, Israel · Remote OK" },
-                { label: "Availability", value: "Full-time · Hybrid · Remote" },
-              ].map((item) => (
-                <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
-                  <p className="text-sm font-semibold uppercase tracking-wide text-gray-400">{item.label}</p>
-                  <p className="mt-2 text-base font-bold text-gray-900">{item.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
