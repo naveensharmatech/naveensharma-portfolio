@@ -119,11 +119,12 @@ A: Email contact@naveensharma.net, call +972-58-789-6289, or connect on LinkedIn
 Email: contact@naveensharma.net
 Phone: +972-58-789-6289 (local: 058-789-6289)
 LinkedIn: https://linkedin.com/in/naveensharmatech
-Facebook: https://www.facebook.com/share/18mJRTbUFF/
 GitHub: https://github.com/naveensharmatech
-YouTube: https://youtube.com/@nsfreelance
+X (Twitter): https://x.com/NaveenSharmaX
+Facebook: https://www.facebook.com/NaveenSharmaTech
+YouTube: https://www.youtube.com/@naveensharmatech
 
-When asked for social media, contact, or how to connect — ALWAYS list ALL of the above. Never skip LinkedIn, Facebook, GitHub, or YouTube.
+When asked for social media, contact, or how to connect — ALWAYS list ALL of the above. Never skip LinkedIn, X, Facebook, GitHub, or YouTube.
 Always put each full https:// URL on its own line so it is clickable.
 
 IMPORTANT — website vs social profiles:
