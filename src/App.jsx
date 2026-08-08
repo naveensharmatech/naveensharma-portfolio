@@ -366,13 +366,8 @@ function Navbar() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm border-b border-gray-100" : "bg-transparent"}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-3 group">
-          <img
-            src="/headshot-round.png"
-            alt="Naveen Sharma"
-            className="h-12 w-12 rounded-full object-cover ring-2 ring-blue-100 transition-transform group-hover:scale-105"
-            onError={(e) => { e.target.style.display = "none"; }}
-          />
+        <a href="#top" className="flex items-center gap-2 group">
+          <span className="text-xl font-extrabold tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors">Naveen Sharma</span>
         </a>
 
         <nav className="hidden items-center gap-1 rounded-full border border-gray-100 bg-gray-50 p-1.5 lg:flex">
@@ -618,11 +613,6 @@ function About() {
             </div>
           </div>
           <div className="flex flex-col items-center gap-6 lg:items-start">
-            <img
-              src="/headshot-round.png"
-              alt="Naveen Sharma"
-              className="h-52 w-52 rounded-2xl object-cover shadow-lg ring-4 ring-white"
-            />
             <div className="grid w-full grid-cols-2 gap-4">
               {[
                 { label: "Role focus",   value: "SaaS Implementation · Systems Configuration · Workflow Automation" },
