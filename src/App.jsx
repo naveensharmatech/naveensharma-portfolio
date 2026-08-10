@@ -367,12 +367,12 @@ function Navbar() {
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm border-b border-gray-100" : "bg-transparent"}`}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <a href="#top" className="flex items-center gap-3 group">
           <img
             src="/nav-logo.png"
             alt="Naveen Sharma"
-            className="h-11 w-11 rounded-full object-cover ring-2 ring-cyan-400/50 shadow-md transition-transform group-hover:scale-110"
+            className="h-10 w-10 rounded-full object-cover shadow-md transition-transform group-hover:scale-110"
           />
         </a>
 
@@ -414,7 +414,7 @@ function Navbar() {
 
       {open && (
         <nav className="border-t border-gray-100 bg-white lg:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
+          <div className="mx-auto flex max-w-5xl flex-col px-4 py-2 sm:px-6">
             {NAV_LINKS.map((link) => {
               const Icon = link.icon;
               const iconColor = NAV_ICON_TEXT_COLOR[link.color];
@@ -447,7 +447,7 @@ function Hero() {
       <div className="orb h-72 w-72 bg-blue-300/50" style={{ top: "-40px", right: "6%" }} />
       <div className="orb h-64 w-64 bg-violet-300/40" style={{ top: "180px", left: "2%", animationDelay: "3s" }} />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-4 py-24 sm:px-6 sm:py-32 text-center">
 
         <Reveal className="mb-4 w-full overflow-hidden rounded-2xl shadow-lg">
           <img
@@ -500,7 +500,7 @@ function Hero() {
           </div>
         </Reveal>
 
-        <Reveal as="h1" className="gradient-text text-7xl font-extrabold tracking-tight sm:text-8xl mb-4 mt-2">
+        <Reveal as="h1" className="gradient-text text-5xl font-extrabold tracking-tight sm:text-6xl mb-4 mt-2">
           Naveen Sharma
         </Reveal>
 
@@ -547,7 +547,7 @@ function TrustBar() {
   const tools = ["Basecamp", "HHAeXchange", "Zendesk", "Cloudflare", "GitHub", "VS Code"];
   return (
     <div className="border-y border-gray-100 bg-gray-50 py-6">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <p className="mb-4 text-center text-sm font-semibold uppercase tracking-widest text-gray-400">
           Core tools & platforms
         </p>
@@ -641,7 +641,7 @@ function About() {
 function Expertise() {
   return (
     <section id="expertise" className="bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Expertise" center color="violet" title="Core competencies"
           description="The practical skills I bring to healthcare SaaS implementation, systems configuration, quality assurance, and technical support." />
         <Reveal stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -668,7 +668,7 @@ function Process() {
   return (
     <section id="process" className="relative overflow-hidden bg-white">
       <div className="orb h-56 w-56 bg-sky-200/40" style={{ bottom: "10%", right: "4%" }} />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="How I Work" center color="sky" title="From manual process to production go-live"
           description="A consistent four-stage approach I apply to every implementation engagement — whether configuring a single form or onboarding a new agency end-to-end." />
         <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -697,7 +697,7 @@ function Process() {
 function Experience() {
   return (
     <section id="experience" className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Experience" title="Where I've worked" color="cyan" />
         <div className="space-y-6">
           {EXPERIENCES.map((exp) => (
@@ -746,7 +746,7 @@ function Experience() {
 function CaseStudies() {
   return (
     <section id="casestudies" className="bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Case Studies · Bolt Healthcare" color="emerald"
           title="Real-world implementation work"
           description="A closer look at the challenges I solved across healthcare SaaS implementation, QA, and API validation during my time at Bolt Healthcare. No confidential data is disclosed." />
@@ -785,7 +785,7 @@ function AvailableFor() {
   ];
   return (
     <section className="bg-blue-600 text-white">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
         <div className="mb-12 text-center">
           <p className="mb-3 text-base font-bold uppercase tracking-widest text-blue-200">Open to opportunities</p>
           <h2 className="text-3xl font-extrabold tracking-tight">Available for full-time, hybrid &amp; remote roles</h2>
@@ -830,7 +830,7 @@ function AvailableFor() {
 function Education() {
   return (
     <section id="education" className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Education & Certifications" title="Academic background & professional training" color="rose" />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {EDUCATION.map((item) => {
@@ -878,7 +878,7 @@ function Education() {
 function Projects() {
   return (
     <section id="projects" className="bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Projects" title="Personal projects & study work" color="amber"
           description="An interactive implementation demo, QA certification projects, an academic development build, and live web projects — all original work." />
         <div className="grid gap-6 md:grid-cols-3">
@@ -931,7 +931,7 @@ function Projects() {
 function Tools() {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Tools" center title="Tools I work with"
           description="Core professional tooling across SaaS implementation, systems configuration, and website development." />
         <div className="space-y-6">
@@ -965,7 +965,7 @@ function Contact() {
     <section id="contact" className="relative overflow-hidden bg-gray-50">
       <div className="orb h-72 w-72 bg-indigo-300/40" style={{ top: "-30px", left: "4%" }} />
       <div className="orb h-64 w-64 bg-rose-300/30" style={{ bottom: "0%", right: "3%", animationDelay: "2s" }} />
-      <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="Contact" center color="pink"
           title="Let's talk"
           description="Available for full-time, hybrid, and remote employment. Based in Be'er Sheva, Israel." />
@@ -1132,7 +1132,7 @@ function Footer() {
     <>
       {activeDoc && <LegalModal doc={LEGAL_DOCS[activeDoc]} onClose={() => setActiveDoc(null)} />}
       <footer className="border-t border-gray-100 bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
           <div className="flex flex-col items-center gap-4 text-center">
             <img
               src="/headshot-round.png"
@@ -1225,7 +1225,7 @@ function FAQ() {
   const [open, setOpen] = useState(null);
   return (
     <section id="faq" className="bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="FAQ" center title="Frequently asked questions"
           description="Common questions from recruiters and hiring managers." />
         <div className="mx-auto max-w-3xl space-y-3">
