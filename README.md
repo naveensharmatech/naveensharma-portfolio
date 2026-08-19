@@ -1,6 +1,6 @@
 # naveensharma-portfolio
 
-Professional portfolio and Opility business website for Naveen Sharma —
+Professional portfolio website for Naveen Sharma —
 SaaS Implementation Specialist · Product Support · Quality Assurance.
 
 Live site: https://naveensharma.net
@@ -29,3 +29,4 @@ npm run build
 
 - Build command: `npm run build`
 - Output directory: `dist`
+© 2026 naveensharma.net. All Rights Reserved. Solely Founded by Naveen Sharma.
