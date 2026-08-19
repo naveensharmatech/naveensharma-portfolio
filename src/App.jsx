@@ -1277,6 +1277,18 @@ function EllaChat() {
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
 
+  const toSafeHttpUrl = (raw) => {
+    try {
+      const parsed = new URL(raw);
+      if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+        return parsed.href;
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  };
+
   useEffect(() => {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
@@ -1342,11 +1354,13 @@ function EllaChat() {
                   {m.content.split(/(https?:\/\/[^\s]+)/g).map((part, j) => {
                     if (/^https?:\/\//.test(part)) {
                       const url = part.replace(/[.,!?:;)>"'\]]+$/, "");
+                      const safeUrl = toSafeHttpUrl(url);
+                      if (!safeUrl) return <span key={j}>{url}</span>;
                       return (
-                        <a key={j} href={url} target="_blank" rel="noopener noreferrer"
+                        <a key={j} href={safeUrl} target="_blank" rel="noopener noreferrer"
                           className="block underline break-all cursor-pointer mt-0.5 text-blue-700"
                           style={{ touchAction: "manipulation", WebkitTapHighlightColor: "rgba(0,0,0,0.1)" }}>
-                          {url}
+                          {safeUrl}
                         </a>
                       );
                     }
